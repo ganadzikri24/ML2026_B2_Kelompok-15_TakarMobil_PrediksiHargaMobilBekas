@@ -1,0 +1,42 @@
+{
+  "num_features": [
+    "Tahun_Num",
+    "Usia_Mobil",
+    "KM_Clean"
+  ],
+  "cat_features": [
+    "Merek_Clean",
+    "Transmisi_Clean",
+    "Bahan_Bakar_Clean",
+    "Wilayah"
+  ],
+  "target_column": "Harga_Num",
+  "log_target_column": "Log_Harga",
+  "brands": [
+    "Toyota",
+    "Daihatsu",
+    "Suzuki",
+    "Honda",
+    "Mercedes-Benz"
+  ],
+  "wilayah_list": [
+    "Bekasi",
+    "Bogor",
+    "Depok",
+    "Jakarta",
+    "Luar Jabodetabek",
+    "Tangerang"
+  ],
+  "transmisi_list": [
+    "Automatic",
+    "Manual"
+  ],
+  "bahan_bakar_list": [
+    "Bensin",
+    "Diesel",
+    "Hybrid"
+  ],
+  "total_clean_samples": 16799,
+  "train_samples": 13453,
+  "test_samples": 3346
+}
