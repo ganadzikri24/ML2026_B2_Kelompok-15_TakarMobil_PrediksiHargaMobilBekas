@@ -23,3 +23,9 @@ Thumbs.db
 # Large Model / Temp files (optional)
 *.tmp
 *.log
+
+# Internal / Local Docs
+TakarMobil_Implementation_Plan.md
+
+
+
