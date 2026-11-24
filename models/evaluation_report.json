@@ -1,0 +1,93 @@
+{
+  "best_model": "XGBoost Regressor",
+  "best_r2": 0.693308279085552,
+  "best_rmse": 119971500.9478862,
+  "best_mae": 64077415.149731025,
+  "metrics_table": [
+    {
+      "Model": "XGBoost",
+      "MAE (Rupiah)": 64077415.149731025,
+      "MSE (Rupiah)": 1.439316103968866e+16,
+      "RMSE (Rupiah)": 119971500.9478862,
+      "R\u00b2 Score": 0.693308279085552
+    },
+    {
+      "Model": "Random Forest",
+      "MAE (Rupiah)": 66832337.72015926,
+      "MSE (Rupiah)": 1.6033863949069136e+16,
+      "RMSE (Rupiah)": 126624894.66557963,
+      "R\u00b2 Score": 0.6583479255259892
+    },
+    {
+      "Model": "Decision Tree",
+      "MAE (Rupiah)": 66413554.989282474,
+      "MSE (Rupiah)": 1.6213232950385254e+16,
+      "RMSE (Rupiah)": 127331193.94078285,
+      "R\u00b2 Score": 0.6545259028625414
+    },
+    {
+      "Model": "Ridge Regression",
+      "MAE (Rupiah)": 63531552.01755767,
+      "MSE (Rupiah)": 1.7083193106822934e+16,
+      "RMSE (Rupiah)": 130702689.74593803,
+      "R\u00b2 Score": 0.6359886561264592
+    },
+    {
+      "Model": "Baseline Statistik (Median)",
+      "MAE (Rupiah)": 83000716.97519426,
+      "MSE (Rupiah)": 2.62624524471587e+16,
+      "RMSE (Rupiah)": 162056941.99002615,
+      "R\u00b2 Score": 0.44039556604397
+    }
+  ],
+  "top_features": [
+    {
+      "Feature": "Merek_Clean_Mercedes-Benz",
+      "XGBoost Importance": 0.5672306418418884
+    },
+    {
+      "Feature": "Bahan_Bakar_Clean_Bensin",
+      "XGBoost Importance": 0.10880567878484726
+    },
+    {
+      "Feature": "Transmisi_Clean_Automatic",
+      "XGBoost Importance": 0.08277290314435959
+    },
+    {
+      "Feature": "Merek_Clean_Toyota",
+      "XGBoost Importance": 0.05203505977988243
+    },
+    {
+      "Feature": "Merek_Clean_Daihatsu",
+      "XGBoost Importance": 0.048914942890405655
+    },
+    {
+      "Feature": "Tahun_Num",
+      "XGBoost Importance": 0.03454277291893959
+    },
+    {
+      "Feature": "Merek_Clean_Honda",
+      "XGBoost Importance": 0.033820219337940216
+    },
+    {
+      "Feature": "Merek_Clean_Suzuki",
+      "XGBoost Importance": 0.026871899142861366
+    },
+    {
+      "Feature": "KM_Clean",
+      "XGBoost Importance": 0.019833117723464966
+    },
+    {
+      "Feature": "Bahan_Bakar_Clean_Diesel",
+      "XGBoost Importance": 0.011818133294582367
+    },
+    {
+      "Feature": "Wilayah_Jakarta",
+      "XGBoost Importance": 0.004748061299324036
+    },
+    {
+      "Feature": "Wilayah_Bekasi",
+      "XGBoost Importance": 0.003010437125340104
+    }
+  ]
+}
