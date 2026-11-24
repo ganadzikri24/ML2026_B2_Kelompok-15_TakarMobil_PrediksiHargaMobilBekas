@@ -88,6 +88,6 @@ streamlit run app/app.py
 ## 👥 Anggota Kelompok 15
 | No. | Nama Mahasiswa | NIM | Peran / Tugas Utama |
 |---|---|---|---|
-| 1. | *(Nama Anggota 1)* | *(NIM)* | Dataset, EDA, & Data Preprocessing |
-| 2. | *(Nama Anggota 2)* | *(NIM)* | Modeling & Evaluasi Algoritma |
-| 3. | *(Nama Anggota 3)* | *(NIM)* | Implementasi Aplikasi Streamlit & Deployment |
+| 1. | *Gyanrendra Nayaran Wiratmaja* | *J0404241007* | Dataset, EDA, & Data Preprocessing |
+| 2. | *Aisha Aulia Darmawan* | *J0404241172* | Modeling & Evaluasi Algoritma |
+| 3. | *Muhamad Ganabitz Dzikri* | *J0404241157* | Implementasi Aplikasi Streamlit & Deployment |
