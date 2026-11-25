@@ -18,10 +18,10 @@
 
 ## Dataset & Metodologi
 - **Sumber Data:** Dataset Iklan Mobil Bekas Indonesia ([Zenodo Record 17548894](https://zenodo.org/records/17548894)) dari scraping OLX & Mobil123.
-- **Volume Data:** 17.670 baris mentah → **13.359 iklan unik bersih** setelah pembersihan harga/merek/tahun, perbaikan skala kilometer `'K'`, dan deduplikasi iklan ganda (10.687 train / 2.672 test).
+- **Volume Data:** 17.670 baris mentah → **13.359 iklan unik bersih** setelah pembersihan harga/merek/tahun, pemetaan lengkap Jabodetabek (termasuk label `% off`), perbaikan skala kilometer `'K'`, dan deduplikasi iklan ganda (10.690 train / 2.669 test).
 - **Cakupan Merek & Tipe:** 5 Merek Terpopuler (Toyota, Daihatsu, Suzuki, Honda, Mercedes-Benz) beserta 222 tipe spesifik (`Model_Clean`).
-- **Model Utama:** **XGBoost Regressor** (`R² = 0,912`, `MAE ≈ Rp 31,2 jt`, `RMSE ≈ Rp 118,3 jt`) dibandingkan dengan Ridge Regression (`R² = 0,919`, `MAE ≈ Rp 36,9 jt`), Random Forest, Decision Tree, dan Baseline Median.
-- **Skema Validasi:** `StratifiedShuffleSplit` 80:20 berbasis merek/tipe (`Model_Clean` menjadi fitur resmi) & 5-Fold Cross-Validation, target ditransformasi $\log(1 + \text{Harga})$.
+- **Model Utama:** **XGBoost Regressor** (`R² = 0,881`, `MAE ≈ Rp 33,9 jt`, `RMSE ≈ Rp 100,3 jt`) unggul di seluruh metrik dibandingkan dengan Ridge Regression (`R² = 0,870`, `MAE ≈ Rp 36,9 jt`, `RMSE ≈ Rp 104,9 jt`), Random Forest, Decision Tree, dan Baseline Median.
+- **Skema Validasi:** `StratifiedGroupKFold` 80:20 berbasis grup iklan kembar (`Merek, Model, Tahun, Harga` — **0 kebocoran grup**) & imputasi kilometer pasca-split khusus statistik training (`0 test leakage`), disertai 5-Fold Group-Aware Cross-Validation dan transformasi target $\log(1 + \text{Harga})$.
 
 ---
 

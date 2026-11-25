@@ -28,7 +28,7 @@ except Exception as e:
 
 # --- 1. TABEL EVALUASI LENGKAP ---
 st.subheader("📊 1. Hasil Evaluasi Perbandingan 4 Algoritma ML vs Baseline")
-st.write("Sesuai **Ketentuan Dosen Poin 9**, seluruh model diuji secara independen pada data testing (2.672 mobil unik) yang tidak pernah dilihat saat pelatihan:")
+st.write("Sesuai **Ketentuan Dosen Poin 9**, seluruh model diuji secara independen pada data testing (2.669 mobil unik bebas kebocoran grup) yang tidak pernah dilihat saat pelatihan:")
 
 if 'metrics_table' in eval_rep:
     df_metrics = pd.DataFrame(eval_rep['metrics_table'])
@@ -46,7 +46,7 @@ if 'metrics_table' in eval_rep:
         hide_index=True
     )
     
-    st.caption("🏆 **XGBoost Regressor** dipilih sebagai mesin prediksi utama karena MAE paling rendah (Rp 31,2 Jt) dan R² = 91,2%.")
+    st.caption("🏆 **XGBoost Regressor** dipilih sebagai mesin prediksi utama karena unggul di R² (88,1%), RMSE (Rp 100,3 Jt), dan MAE terendah (Rp 33,9 Jt).")
 
 st.divider()
 
@@ -65,7 +65,7 @@ with col1:
     - Wilayah Kota (Jabodetabek)
     """)
 with col2:
-    st.markdown("""
+    st.markdown(r"""
     #### 2. Proses Machine Learning
     - **Feature Engineering:** $2025 - \text{Tahun}$.
     - **Preprocessing Pipeline:**
@@ -87,10 +87,10 @@ st.divider()
 
 # --- 3. DATASET & LITERATUR ---
 st.subheader("📚 3. Sumber Dataset & Metodologi Ilmiah")
-st.markdown("""
+st.markdown(r"""
 - **Dataset:** *Dataset Iklan Mobil Bekas Indonesia* ([Zenodo Record 17548894](https://zenodo.org/records/17548894)).
-- **Volume Data:** 17.670 baris data mentah $\\rightarrow$ **13.359 baris data bersih unik** setelah deduplikasi & filtering.
-- **Skema Validasi:** `StratifiedShuffleSplit` (80% Train : 20% Test) berbasis merek/tipe kendaraan dengan 5-Fold Cross-Validation.
+- **Volume Data:** 17.670 baris data mentah $\rightarrow$ **13.359 baris data bersih unik** (10.690 train / 2.669 test) setelah pemetaan Jabodetabek, deduplikasi & filtering.
+- **Skema Validasi:** `StratifiedGroupKFold` (80% Train : 20% Test) berbasis grup iklan kembar + imputasi KM pasca-split khusus data latih & 5-Fold Group-Aware Cross-Validation.
 - **Target Transformation:** Menggunakan transformasi $\log(1 + \text{Harga})$ untuk menormalkan distribusi harga yang menceng ke kanan (*right-skewed*).
 """)
 

@@ -1,93 +1,93 @@
 {
   "best_model": "XGBoost Regressor",
-  "best_r2": 0.9193907697230542,
-  "best_rmse": 113432323.18390384,
-  "best_mae": 36871897.44222064,
+  "best_r2": 0.8809559689032296,
+  "best_rmse": 100334789.33945654,
+  "best_mae": 33875159.357437246,
   "metrics_table": [
     {
-      "Model": "Ridge Regression",
-      "MAE (Rupiah)": 36871897.44222064,
-      "MSE (Rupiah)": 1.2866891942897608e+16,
-      "RMSE (Rupiah)": 113432323.18390384,
-      "R\u00b2 Score": 0.9193907697230542
+      "Model": "XGBoost",
+      "MAE (Rupiah)": 33875159.357437246,
+      "MSE (Rupiah)": 1.0067069951793122e+16,
+      "RMSE (Rupiah)": 100334789.33945654,
+      "R\u00b2 Score": 0.8809559689032296
     },
     {
-      "Model": "XGBoost",
-      "MAE (Rupiah)": 31231749.380988024,
-      "MSE (Rupiah)": 1.400207989005884e+16,
-      "RMSE (Rupiah)": 118330384.47524305,
-      "R\u00b2 Score": 0.9122789802523387
+      "Model": "Ridge Regression",
+      "MAE (Rupiah)": 36881361.26753327,
+      "MSE (Rupiah)": 1.1011542856478696e+16,
+      "RMSE (Rupiah)": 104935898.79768836,
+      "R\u00b2 Score": 0.8697874896561553
     },
     {
       "Model": "Random Forest",
-      "MAE (Rupiah)": 32006031.3957652,
-      "MSE (Rupiah)": 2.0216656340219456e+16,
-      "RMSE (Rupiah)": 142185288.76159957,
-      "R\u00b2 Score": 0.8733455512340588
+      "MAE (Rupiah)": 37221072.14356519,
+      "MSE (Rupiah)": 1.670255164450434e+16,
+      "RMSE (Rupiah)": 129238352.0651062,
+      "R\u00b2 Score": 0.8024907856123885
     },
     {
       "Model": "Decision Tree",
-      "MAE (Rupiah)": 35583506.62664461,
-      "MSE (Rupiah)": 2.389116421744551e+16,
-      "RMSE (Rupiah)": 154567668.7326477,
-      "R\u00b2 Score": 0.8503252870595963
+      "MAE (Rupiah)": 40913490.41237717,
+      "MSE (Rupiah)": 1.7839654888219508e+16,
+      "RMSE (Rupiah)": 133565170.9399554,
+      "R\u00b2 Score": 0.7890444348317469
     },
     {
       "Model": "Baseline Statistik (Median)",
-      "MAE (Rupiah)": 66286656.44011976,
-      "MSE (Rupiah)": 2.4155027480559132e+16,
-      "RMSE (Rupiah)": 155418877.49098927,
-      "R\u00b2 Score": 0.8486722216081768
+      "MAE (Rupiah)": 68783255.9231922,
+      "MSE (Rupiah)": 2.7998371718496e+16,
+      "RMSE (Rupiah)": 167327139.81448436,
+      "R\u00b2 Score": 0.6689166709403958
     }
   ],
   "top_features": [
     {
       "Feature": "Merek_Clean_Mercedes-Benz",
-      "XGBoost Importance": 0.5615057349205017
+      "XGBoost Importance": 0.5231779217720032
     },
     {
       "Feature": "Merek_Clean_Toyota",
-      "XGBoost Importance": 0.03681187704205513
+      "XGBoost Importance": 0.049756452441215515
     },
     {
       "Feature": "Model_Clean_Alphard",
-      "XGBoost Importance": 0.03268411010503769
-    },
-    {
-      "Feature": "Merek_Clean_Suzuki",
-      "XGBoost Importance": 0.021024130284786224
-    },
-    {
-      "Feature": "Model_Clean_Cr-V",
-      "XGBoost Importance": 0.02067413739860058
+      "XGBoost Importance": 0.03174414858222008
     },
     {
       "Feature": "Merek_Clean_Daihatsu",
-      "XGBoost Importance": 0.019053468480706215
+      "XGBoost Importance": 0.024148358032107353
+    },
+    {
+      "Feature": "Model_Clean_Cr-V",
+      "XGBoost Importance": 0.020989997312426567
+    },
+    {
+      "Feature": "Merek_Clean_Suzuki",
+      "XGBoost Importance": 0.020111478865146637
     },
     {
       "Feature": "Model_Clean_Jimny",
-      "XGBoost Importance": 0.012275476939976215
-    },
-    {
-      "Feature": "Model_Clean_Hiace",
-      "XGBoost Importance": 0.011811797507107258
-    },
-    {
-      "Feature": "Bahan_Bakar_Clean_Bensin",
-      "XGBoost Importance": 0.01165651436895132
+      "XGBoost Importance": 0.014288350939750671
     },
     {
       "Feature": "Model_Clean_G-Class",
-      "XGBoost Importance": 0.010635497979819775
+      "XGBoost Importance": 0.012461715377867222
+    },
+    {
+      "Feature": "Bahan_Bakar_Clean_Bensin",
+      "XGBoost Importance": 0.011197633109986782
+    },
+    {
+      "Feature": "Model_Clean_Hr-V",
+      "XGBoost Importance": 0.010674146004021168
     },
     {
       "Feature": "Model_Clean_Vellfire",
-      "XGBoost Importance": 0.010159536264836788
+      "XGBoost Importance": 0.010509402491152287
     },
     {
       "Feature": "Transmisi_Clean_Automatic",
-      "XGBoost Importance": 0.009844712913036346
+      "XGBoost Importance": 0.010232556611299515
     }
   ]
 }

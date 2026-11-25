@@ -164,10 +164,10 @@
         <div class="wrap">
           <div class="sec-head">
             <span class="eyebrow">Pengujian model</span>
-            <h2>Terukur pada 2.672 data uji terpisah.</h2>
+            <h2>Terukur pada 2.669 data uji terpisah.</h2>
           </div>
           <div class="proof" id="proof"></div>
-          <p class="proof-note">Setelah deduplikasi iklan ganda, penyertaan tipe kendaraan spesifik (Model_Clean), dan penyeragaman skala kilometer, XGBoost mencapai R² 0,912 dengan rata-rata selisih Rp 31 juta.</p>
+          <p class="proof-note">Dengan deduplikasi penuh, pemetaan kawasan Jabodetabek akurat, pembagian grup anti-leakage (StratifiedGroupKFold), dan imputasi pasca-split, XGBoost mencapai R² 0,881 dengan rata-rata selisih Rp 34 juta.</p>
         </div>
       </section>
     </div>
@@ -230,7 +230,7 @@
       <div class="tool-head" style="margin-bottom:0">
         <span class="eyebrow">Metodologi</span>
         <h1>Bagaimana model bekerja</h1>
-        <p class="lead">Perbandingan lima algoritma pada data uji yang sama. XGBoost dipilih sebagai mesin prediksi utama karena MAE paling rendah (~Rp 31 juta) sekaligus menyediakan interpretasi feature importance.</p>
+        <p class="lead">Perbandingan lima algoritma pada data uji yang sama. XGBoost dipilih sebagai mesin prediksi utama karena unggul di seluruh metrik evaluasi (R² 0,881, RMSE Rp 100,3 jt, dan MAE paling rendah ~Rp 34 juta) sekaligus menyediakan interpretasi feature importance.</p>
       </div>
       <div class="panel">
         <table class="tbl" id="evalTable"><thead><tr><th>Model</th><th>MAE</th><th>RMSE</th><th>R² Score</th></tr></thead><tbody></tbody></table>

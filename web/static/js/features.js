@@ -92,7 +92,7 @@ export async function mountEstimator() {
           <div class="range-ends"><div><small>Batas bawah (−15%)</small><b id="pLo"></b></div><div><small>Batas atas (+15%)</small><b id="pHi"></b></div></div>
         </div>
         <div class="curve fade-up d2" id="pCurve"><h4>Nilai estimasi per tahun produksi</h4><div id="pCurveSvg">${curveSVG(curve, snap.tahun)}</div></div>
-        <p class="note fade-up d3">Rentang ±15% digunakan sebagai batas negosiasi wajar. Rata-rata selisih absolut XGBoost pada data uji sekitar Rp 31 juta.</p>
+        <p class="note fade-up d3">Rentang ±15% digunakan sebagai batas negosiasi wajar. Rata-rata selisih absolut XGBoost pada data uji sekitar Rp ${Math.round(meta.mae / 1e6)} juta.</p>
       `;
       requestAnimationFrame(() => {
         $("#pRange").classList.add("go");
@@ -249,7 +249,7 @@ export async function mountImportance() {
   const modelShare = data.filter(d => d.Feature.startsWith("Model_")).reduce((s, d) => s + d["XGBoost Importance"], 0);
   $("#impInsights").innerHTML = [
     ["Segmen merek tetap paling dominan", `Fitur merek bersama menyumbang ${pct(merek)} (Mercedes-Benz sendiri ${pct(get("Merek_Clean_Mercedes-Benz"))}) karena kelas harga mobil mewah terpisah jauh dari merek massal.`],
-    ["Tipe mobil (Model_Clean) memecah kelas harga", `Varian seperti Alphard (${pct(get("Model_Clean_Alphard"))}), CR-V, Hiace, dan Jimny langsung membedakan segmen mobil di dalam satu merek yang sama (total top tipe: ${pct(modelShare)}).`],
+    ["Tipe mobil (Model_Clean) memecah kelas harga", `Varian seperti Alphard (${pct(get("Model_Clean_Alphard"))}), CR-V, Jimny, G-Class, dan HR-V langsung membedakan segmen mobil di dalam satu merek yang sama (total top tipe: ${pct(modelShare)}).`],
     ["Bahan bakar & transmisi sebagai pembeda", `Bensin (${pct(get("Bahan_Bakar_Clean_Bensin"))}), diesel, dan transmisi membedakan nilai jual antar varian mesin serta preferensi pasar Jabodetabek.`],
     ["Tahun & kilometer mengatur depresiasi", `Setelah merek dan tipe menetapkan kelas dasar kendaraan, tahun produksi dan jarak tempuh menggeser nilai depresiasinya secara konsisten.`],
   ].map(([t, p]) => `<article class="insight"><h3>${t}</h3><p>${p}</p></article>`).join("");
@@ -266,8 +266,8 @@ export async function mountAbout() {
   }).join("");
   requestAnimationFrame(() => setTimeout(() => $$(".r2 i", tb).forEach(i => (i.style.width = i.dataset.w * 1.2 + "px")), 120));
   $("#dataPanel").innerHTML = `<div class="stack" style="gap:14px"><span class="eyebrow">Dataset &amp; validasi</span>
-    <p class="lead" style="max-width:none">Dataset Iklan Mobil Bekas Indonesia (<a class="link" href="https://zenodo.org/records/17548894" target="_blank" rel="noopener">Zenodo 17548894</a>), dari scraping OLX dan Mobil123. Dari 17.670 baris mentah dilakukan penyaringan harga/merek/tahun, perbaikan skala kilometer, serta deduplikasi URL &amp; iklan repost identik hingga tersisa <b>${meta.total_data.toLocaleString("id-ID")}</b> iklan unik (${meta.train_data.toLocaleString("id-ID")} train dan ${meta.test_data.toLocaleString("id-ID")} test).</p>
-    <p class="lead" style="max-width:none">Split data memakai StratifiedShuffleSplit 80:20 agar seluruh tipe mobil umum hadir di data latih dan data uji tanpa kebocoran data, disertai validasi silang 5-Fold dan transformasi log(1 + harga) untuk menormalkan distribusi harga.</p></div>`;
+    <p class="lead" style="max-width:none">Dataset Iklan Mobil Bekas Indonesia (<a class="link" href="https://zenodo.org/records/17548894" target="_blank" rel="noopener">Zenodo 17548894</a>), dari scraping OLX dan Mobil123. Dari 17.670 baris mentah dilakukan penyaringan harga/merek/tahun, pemetaan kawasan Jabodetabek (termasuk label <code>% off</code>), perbaikan skala kilometer, serta deduplikasi URL &amp; iklan repost identik hingga tersisa <b>${meta.total_data.toLocaleString("id-ID")}</b> iklan unik (${meta.train_data.toLocaleString("id-ID")} train dan ${meta.test_data.toLocaleString("id-ID")} test).</p>
+    <p class="lead" style="max-width:none">Split data memakai <b>StratifiedGroupKFold</b> (80:20) berbasis grup iklan kembar <i>(merek, tipe, tahun, harga)</i> serta imputasi median kilometer pasca-split khusus dari data latih agar nol kebocoran data, disertai validasi silang 5-Fold dan transformasi log(1 + harga).</p></div>`;
 }
 
 /* ============ BERANDA ============ */

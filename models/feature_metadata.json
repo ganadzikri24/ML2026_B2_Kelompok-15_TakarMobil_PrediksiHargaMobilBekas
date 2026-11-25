@@ -929,12 +929,12 @@
     "Tangerang"
   ],
   "wilayah_counts": {
-    "Jakarta": 8906,
-    "Tangerang": 1342,
-    "Bekasi": 963,
-    "Luar Jabodetabek": 937,
-    "Bogor": 742,
-    "Depok": 469
+    "Jakarta": 8857,
+    "Tangerang": 1536,
+    "Bekasi": 999,
+    "Bogor": 811,
+    "Luar Jabodetabek": 682,
+    "Depok": 474
   },
   "transmisi_list": [
     "Automatic",
@@ -946,6 +946,6 @@
     "Hybrid"
   ],
   "total_clean_samples": 13359,
-  "train_samples": 10687,
-  "test_samples": 2672
+  "train_samples": 10690,
+  "test_samples": 2669
 }

@@ -6,8 +6,8 @@
     "Random Forest",
     "XGBoost"
   ],
-  "best_model": "Ridge Regression",
-  "best_r2": 0.9193907697230542,
+  "best_model": "XGBoost",
+  "best_r2": 0.8809559689032296,
   "best_params": {
     "Ridge": {
       "model__alpha": 0.1
@@ -29,44 +29,44 @@
   },
   "results": [
     {
-      "Model": "Ridge Regression",
-      "MAE (Rupiah)": 36871897.44222064,
-      "RMSE (Rupiah)": 113432323.18390384,
-      "R\u00b2 Score": 0.9193907697230542,
-      "Training Time (s)": 12.726682901382446,
-      "MSE (Rupiah)": 1.286689194289761e+16
+      "Model": "XGBoost",
+      "MAE (Rupiah)": 33875159.357437246,
+      "RMSE (Rupiah)": 100334789.33945654,
+      "R\u00b2 Score": 0.8809559689032296,
+      "Training Time (s)": 19.762876749038696,
+      "MSE (Rupiah)": 1.0067069951793122e+16
     },
     {
-      "Model": "XGBoost",
-      "MAE (Rupiah)": 31231749.380988024,
-      "RMSE (Rupiah)": 118330384.47524305,
-      "R\u00b2 Score": 0.9122789802523387,
-      "Training Time (s)": 17.076451063156128,
-      "MSE (Rupiah)": 1.400207989005884e+16
+      "Model": "Ridge Regression",
+      "MAE (Rupiah)": 36881361.26753327,
+      "RMSE (Rupiah)": 104935898.79768836,
+      "R\u00b2 Score": 0.8697874896561553,
+      "Training Time (s)": 12.06869649887085,
+      "MSE (Rupiah)": 1.1011542856478694e+16
     },
     {
       "Model": "Random Forest",
-      "MAE (Rupiah)": 32006031.395765208,
-      "RMSE (Rupiah)": 142185288.76159954,
-      "R\u00b2 Score": 0.8733455512340589,
-      "Training Time (s)": 51.39031624794006,
-      "MSE (Rupiah)": 2.0216656340219444e+16
+      "MAE (Rupiah)": 37221072.143565185,
+      "RMSE (Rupiah)": 129238352.0651062,
+      "R\u00b2 Score": 0.8024907856123885,
+      "Training Time (s)": 48.379472732543945,
+      "MSE (Rupiah)": 1.670255164450434e+16
     },
     {
       "Model": "Decision Tree",
-      "MAE (Rupiah)": 35583506.62664461,
-      "RMSE (Rupiah)": 154567668.7326477,
-      "R\u00b2 Score": 0.8503252870595963,
-      "Training Time (s)": 2.9928646087646484,
-      "MSE (Rupiah)": 2.389116421744551e+16
+      "MAE (Rupiah)": 40913490.41237717,
+      "RMSE (Rupiah)": 133565170.9399554,
+      "R\u00b2 Score": 0.7890444348317469,
+      "Training Time (s)": 2.7392024993896484,
+      "MSE (Rupiah)": 1.7839654888219506e+16
     },
     {
       "Model": "Baseline Statistik (Median)",
-      "MAE (Rupiah)": 66259230.287838735,
-      "RMSE (Rupiah)": 155395636.28534353,
-      "R\u00b2 Score": 0.8487174770765821,
+      "MAE (Rupiah)": 68781545.1387751,
+      "RMSE (Rupiah)": 167326704.28404084,
+      "R\u00b2 Score": 0.6689183944705015,
       "Training Time (s)": 0.01,
-      "MSE (Rupiah)": 2.4147803776526776e+16
+      "MSE (Rupiah)": 2.7998225966558852e+16
     }
   ]
 }
