@@ -401,20 +401,20 @@ const REGIONS = {
 };
 export function wilayahWidget(meta, spec, onChange) {
   const OUT = "Luar Jabodetabek";
-  const cOf = (n) => (n === OUT ? [36, 198] : REGIONS[n].c);
+  const cOf = (n) => (n === OUT ? [40, 210] : REGIONS[n].c);
   const wCounts = meta.wilayah_counts || {};
   const w = h(`
     <section class="w">
       <div class="w-head"><h3>5. Wilayah</h3><span class="val" data-v>${spec.wilayah}</span></div>
       <div class="map">
-        <svg viewBox="0 0 320 232" role="group" aria-label="Peta interaktif wilayah Jabodetabek">
+        <svg viewBox="0 0 320 244" role="group" aria-label="Peta interaktif wilayah Jabodetabek">
           <g class="grid-bg">
-            <path d="M0 58H320M0 116H320M0 174H320M80 0V232M160 0V232M240 0V232"/>
+            <path d="M0 58H320M0 116H320M0 174H320M80 0V244M160 0V244M240 0V244"/>
           </g>
           <g class="sea"><path d="M10 22q20-7 40 0t40 0 40 0 40 0 40 0 40 0 40 0 20 0"/><text x="160" y="38" text-anchor="middle">LAUT JAWA</text></g>
           <g class="region out" data-r="${OUT}" role="button" tabindex="0" aria-label="${OUT}">
-            <rect x="8" y="8" width="304" height="216" rx="14"/>
-            <text x="82" y="214" text-anchor="middle">LUAR JABODETABEK</text>
+            <rect x="8" y="8" width="304" height="228" rx="14"/>
+            <text x="20" y="226" text-anchor="start">LUAR JABODETABEK</text>
           </g>
           ${Object.entries(REGIONS).map(([n, r]) => `
             <g class="region" data-r="${n}" role="button" tabindex="0" aria-label="${n}">
