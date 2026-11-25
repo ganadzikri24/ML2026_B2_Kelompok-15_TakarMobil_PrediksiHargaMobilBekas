@@ -20,10 +20,10 @@
     },
     {
       "Model": "Random Forest",
-      "MAE (Rupiah)": 37221072.14356519,
-      "MSE (Rupiah)": 1.670255164450434e+16,
-      "RMSE (Rupiah)": 129238352.0651062,
-      "R\u00b2 Score": 0.8024907856123885
+      "MAE (Rupiah)": 37221072.143565215,
+      "MSE (Rupiah)": 1.6702551644504352e+16,
+      "RMSE (Rupiah)": 129238352.06510624,
+      "R\u00b2 Score": 0.8024907856123884
     },
     {
       "Model": "Decision Tree",
@@ -34,10 +34,10 @@
     },
     {
       "Model": "Baseline Statistik (Median)",
-      "MAE (Rupiah)": 68783255.9231922,
-      "MSE (Rupiah)": 2.7998371718496e+16,
-      "RMSE (Rupiah)": 167327139.81448436,
-      "R\u00b2 Score": 0.6689166709403958
+      "MAE (Rupiah)": 68781545.1387751,
+      "MSE (Rupiah)": 2.799822596655885e+16,
+      "RMSE (Rupiah)": 167326704.28404084,
+      "R\u00b2 Score": 0.6689183944705015
     }
   ],
   "top_features": [

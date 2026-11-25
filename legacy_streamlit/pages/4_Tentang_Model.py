@@ -75,7 +75,7 @@ with col2:
     - **Inverse Transform:** $\exp(\hat{y}) - 1$.
     """)
 with col3:
-    st.markdown("""
+    st.markdown(r"""
     #### 3. Output Sistem
     - **Estimasi Titik Tengah:** Nilai pasar wajar.
     - **Rentang Harga Wajar:** Interval $\pm 15\%$.
@@ -96,15 +96,10 @@ st.markdown(r"""
 
 st.divider()
 
-# --- 4. IDENTITAS KELOMPOK ---
-st.subheader("👥 4. Identitas Tim Pengembang")
+# --- 4. TIM PENGEMBANG ---
+st.subheader("👥 4. Tim Pengembang")
 st.markdown("""
-**Mata Kuliah:** Pembelajaran Mesin (Machine Learning) - Semester 5  
-**Kelas:** B2 · **Kelompok:** 15  
-
-| No. | Nama Mahasiswa | NIM | Peran Utama |
-|:---:|---|---|---|
-| 1. | **Gana Dzikri** | *(NIM)* | Preprocessing, Feature Engineering & Git Repository |
-| 2. | **(Anggota 2)** | *(NIM)* | Model Training, Hyperparameter Tuning & Evaluasi |
-| 3. | **(Anggota 3)** | *(NIM)* | Implementasi Aplikasi Streamlit & Visualisasi Interaktif |
+- **Gyanrendra Nayaran Wiratmaja**
+- **Aisha Aulia Darmawan**
+- **Muhamad Ganabitz Dzikri**
 """)

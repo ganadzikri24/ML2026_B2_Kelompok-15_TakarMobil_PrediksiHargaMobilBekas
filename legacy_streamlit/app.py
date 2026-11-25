@@ -110,7 +110,7 @@ col_a, col_b, col_c = st.columns(3)
 
 with col_a:
     st.info("### 🔍 1. Estimasi Harga Pasar")
-    st.write("""
+    st.write(r"""
     Prediksi nilai pasar mobil bekas secara akurat dan objektif berdasarkan spesifikasi kendaraan (Merek, Tahun Perakitan, Jarak Tempuh, Tipe Transmisi, Bahan Bakar, dan Wilayah Kota).
     - Menghasilkan nilai estimasi titik tengah.
     - Menampilkan interval batas bawah dan batas atas harga wajar ($\pm 15\%$).
@@ -119,7 +119,7 @@ with col_a:
 
 with col_b:
     st.success("### 🏷️ 2. Deal Checker Iklan")
-    st.write("""
+    st.write(r"""
     Temukan iklan mobil bekas di OLX atau Mobil123? Cek langsung apakah penawaran penjual tergolong **Sangat Murah**, **Wajar**, atau **Kemahalan** (*Overpriced*).
     - Membandingkan harga iklan terhadap estimasi nilai pasar riil.
     - Memberikan rekomendasi negosiasi dan tips verifikasi fisik.
@@ -128,7 +128,7 @@ with col_b:
 
 with col_c:
     st.warning("### 📊 3. Faktor Penentu Harga")
-    st.write("""
+    st.write(r"""
     Ketahui komponen dan spesifikasi apa saja yang paling memengaruhi depresiasi dan pembentukan harga mobil bekas di pasar otomotif Jabodetabek.
     - Analisis tingkat pengaruh (*Feature Importance*).
     - Transparan dan dapat dipertanggungjawabkan secara ilmiah.

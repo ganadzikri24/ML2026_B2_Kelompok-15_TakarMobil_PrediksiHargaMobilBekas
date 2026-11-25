@@ -34,32 +34,37 @@ if top_features:
     
     st.divider()
     
-    # 2. Pembahasan Bisnis & Penjelasan Ilmiah
+    # 2. Pembahasan Bisnis & Penjelasan Ilmiah (dinamis dari evaluation_report.json)
     st.subheader("💡 Wawasan Otomotif & Interpretasi Bisnis")
+    fi_map = {d['Feature']: d['XGBoost Importance'] * 100 for d in top_features}
+    pct_mb = fi_map.get('Merek_Clean_Mercedes-Benz', 52.3)
+    pct_alphard = fi_map.get('Model_Clean_Alphard', 3.2)
+    pct_crv = fi_map.get('Model_Clean_Cr-V', 2.1)
+    pct_bensin = fi_map.get('Bahan_Bakar_Clean_Bensin', 1.1)
+    pct_auto = fi_map.get('Transmisi_Clean_Automatic', 1.0)
     
     col_a, col_b = st.columns(2)
     
     with col_a:
-        st.markdown("""
+        st.markdown(f"""
         #### 1. Kasta & Merek Kendaraan (Mercedes-Benz vs Merek Jepang)
-        - **Merek Mercedes-Benz** menyumbang bobot pengaruh terbesar (**>50%**).
+        - **Merek Mercedes-Benz** menyumbang bobot pengaruh terbesar (**~{pct_mb:.1f}%**).
         - Segmen mobil mewah (*luxury cars*) memiliki titik awal harga (*baseline price*) serta kurva depresiasi yang terpisah jauh dari segmen mobil massal keluarga.
-        - Merek seperti **Toyota** dan **Daihatsu** mempertahankan nilai jual kembali (*resale value*) yang sangat stabil di Indonesia karena ketersediaan suku cadang yang melimpah dan jaringan bengkel yang luas.
+        - Merek Jepang seperti **Toyota**, **Daihatsu**, **Honda**, dan **Suzuki** mempertahankan nilai jual kembali stabil berkat ketersediaan suku cadang dan jaringan servis yang luas.
         
-        #### 2. Tipe Transmisi (Automatic vs Manual)
-        - Transmisi **Automatic** memberikan pengaruh positif yang kuat terhadap harga jual di Jabodetabek (**~8.3% importance**).
-        - Kondisi lalu lintas perkotaan yang padat membuat permintaan mobil matic jauh melampaui mobil manual, sehingga mobil matic memiliki nilai pasar lebih tinggi.
+        #### 2. Tipe Spesifik (`Model_Clean`) & Transmisi
+        - Varian spesifik seperti **Alphard (~{pct_alphard:.1f}%)**, **CR-V (~{pct_crv:.1f}%)**, Jimny, G-Class, dan HR-V memisahkan kelas harga di dalam satu merek.
+        - Transmisi **Automatic** (**~{pct_auto:.1f}%**) memengaruhi koreksi harga antar varian sejenis karena tingginya minat mobil matic di perkotaan Jabodetabek.
         """)
         
     with col_b:
-        st.markdown("""
-        #### 3. Jenis Bahan Bakar (Bensin vs Diesel)
-        - Jenis bahan bakar memegang pengaruh sekitar **~10.9%**.
-        - Varian mesin **Diesel** (seperti pada Toyota Fortuner atau Innova Reborn Diesel) memiliki kecenderungan harga bekas yang lebih bertahan dan diminati karena efisiensi bahan bakar dan torsi yang bertenaga.
+        st.markdown(f"""
+        #### 3. Jenis Bahan Bakar (Bensin, Hybrid & Diesel)
+        - Fitur bahan bakar **Bensin** menyumbang koreksi **~{pct_bensin:.1f}%** pada pemisahan segmen mesin.
+        - Varian mesin **Diesel** dan **Hybrid** pada model tertentu cenderung mempertahankan harga jual kembali lebih tinggi akibat efisiensi maupun torsi mesin.
         
         #### 4. Tahun Perakitan & Jarak Tempuh (Kilometer)
-        - **Tahun Produksi** menyumbang depresiasi harga tahunan yang konsisten (**~3.5%**).
-        - **Kilometer Tempuh** merefleksikan keausan fisik komponen gerak (kaki-kaki, transmisi, mesin). Mobil dengan kilometer rendah (*low mileage*) selalu mendapatkan apresiasi harga yang lebih tinggi.
+        - Setelah merek dan tipe menetapkan segmen harga dasar kendaraan, **Tahun Produksi** dan **Kilometer Tempuh** menggeser taksiran harga secara progresif mengikuti penyusutan usia dan pemakaian.
         """)
         
     st.markdown("""
