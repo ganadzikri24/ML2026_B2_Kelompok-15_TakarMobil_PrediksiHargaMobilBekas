@@ -6,7 +6,7 @@
 <title>TakarMobil — Taksiran Harga Mobil Bekas Jabodetabek</title>
 <meta name="description" content="Estimasi harga pasar mobil bekas dan pengecek kewajaran iklan berbasis XGBoost dari 16.799 data iklan Jabodetabek. Proyek pembelajaran universitas nonkomersial.">
 <meta name="theme-color" content="#111114">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111114'/%3E%3Cpath d='M16 22h32M32 22v24' stroke='%230d9f66' stroke-width='6' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="/media/favicon.png">
 <link rel="preload" href="/static/fonts/jakarta-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/static/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/static/css/style.css">
@@ -17,7 +17,7 @@
 <header class="nav" id="nav">
   <div class="nav-in">
     <a class="brand" href="/" data-link aria-label="TakarMobil, beranda">
-      <span class="brand-badge"><img src="/media/logo_takarmobil.png" alt="TakarMobil" width="144" height="32"></span>
+      <img class="brand-logo" src="/media/logo_takarmobil.png" alt="TakarMobil" width="144" height="32">
     </a>
     <nav class="pill" id="pill" aria-label="Menu utama">
       <span class="ind" id="pillInd"></span>
@@ -181,9 +181,12 @@
         <h1>Taksir harga wajar mobil bekas</h1>
         <p class="lead">Atur merek, tipe mobil, spesifikasi, dan jarak tempuh di bawah. Tekan Enter atau klik <b>Takar harga</b> untuk menjalankan perhitungan.</p>
       </div>
-      <div class="tool-grid">
+      <div class="tool-stack">
         <form class="builder" id="estBuilder" novalidate></form>
-        <aside class="result" id="estResult" aria-live="polite"></aside>
+        <div class="tool-action">
+          <button class="btn btn-primary btn-lg" id="eGo" type="button">Takar harga</button>
+        </div>
+        <aside class="result" id="estResult" aria-live="polite" hidden></aside>
       </div>
     </div></section>
   </div>
@@ -196,9 +199,12 @@
         <h1>Cek kewajaran harga iklan</h1>
         <p class="lead">Bandingkan harga yang diminta penjual dengan nilai pasar wajar berdasarkan spesifikasi dan tipe kendaraan.</p>
       </div>
-      <div class="tool-grid">
+      <div class="tool-stack">
         <form class="builder" id="dealBuilder" novalidate></form>
-        <aside class="result" id="dealResult" aria-live="polite"></aside>
+        <div class="tool-action">
+          <button class="btn btn-primary btn-lg" id="dGo" type="button">Cek kewajaran</button>
+        </div>
+        <aside class="result" id="dealResult" aria-live="polite" hidden></aside>
       </div>
     </div></section>
   </div>
@@ -236,11 +242,11 @@
       </div>
       <div class="panel" id="dataPanel"></div>
       <div>
-        <div class="sec-head" style="margin-bottom:24px"><span class="eyebrow">Tim pengembang</span><h2 style="font-size:clamp(26px,3.2vw,40px)">Kelompok 15 · Kelas B2</h2></div>
+        <div class="sec-head" style="margin-bottom:24px"><h2 style="font-size:clamp(26px,3.2vw,40px)">Tim Pengembang</h2></div>
         <div class="team">
-          <div class="person"><div class="av">G</div><div><b>Gyanrendra Nayaran Wiratmaja</b><span>J0404241007</span></div></div>
-          <div class="person"><div class="av">A</div><div><b>Aisha Aulia Darmawan</b><span>J0404241172</span></div></div>
-          <div class="person"><div class="av">M</div><div><b>Muhamad Ganabitz Dzikri</b><span>J0404241157</span></div></div>
+          <div class="person"><div class="av">G</div><div><b>Gyanrendra Nayaran Wiratmaja</b></div></div>
+          <div class="person"><div class="av">A</div><div><b>Aisha Aulia Darmawan</b></div></div>
+          <div class="person"><div class="av">M</div><div><b>Muhamad Ganabitz Dzikri</b></div></div>
         </div>
       </div>
       <div class="edu">
@@ -256,7 +262,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <span class="brand-badge"><img src="/media/logo_takarmobil.png" alt="TakarMobil" width="144" height="32"></span>
+        <img class="brand-logo" src="/media/logo_takarmobil.png" alt="TakarMobil" width="144" height="32">
         <p class="foot-desc">Sistem taksiran harga mobil bekas wilayah Jabodetabek berbasis Machine Learning.</p>
       </div>
       <div>
@@ -269,11 +275,11 @@
         </ul>
       </div>
       <div>
-        <h4>Kelompok 15 · Kelas B2</h4>
+        <h4>Tim Pengembang</h4>
         <ul>
-          <li>Gyanrendra Nayaran Wiratmaja<span>J0404241007</span></li>
-          <li>Aisha Aulia Darmawan<span>J0404241172</span></li>
-          <li>Muhamad Ganabitz Dzikri<span>J0404241157</span></li>
+          <li>Gyanrendra Nayaran Wiratmaja</li>
+          <li>Aisha Aulia Darmawan</li>
+          <li>Muhamad Ganabitz Dzikri</li>
         </ul>
       </div>
     </div>

@@ -2,7 +2,16 @@
 import { $, $$, rp, jt, countUp, spec, api, loadMeta, logoUrl, clamp, reduced, carLoadingHTML } from "./util.js";
 import { buildSpecForm, moneyWidget } from "./widgets.js";
 
-const minWait = (ms) => new Promise(r => setTimeout(r, reduced ? 0 : ms));
+const wait = (ms) => new Promise(r => setTimeout(r, ms));
+
+function runLoaderStages(subEl, steps) {
+  let i = 0;
+  const id = setInterval(() => {
+    i++;
+    if (subEl && steps[i]) subEl.textContent = steps[i];
+  }, 1400);
+  return () => clearInterval(id);
+}
 
 function summaryChips(box) {
   box.innerHTML = [
@@ -16,7 +25,7 @@ function summaryChips(box) {
 }
 
 function curveSVG(points, year) {
-  const W = 360, H = 148, L = 8, R = 8, T = 14, B = 26;
+  const W = 420, H = 152, L = 8, R = 8, T = 14, B = 26;
   const xs = points.map(p => p.tahun), ys = points.map(p => p.harga);
   const x0 = Math.min(...xs), x1 = Math.max(...xs);
   const lo = Math.min(...ys) * 0.9, hi = Math.max(...ys) * 1.06;
@@ -38,41 +47,44 @@ function curveSVG(points, year) {
 /* ============ ESTIMASI ============ */
 export async function mountEstimator() {
   const meta = await loadMeta();
-  const builder = $("#estBuilder"), res = $("#estResult");
-  let prev = 0, busy = false;
+  const builder = $("#estBuilder"), res = $("#estResult"), go = $("#eGo");
+  let busy = false;
 
-  res.innerHTML = `
-    <div class="res-head"><h3>Hasil taksiran</h3><span class="live" id="eLive"><i></i><span>SIAP</span></span></div>
-    <div class="res-body">
-      <div class="summary" id="eSum"></div>
-      <div id="eOut">
-        <div class="empty">
-          <h4>Belum dihitung</h4>
-          <p>Pilih merek &amp; tipe mobil, atur spesifikasi lalu tekan <b>Enter</b> atau klik tombol di bawah.</p>
-        </div>
-      </div>
-    </div>
-    <div class="res-cta"><button class="btn btn-primary" id="eGo" type="button">Takar harga</button></div>
-  `;
-  const sum = $("#eSum"), out = $("#eOut"), go = $("#eGo"), liveEl = $("#eLive");
-  summaryChips(sum);
+  res.hidden = true;
+  res.innerHTML = "";
 
   async function calc() {
     if (busy) return;
     busy = true;
     go.disabled = true;
-    go.innerHTML = '<span class="spin"></span> Memproses';
-    liveEl.classList.add("on");
-    liveEl.lastElementChild.textContent = "MENGHITUNG";
-    out.innerHTML = carLoadingHTML(`Menaksir ${spec.merek} ${spec.model} (${spec.tahun})...`);
-    if (innerWidth < 1100 && !reduced) res.scrollIntoView({ behavior: "smooth", block: "start" });
+    go.innerHTML = '<span class="spin"></span> Memproses estimasi...';
+
+    res.hidden = false;
+    res.innerHTML = `
+      <div class="res-head"><h3>Hasil taksiran</h3><span class="live on"><i></i><span>MEMPROSES</span></span></div>
+      <div class="res-body">
+        <div class="summary" id="eSum"></div>
+        <div id="eOut">${carLoadingHTML(`Membaca spesifikasi ${spec.merek} ${spec.model} (${spec.tahun})...`)}</div>
+      </div>
+    `;
+    summaryChips($("#eSum"));
+    res.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    const stopStages = runLoaderStages($("#loaderSub"), [
+      `Membaca spesifikasi ${spec.merek} ${spec.model} (${spec.tahun})...`,
+      `Mencocokkan pola harga pasar di ${spec.wilayah}...`,
+      `Menghitung valuasi akhir model XGBoost...`,
+    ]);
 
     const snap = { ...spec };
     try {
       const [[p, curve]] = await Promise.all([
         Promise.all([api("predict", snap), api("curve", snap)]),
-        minWait(1350),
+        wait(4200),
       ]);
+      stopStages();
+      const out = $("#eOut");
+      res.querySelector(".live span").textContent = "SELESAI";
       out.innerHTML = `
         <div class="price-box fade-up"><small>Estimasi pasar wajar · ${snap.merek} ${p.model}</small><div class="price"><span class="rp">Rp</span><span id="pNum">0</span></div></div>
         <div class="range fade-up d1" id="pRange">
@@ -87,18 +99,16 @@ export async function mountEstimator() {
         $("#pCurve").classList.add("go");
       });
       countUp($("#pNum"), 0, p.harga, 1100);
-      prev = p.harga;
       $("#pLo").textContent = jt(p.batas_bawah);
       $("#pHi").textContent = jt(p.batas_atas);
-      liveEl.lastElementChild.textContent = "SELESAI";
     } catch (e) {
-      out.innerHTML = `<div class="err">${e.message}</div>`;
-      liveEl.classList.remove("on");
-      liveEl.lastElementChild.textContent = "GALAT";
+      stopStages();
+      res.querySelector(".live")?.classList.remove("on");
+      $("#eOut").innerHTML = `<div class="err">${e.message}</div>`;
     } finally {
       busy = false;
       go.disabled = false;
-      go.textContent = "Takar ulang";
+      go.textContent = "Takar ulang harga";
     }
   }
 
@@ -110,30 +120,20 @@ export async function mountEstimator() {
       calc();
     }
   });
-  buildSpecForm(builder, meta, spec, () => summaryChips(sum));
+  buildSpecForm(builder, meta, spec, () => {
+    const s = $("#eSum");
+    if (s) summaryChips(s);
+  });
 }
 
 /* ============ DEAL CHECKER ============ */
 export async function mountDeal() {
   const meta = await loadMeta();
-  const builder = $("#dealBuilder"), res = $("#dealResult");
+  const builder = $("#dealBuilder"), res = $("#dealResult"), go = $("#dGo");
   let price = 175_000_000, busy = false;
 
-  res.innerHTML = `
-    <div class="res-head"><h3>Vonis harga iklan</h3><span class="live" id="dLive"><i></i><span>SIAP</span></span></div>
-    <div class="res-body">
-      <div class="summary" id="dSum"></div>
-      <div id="dOut">
-        <div class="empty">
-          <h4>Belum diperiksa</h4>
-          <p>Atur spesifikasi, masukkan harga iklan penjual lalu tekan <b>Enter</b> atau klik tombol di bawah.</p>
-        </div>
-      </div>
-    </div>
-    <div class="res-cta"><button class="btn btn-primary" id="dGo" type="button">Cek kewajaran</button></div>
-  `;
-  const sum = $("#dSum"), out = $("#dOut"), go = $("#dGo"), liveEl = $("#dLive");
-  summaryChips(sum);
+  res.hidden = true;
+  res.innerHTML = "";
 
   const zones = ["#0d9f66", "#34d399", "#111114", "#d97706", "#dc2626"];
   const pt = (a, r) => { const t = (a * Math.PI) / 180; return [150 + r * Math.sin(t), 150 - r * Math.cos(t)]; };
@@ -153,17 +153,33 @@ export async function mountDeal() {
     if (!price || busy) return;
     busy = true;
     go.disabled = true;
-    go.innerHTML = '<span class="spin"></span> Memproses';
-    liveEl.classList.add("on");
-    liveEl.lastElementChild.textContent = "MENGANALISIS";
-    out.innerHTML = carLoadingHTML(`Membandingkan iklan ${spec.merek} ${spec.model}...`);
-    if (innerWidth < 1100 && !reduced) res.scrollIntoView({ behavior: "smooth", block: "start" });
+    go.innerHTML = '<span class="spin"></span> Menganalisis iklan...';
+
+    res.hidden = false;
+    res.innerHTML = `
+      <div class="res-head"><h3>Vonis harga iklan</h3><span class="live on"><i></i><span>MENGANALISIS</span></span></div>
+      <div class="res-body">
+        <div class="summary" id="dSum"></div>
+        <div id="dOut">${carLoadingHTML(`Memeriksa iklan ${spec.merek} ${spec.model}...`)}</div>
+      </div>
+    `;
+    summaryChips($("#dSum"));
+    res.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    const stopStages = runLoaderStages($("#loaderSub"), [
+      `Memeriksa iklan ${spec.merek} ${spec.model} (${spec.tahun})...`,
+      `Membandingkan dengan harga wajar di ${spec.wilayah}...`,
+      `Menyiapkan vonis kewajaran harga...`,
+    ]);
 
     try {
       const [d] = await Promise.all([
         api("deal", { ...spec, harga_iklan: price }),
-        minWait(1350),
+        wait(4200),
       ]);
+      stopStages();
+      const out = $("#dOut");
+      res.querySelector(".live span").textContent = "SELESAI";
       out.innerHTML = `
         <div class="meter fade-up">${meterSVG}</div>
         <div class="verdict fade-up d1" id="dVerdict" data-tone="${d.tone}"><b id="dWord">${d.verdict}</b><span id="dPct"></span></div>
@@ -185,15 +201,14 @@ export async function mountDeal() {
       });
       const diff = Math.abs(d.selisih);
       $("#dNote").textContent = `${d.catatan} Selisih nominal Rp ${rp(diff)} ${d.selisih > 0 ? "lebih tinggi" : "lebih rendah"} dari taksiran. Rentang wajar: ${jt(d.batas_bawah)} s.d. ${jt(d.batas_atas)}.`;
-      liveEl.lastElementChild.textContent = "SELESAI";
     } catch (e) {
-      out.innerHTML = `<div class="err">${e.message}</div>`;
-      liveEl.classList.remove("on");
-      liveEl.lastElementChild.textContent = "GALAT";
+      stopStages();
+      res.querySelector(".live")?.classList.remove("on");
+      $("#dOut").innerHTML = `<div class="err">${e.message}</div>`;
     } finally {
       busy = false;
       go.disabled = false;
-      go.textContent = "Cek ulang";
+      go.textContent = "Cek ulang harga iklan";
     }
   }
 
@@ -205,7 +220,10 @@ export async function mountDeal() {
       calc();
     }
   });
-  buildSpecForm(builder, meta, spec, () => summaryChips(sum));
+  buildSpecForm(builder, meta, spec, () => {
+    const s = $("#dSum");
+    if (s) summaryChips(s);
+  });
   builder.appendChild(moneyWidget(price, (v) => { price = v; }));
 }
 

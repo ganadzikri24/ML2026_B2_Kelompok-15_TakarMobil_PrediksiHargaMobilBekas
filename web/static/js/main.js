@@ -19,12 +19,26 @@ let current = null;
 
 function ensureVideoPlays() {
   if (!vid || vid.dataset.paused) return;
+  vid.defaultMuted = true;
   vid.muted = true;
-  vid.play().catch(() => {});
+  const p = vid.play();
+  if (p && typeof p.catch === "function") {
+    p.catch(() => {
+      // Coba ulang sekali saat interaksi pertama bila kebijakan browser menahan
+      const resume = () => {
+        if (!vid.dataset.paused) vid.play().catch(() => {});
+        removeEventListener("pointerdown", resume);
+        removeEventListener("scroll", resume);
+      };
+      addEventListener("pointerdown", resume, { once: true });
+      addEventListener("scroll", resume, { once: true });
+    });
+  }
 }
 
-// Mulai video secepat mungkin saat DOM siap.
+// Mulai video secepat mungkin saat halaman dibuka (tanpa bergantung prefers-reduced-motion).
 if (vid) {
+  vid.addEventListener("loadedmetadata", ensureVideoPlays, { once: true });
   vid.addEventListener("canplay", ensureVideoPlays, { once: true });
   ensureVideoPlays();
 }
@@ -114,6 +128,5 @@ function setVideo(playing) {
   vctl.setAttribute("aria-label", playing ? "Jeda video latar" : "Putar video latar");
 }
 vctl?.addEventListener("click", () => setVideo(vid.paused));
-if (matchMedia("(prefers-reduced-motion: reduce)").matches) setVideo(false);
 
 go(location.pathname, false);
