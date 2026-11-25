@@ -37,7 +37,10 @@ with col_input:
     with col1:
         merek = st.selectbox("Merek Mobil", options=meta['brands'], index=0)
     with col2:
-        tahun = st.slider("Tahun Perakitan", min_value=1995, max_value=2025, value=2019)
+        tipe_opts = [m['name'] for m in meta.get('models_by_brand', {}).get(merek, [])] or ['Lainnya']
+        model_mobil = st.selectbox("Tipe / Model Mobil", options=tipe_opts, index=0)
+        
+    tahun = st.slider("Tahun Perakitan", min_value=1995, max_value=2025, value=2019)
         
     col3, col4 = st.columns(2)
     with col3:
@@ -72,6 +75,7 @@ with col_verdict:
         res_pred = predict_car_price(
             model=model,
             merek=merek,
+            model_mobil=model_mobil,
             tahun=tahun,
             km=km,
             transmisi=transmisi,

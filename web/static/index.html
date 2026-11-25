@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TakarMobil — Taksiran Harga Mobil Bekas Jabodetabek</title>
+<meta name="description" content="Estimasi harga pasar mobil bekas dan pengecek kewajaran iklan berbasis XGBoost dari 16.799 data iklan Jabodetabek. Proyek pembelajaran universitas nonkomersial.">
+<meta name="theme-color" content="#111114">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111114'/%3E%3Cpath d='M16 22h32M32 22v24' stroke='%230d9f66' stroke-width='6' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<link rel="preload" href="/static/fonts/jakarta-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<a class="skip" href="#app">Lewati ke konten</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" data-link aria-label="TakarMobil, beranda">
+      <span class="brand-badge"><img src="/media/logo_takarmobil.png" alt="TakarMobil" width="144" height="32"></span>
+    </a>
+    <nav class="pill" id="pill" aria-label="Menu utama">
+      <span class="ind" id="pillInd"></span>
+      <a href="/" data-link>Beranda</a>
+      <a href="/estimasi" data-link>Estimasi Harga</a>
+      <a href="/deal-checker" data-link>Deal Checker</a>
+      <a href="/faktor-harga" data-link>Faktor Harga</a>
+      <a href="/tentang" data-link>Tentang Model</a>
+    </nav>
+    <div class="nav-end">
+      <a class="round" href="/estimasi" data-link aria-label="Mulai menakar harga">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+      <button class="round burger" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <a href="/" data-link>Beranda</a>
+  <a href="/estimasi" data-link>Estimasi Harga</a>
+  <a href="/deal-checker" data-link>Deal Checker</a>
+  <a href="/faktor-harga" data-link>Faktor Harga</a>
+  <a href="/tentang" data-link>Tentang Model</a>
+</div>
+
+<main id="app">
+
+  <!-- ===== BERANDA ===== -->
+  <div class="page" data-route="/">
+    <section class="hero" id="hero">
+      <video id="heroVideo" muted loop playsinline autoplay preload="auto" aria-hidden="true">
+        <source src="/media/animasi_landing.webm" type="video/webm">
+      </video>
+      <div class="hero-top">
+        <h1><span class="ln"><span>Takar harga mobil bekas.</span></span><span class="ln"><span>Tawar dengan yakin.</span></span></h1>
+        <p class="sub">Taksiran harga pasar dan rentang tawarnya dari 16.799 iklan Jabodetabek, lengkap hingga tipe kendaraan spesifik.</p>
+      </div>
+      <div class="hero-bottom">
+        <a class="btn btn-hero" href="/estimasi" data-link>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg>
+          Mulai menakar
+        </a>
+      </div>
+      <button class="vctl" id="vctl" aria-label="Jeda video latar" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="currentColor" id="vIcon"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      </button>
+    </section>
+
+    <div class="studio">
+      <section class="sec" id="cara">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="eyebrow">Alur kerja</span>
+            <h2>Tiga langkah sederhana sebelum Anda menawar.</h2>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <div class="step-meta"><span class="n">01</span><span class="tag">Spesifikasi</span></div>
+              <div class="step-viz"><div class="viz-brands" id="vizBrands"></div></div>
+              <h3>Pilih merek, tipe, dan kondisi</h3>
+              <p>Klik logo merek, ketik tipe spesifiknya seperti Avanza atau CR-V, atur transmisi, bahan bakar, kota, dan kilometer.</p>
+            </article>
+            <article class="step">
+              <div class="step-meta"><span class="n">02</span><span class="tag">Model ML</span></div>
+              <div class="step-viz"><div class="viz-calc"><i></i><i></i><i></i><i></i></div></div>
+              <h3>Dihitung oleh XGBoost</h3>
+              <p>Model membaca pola harga dari ribuan iklan bekas di Jabodetabek dan memperhitungkan depresiasi tahun serta jarak tempuh.</p>
+            </article>
+            <article class="step">
+              <div class="step-meta"><span class="n">03</span><span class="tag">Rentang Wajar</span></div>
+              <div class="step-viz"><div class="viz-range"><div class="rail"><div class="span"></div><div class="dot"></div></div></div></div>
+              <h3>Terima angka tengah &amp; batas tawar</h3>
+              <p>Lihat taksiran harga pasar beserta rentang ±15% dan kurva nilainya per tahun agar tahu kapan harga iklan masih wajar.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="fitur">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="eyebrow">Fitur aplikasi</span>
+            <h2>Tiga alat bantu keputusan jual-beli.</h2>
+          </div>
+          <div class="feats">
+            <a class="feat" href="/estimasi" data-link>
+              <div class="feat-viz">
+                <svg viewBox="0 0 220 124" fill="none">
+                  <path d="M36 104a74 74 0 0 1 148 0" stroke="#e4e2dc" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M36 104a74 74 0 0 1 108-66" stroke="#0d9f66" stroke-width="11" stroke-linecap="round"/>
+                  <g class="needle-a"><path d="M110 104L110 42" stroke="#111114" stroke-width="4" stroke-linecap="round"/></g>
+                  <circle cx="110" cy="104" r="9" fill="#0d9f66"/><circle cx="110" cy="104" r="3.5" fill="#fff"/>
+                </svg>
+              </div>
+              <div class="feat-body">
+                <h3>Estimasi Harga</h3>
+                <p>Hitung harga pasar wajar beserta batas bawah-atas dan grafik nilai per tahun produksi.</p>
+                <span class="go">Buka estimasi <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+            </a>
+            <a class="feat" href="/deal-checker" data-link>
+              <div class="feat-viz">
+                <svg viewBox="0 0 220 124" fill="none">
+                  <path d="M36 104a74 74 0 0 1 32-60" stroke="#0d9f66" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M76 38a74 74 0 0 1 68 0" stroke="#111114" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M152 44a74 74 0 0 1 32 60" stroke="#dc2626" stroke-width="11" stroke-linecap="round"/>
+                  <g class="needle-a"><path d="M110 104L110 44" stroke="#111114" stroke-width="4" stroke-linecap="round"/></g>
+                  <circle cx="110" cy="104" r="9" fill="#111114"/><circle cx="110" cy="104" r="3.5" fill="#fff"/>
+                </svg>
+              </div>
+              <div class="feat-body">
+                <h3>Deal Checker</h3>
+                <p>Masukkan harga iklan yang Anda temukan untuk melihat apakah harganya murah, wajar, atau kemahalan.</p>
+                <span class="go">Cek harga iklan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+            </a>
+            <a class="feat" href="/faktor-harga" data-link>
+              <div class="feat-viz">
+                <svg viewBox="0 0 220 124" fill="none">
+                  <rect x="24" y="18" width="172" height="14" rx="7" fill="#eceae4"/>
+                  <rect class="bar-a" x="24" y="18" width="156" height="14" rx="7" fill="#0d9f66"/>
+                  <rect x="24" y="44" width="172" height="14" rx="7" fill="#eceae4"/>
+                  <rect class="bar-a" x="24" y="44" width="108" height="14" rx="7" fill="#111114"/>
+                  <rect x="24" y="70" width="172" height="14" rx="7" fill="#eceae4"/>
+                  <rect class="bar-a" x="24" y="70" width="76" height="14" rx="7" fill="#111114"/>
+                  <rect x="24" y="96" width="172" height="14" rx="7" fill="#eceae4"/>
+                  <rect class="bar-a" x="24" y="96" width="44" height="14" rx="7" fill="#64646d"/>
+                </svg>
+              </div>
+              <div class="feat-body">
+                <h3>Faktor Harga</h3>
+                <p>Pahami variabel dan tipe kendaraan yang paling kuat menggerakkan harga di pasar bekas.</p>
+                <span class="go">Lihat faktor <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="bukti">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="eyebrow">Pengujian model</span>
+            <h2>Terukur pada 3.360 data uji terpisah.</h2>
+          </div>
+          <div class="proof" id="proof"></div>
+          <p class="proof-note">Dengan memasukkan fitur tipe kendaraan spesifik (Model_Clean), galat rata-rata XGBoost turun hampir separuhnya menjadi sekitar Rp 31 juta.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===== ESTIMASI ===== -->
+  <div class="page studio" data-route="/estimasi">
+    <section class="tool"><div class="wrap">
+      <div class="tool-head">
+        <span class="eyebrow">Estimasi harga</span>
+        <h1>Taksir harga wajar mobil bekas</h1>
+        <p class="lead">Atur merek, tipe mobil, spesifikasi, dan jarak tempuh di bawah. Tekan Enter atau klik <b>Takar harga</b> untuk menjalankan perhitungan.</p>
+      </div>
+      <div class="tool-grid">
+        <form class="builder" id="estBuilder" novalidate></form>
+        <aside class="result" id="estResult" aria-live="polite"></aside>
+      </div>
+    </div></section>
+  </div>
+
+  <!-- ===== DEAL CHECKER ===== -->
+  <div class="page studio" data-route="/deal-checker">
+    <section class="tool"><div class="wrap">
+      <div class="tool-head">
+        <span class="eyebrow">Deal checker</span>
+        <h1>Cek kewajaran harga iklan</h1>
+        <p class="lead">Bandingkan harga yang diminta penjual dengan nilai pasar wajar berdasarkan spesifikasi dan tipe kendaraan.</p>
+      </div>
+      <div class="tool-grid">
+        <form class="builder" id="dealBuilder" novalidate></form>
+        <aside class="result" id="dealResult" aria-live="polite"></aside>
+      </div>
+    </div></section>
+  </div>
+
+  <!-- ===== FAKTOR HARGA ===== -->
+  <div class="page studio" data-route="/faktor-harga">
+    <section class="tool"><div class="wrap">
+      <div class="tool-head">
+        <span class="eyebrow">Faktor harga</span>
+        <h1>Variabel penentu harga mobil bekas</h1>
+        <p class="lead">Kontribusi relatif setiap fitur dalam model XGBoost saat memprediksi harga pasar mobil bekas Jabodetabek.</p>
+      </div>
+      <div class="imp">
+        <div class="panel"><div class="bars" id="impBars"></div></div>
+        <div class="insights" id="impInsights"></div>
+      </div>
+    </div></section>
+  </div>
+
+  <!-- ===== TENTANG ===== -->
+  <div class="page studio" data-route="/tentang">
+    <section class="tool"><div class="wrap stack">
+      <div class="tool-head" style="margin-bottom:0">
+        <span class="eyebrow">Metodologi</span>
+        <h1>Bagaimana model bekerja</h1>
+        <p class="lead">Perbandingan lima algoritma pada data uji yang sama. XGBoost dipilih sebagai mesin prediksi utama karena MAE paling rendah (~Rp 31 juta) sekaligus menyediakan interpretasi feature importance.</p>
+      </div>
+      <div class="panel">
+        <table class="tbl" id="evalTable"><thead><tr><th>Model</th><th>MAE</th><th>RMSE</th><th>R² Score</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div class="flow">
+        <div class="box"><span class="eyebrow">01 · Input</span><h3>Spesifikasi &amp; Tipe</h3><ul><li>Merek &amp; Tipe spesifik (Model_Clean)</li><li>Tahun produksi &amp; jarak tempuh</li><li>Transmisi &amp; jenis bahan bakar</li><li>Wilayah Jabodetabek</li></ul></div>
+        <div class="box"><span class="eyebrow">02 · Proses</span><h3>Pipeline XGBoost</h3><ul><li>Hitung usia mobil (2025 − tahun)</li><li>StandardScaler (numerik) &amp; OneHotEncoder</li><li>Prediksi pada skala log(1 + harga)</li><li>Transformasi balik ke Rupiah (expm1)</li></ul></div>
+        <div class="box"><span class="eyebrow">03 · Output</span><h3>Rentang &amp; Vonis</h3><ul><li>Estimasi nilai tengah pasar</li><li>Batas tawar ±15%</li><li>Kurva penyusutan per tahun</li><li>Status kewajaran iklan</li></ul></div>
+      </div>
+      <div class="panel" id="dataPanel"></div>
+      <div>
+        <div class="sec-head" style="margin-bottom:24px"><span class="eyebrow">Tim pengembang</span><h2 style="font-size:clamp(26px,3.2vw,40px)">Kelompok 15 · Kelas B2</h2></div>
+        <div class="team">
+          <div class="person"><div class="av">G</div><div><b>Gyanrendra Nayaran Wiratmaja</b><span>J0404241007</span></div></div>
+          <div class="person"><div class="av">A</div><div><b>Aisha Aulia Darmawan</b><span>J0404241172</span></div></div>
+          <div class="person"><div class="av">M</div><div><b>Muhamad Ganabitz Dzikri</b><span>J0404241157</span></div></div>
+        </div>
+      </div>
+      <div class="edu">
+        <p><b>Proyek pembelajaran universitas, bukan layanan komersial.</b> TakarMobil disusun untuk tugas akhir mata kuliah Pembelajaran Mesin (Semester 5). Aplikasi ini tidak diperjualbelikan, tidak menampilkan iklan, dan tidak memungut biaya apa pun.</p>
+        <p>Nama dan logo merek kendaraan (Toyota, Daihatsu, Suzuki, Honda, dan Mercedes-Benz) merupakan hak cipta pemegang merek masing-masing dan ditampilkan semata sebagai penanda pilihan data di dataset tanpa afiliasi komersial.</p>
+      </div>
+    </div></section>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="brand-badge"><img src="/media/logo_takarmobil.png" alt="TakarMobil" width="144" height="32"></span>
+        <p class="foot-desc">Sistem taksiran harga mobil bekas wilayah Jabodetabek berbasis Machine Learning.</p>
+      </div>
+      <div>
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a class="link" href="/estimasi" data-link>Estimasi Harga</a></li>
+          <li><a class="link" href="/deal-checker" data-link>Deal Checker</a></li>
+          <li><a class="link" href="/faktor-harga" data-link>Faktor Harga</a></li>
+          <li><a class="link" href="/tentang" data-link>Tentang Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kelompok 15 · Kelas B2</h4>
+        <ul>
+          <li>Gyanrendra Nayaran Wiratmaja<span>J0404241007</span></li>
+          <li>Aisha Aulia Darmawan<span>J0404241172</span></li>
+          <li>Muhamad Ganabitz Dzikri<span>J0404241157</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">
+      <p>Proyek tugas pembelajaran universitas nonkomersial. Seluruh merek dan logo kendaraan adalah milik pemiliknya masing-masing, dipakai hanya untuk klasifikasi data tanpa afiliasi.</p>
+      <p>Sumber data: Dataset Iklan Mobil Bekas Indonesia (Zenodo 17548894). Aset logo merek: Simple Icons (CC0) &amp; Wikimedia Commons. Taksiran bersifat referensi estimasi, bukan penawaran jual-beli.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="/static/js/main.js"></script>
+</body>
+</html>

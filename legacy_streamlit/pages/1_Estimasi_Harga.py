@@ -39,19 +39,22 @@ with col_form:
     with col1:
         merek = st.selectbox("1. Merek Mobil", options=meta['brands'], index=0)
     with col2:
-        tahun = st.slider("2. Tahun Produksi", min_value=1995, max_value=2025, value=2020)
+        tipe_opts = [m['name'] for m in meta.get('models_by_brand', {}).get(merek, [])] or ['Lainnya']
+        model_mobil = st.selectbox("2. Tipe / Model Mobil", options=tipe_opts, index=0)
+        
+    tahun = st.slider("3. Tahun Produksi", min_value=1995, max_value=2025, value=2020)
         
     col3, col4 = st.columns(2)
     with col3:
-        transmisi = st.selectbox("3. Transmisi", options=meta['transmisi_list'], index=0)
+        transmisi = st.selectbox("4. Transmisi", options=meta['transmisi_list'], index=0)
     with col4:
-        bahan_bakar = st.selectbox("4. Bahan Bakar", options=meta['bahan_bakar_list'], index=0)
+        bahan_bakar = st.selectbox("5. Bahan Bakar", options=meta['bahan_bakar_list'], index=0)
         
     col5, col6 = st.columns(2)
     with col5:
-        wilayah = st.selectbox("5. Wilayah (Jabodetabek)", options=meta['wilayah_list'], index=3) # Default Jakarta
+        wilayah = st.selectbox("6. Wilayah (Jabodetabek)", options=meta['wilayah_list'], index=3) # Default Jakarta
     with col6:
-        km = st.number_input("6. Jarak Tempuh (Kilometer)", min_value=1000, max_value=300000, value=45000, step=5000)
+        km = st.number_input("7. Jarak Tempuh (Kilometer)", min_value=1000, max_value=300000, value=45000, step=5000)
 
     usia_calc = 2025 - tahun
     st.caption(f"ℹ️ Usia estimasi kendaraan: **{usia_calc} tahun** pada tahun acuan 2025.")
@@ -65,6 +68,7 @@ with col_result:
         res = predict_car_price(
             model=model,
             merek=merek,
+            model_mobil=model_mobil,
             tahun=tahun,
             km=km,
             transmisi=transmisi,

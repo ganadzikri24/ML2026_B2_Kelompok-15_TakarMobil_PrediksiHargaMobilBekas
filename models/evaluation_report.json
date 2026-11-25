@@ -1,93 +1,93 @@
 {
   "best_model": "XGBoost Regressor",
-  "best_r2": 0.693308279085552,
-  "best_rmse": 119971500.9478862,
-  "best_mae": 64077415.149731025,
+  "best_r2": 0.917928588420388,
+  "best_rmse": 117226327.74135014,
+  "best_mae": 35610719.77401898,
   "metrics_table": [
     {
-      "Model": "XGBoost",
-      "MAE (Rupiah)": 64077415.149731025,
-      "MSE (Rupiah)": 1.439316103968866e+16,
-      "RMSE (Rupiah)": 119971500.9478862,
-      "R\u00b2 Score": 0.693308279085552
-    },
-    {
-      "Model": "Random Forest",
-      "MAE (Rupiah)": 66832337.72015926,
-      "MSE (Rupiah)": 1.6033863949069136e+16,
-      "RMSE (Rupiah)": 126624894.66557963,
-      "R\u00b2 Score": 0.6583479255259892
-    },
-    {
-      "Model": "Decision Tree",
-      "MAE (Rupiah)": 66413554.989282474,
-      "MSE (Rupiah)": 1.6213232950385254e+16,
-      "RMSE (Rupiah)": 127331193.94078285,
-      "R\u00b2 Score": 0.6545259028625414
-    },
-    {
       "Model": "Ridge Regression",
-      "MAE (Rupiah)": 63531552.01755767,
-      "MSE (Rupiah)": 1.7083193106822934e+16,
-      "RMSE (Rupiah)": 130702689.74593803,
-      "R\u00b2 Score": 0.6359886561264592
+      "MAE (Rupiah)": 35610719.77401898,
+      "MSE (Rupiah)": 1.374201191572244e+16,
+      "RMSE (Rupiah)": 117226327.74135014,
+      "R\u00b2 Score": 0.917928588420388
+    },
+    {
+      "Model": "XGBoost",
+      "MAE (Rupiah)": 30890802.34732143,
+      "MSE (Rupiah)": 2.611338409057819e+16,
+      "RMSE (Rupiah)": 161596361.6254345,
+      "R\u00b2 Score": 0.8440430479482914
     },
     {
       "Model": "Baseline Statistik (Median)",
-      "MAE (Rupiah)": 83000716.97519426,
-      "MSE (Rupiah)": 2.62624524471587e+16,
-      "RMSE (Rupiah)": 162056941.99002615,
-      "R\u00b2 Score": 0.44039556604397
+      "MAE (Rupiah)": 62013467.84791667,
+      "MSE (Rupiah)": 3.0971447056507976e+16,
+      "RMSE (Rupiah)": 175987065.02612054,
+      "R\u00b2 Score": 0.8150292406832631
+    },
+    {
+      "Model": "Random Forest",
+      "MAE (Rupiah)": 29325237.201487146,
+      "MSE (Rupiah)": 3.2720244145743404e+16,
+      "RMSE (Rupiah)": 180887379.73043725,
+      "R\u00b2 Score": 0.8045849006142767
+    },
+    {
+      "Model": "Decision Tree",
+      "MAE (Rupiah)": 31387556.340611983,
+      "MSE (Rupiah)": 3.968995264300348e+16,
+      "RMSE (Rupiah)": 199223373.7366263,
+      "R\u00b2 Score": 0.7629597136928405
     }
   ],
   "top_features": [
     {
       "Feature": "Merek_Clean_Mercedes-Benz",
-      "XGBoost Importance": 0.5672306418418884
+      "XGBoost Importance": 0.49924546480178833
     },
     {
-      "Feature": "Bahan_Bakar_Clean_Bensin",
-      "XGBoost Importance": 0.10880567878484726
-    },
-    {
-      "Feature": "Transmisi_Clean_Automatic",
-      "XGBoost Importance": 0.08277290314435959
+      "Feature": "Model_Clean_Alphard",
+      "XGBoost Importance": 0.041362229734659195
     },
     {
       "Feature": "Merek_Clean_Toyota",
-      "XGBoost Importance": 0.05203505977988243
-    },
-    {
-      "Feature": "Merek_Clean_Daihatsu",
-      "XGBoost Importance": 0.048914942890405655
-    },
-    {
-      "Feature": "Tahun_Num",
-      "XGBoost Importance": 0.03454277291893959
-    },
-    {
-      "Feature": "Merek_Clean_Honda",
-      "XGBoost Importance": 0.033820219337940216
+      "XGBoost Importance": 0.03251663222908974
     },
     {
       "Feature": "Merek_Clean_Suzuki",
-      "XGBoost Importance": 0.026871899142861366
+      "XGBoost Importance": 0.024948662146925926
     },
     {
-      "Feature": "KM_Clean",
-      "XGBoost Importance": 0.019833117723464966
+      "Feature": "Model_Clean_Cr-V",
+      "XGBoost Importance": 0.019861578941345215
     },
     {
-      "Feature": "Bahan_Bakar_Clean_Diesel",
-      "XGBoost Importance": 0.011818133294582367
+      "Feature": "Model_Clean_Hiace",
+      "XGBoost Importance": 0.017980536445975304
     },
     {
-      "Feature": "Wilayah_Jakarta",
-      "XGBoost Importance": 0.004748061299324036
+      "Feature": "Merek_Clean_Daihatsu",
+      "XGBoost Importance": 0.017492378130555153
     },
     {
-      "Feature": "Wilayah_Bekasi",
-      "XGBoost Importance": 0.003010437125340104
+      "Feature": "Model_Clean_Jimny",
+      "XGBoost Importance": 0.013873985968530178
+    },
+    {
+      "Feature": "Merek_Clean_Honda",
+      "XGBoost Importance": 0.01310640200972557
+    },
+    {
+      "Feature": "Bahan_Bakar_Clean_Bensin",
+      "XGBoost Importance": 0.012354365549981594
+    },
+    {
+      "Feature": "Model_Clean_G-Class",
+      "XGBoost Importance": 0.012059776112437248
+    },
+    {
+      "Feature": "Model_Clean_Calya",
+      "XGBoost Importance": 0.010720863938331604
     }
   ]
 }

@@ -115,7 +115,7 @@ with col_a:
     - Menghasilkan nilai estimasi titik tengah.
     - Menampilkan interval batas bawah dan batas atas harga wajar ($\pm 15\%$).
     """)
-    st.page_link("pages/1_🔍_Estimasi_Harga.py", label="👉 Buka Estimasi Harga", icon="🔍")
+    st.page_link("pages/1_Estimasi_Harga.py", label="👉 Buka Estimasi Harga", icon="🔍")
 
 with col_b:
     st.success("### 🏷️ 2. Deal Checker Iklan")
@@ -124,7 +124,7 @@ with col_b:
     - Membandingkan harga iklan terhadap estimasi nilai pasar riil.
     - Memberikan rekomendasi negosiasi dan tips verifikasi fisik.
     """)
-    st.page_link("pages/2_🏷️_Deal_Checker.py", label="👉 Buka Deal Checker", icon="🏷️")
+    st.page_link("pages/2_Deal_Checker.py", label="👉 Buka Deal Checker", icon="🏷️")
 
 with col_c:
     st.warning("### 📊 3. Faktor Penentu Harga")
@@ -133,7 +133,7 @@ with col_c:
     - Analisis tingkat pengaruh (*Feature Importance*).
     - Transparan dan dapat dipertanggungjawabkan secara ilmiah.
     """)
-    st.page_link("pages/3_📊_Feature_Importance.py", label="👉 Lihat Faktor Penentu", icon="📊")
+    st.page_link("pages/3_Feature_Importance.py", label="👉 Lihat Faktor Penentu", icon="📊")
 
 st.divider()
 

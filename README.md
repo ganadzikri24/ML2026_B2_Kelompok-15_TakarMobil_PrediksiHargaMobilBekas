@@ -1,93 +1,70 @@
-# 🚗 TakarMobil: Sistem Estimasi Rentang Harga dan Analisis Faktor Penentu Harga Mobil Bekas Berbasis Machine Learning
+# TakarMobil — Estimasi Harga Mobil Bekas Jabodetabek
 
-**Proyek Akhir Mata Kuliah Pembelajaran Mesin (Machine Learning) - Semester 5**  
-**Kelas B2 · Kelompok 15**  
+**Proyek Akhir Mata Kuliah Pembelajaran Mesin (Machine Learning) — Semester 5**  
+**Kelas B2 · Kelompok 15**
 
----
-
-## 📌 Deskripsi Proyek
-**TakarMobil** adalah sistem estimasi harga mobil bekas berbasis web (*Streamlit*) untuk wilayah Jabodetabek yang menyajikan:
-1. **Prediksi Harga Pasar:** Estimasi harga wajar menggunakan algoritma Machine Learning terbaik.
-2. **Rentang Harga Wajar:** Memberikan estimasi interval batas bawah dan batas atas harga pasar kendaraan.
-3. **Deal Checker:** Fitur interaktif untuk memverifikasi apakah harga iklan mobil bekas yang ditemukan tergolong *Murah*, *Wajar*, atau *Kemahalan*.
-4. **Analisis Faktor Penentu (*Feature Importance*):** Visualisasi transparan mengenai variabel/fitur yang paling berpengaruh terhadap pembentukan harga mobil.
+> Proyek ini bersifat **edukatif dan nonkomersial** sebagai tugas pembelajaran universitas. Seluruh nama dan logo merek kendaraan (Toyota, Daihatsu, Suzuki, Honda, Mercedes-Benz) adalah milik pemegang mereknya masing-masing dan digunakan semata untuk menandai pilihan merek pada data, tanpa afiliasi komersial.
 
 ---
 
-## 📊 Dataset
-- **Sumber Data:** Dataset Iklan Mobil Bekas Indonesia ([Zenodo Record 17548894](https://zenodo.org/records/17548894)).
-- **Metode Pengumpulan:** Hasil *web scraping* dari platform OLX dan Mobil123 (Periode Juli – Oktober 2025).
-- **Cakupan Wilayah:** Jabodetabek.
-- **Cakupan Merek:** 5 Merek Terpopuler (Toyota, Daihatsu, Suzuki, Honda, Mercedes-Benz).
-- **Ukuran Data:** 17.670 baris, 16 fitur awal.
+## Fitur Utama Web
+1. **Landing Page Interaktif**: Hero video bergerak (`media/animasi_landing.webm`), navbar meluncur, alur 3 langkah, dan ringkasan metrik uji nyata.
+2. **Estimasi Harga**: Form spesifikasi interaktif (pemilih logo merek, penggulung tahun, animasi tuas transmisi Manual/Automatic, animasi bahan bakar Bensin/Diesel/Hybrid, peta skematik Jabodetabek, dan spidometer kilometer) disertai kurva nilai per tahun produksi dan rentang harga wajar ±15%.
+3. **Deal Checker**: Membandingkan harga iklan terhadap nilai pasar wajar dengan meteran jarum interaktif (Sangat Murah sampai Sangat Mahal).
+4. **Faktor Harga (*Feature Importance*)**: Visualisasi kontribusi variabel pembentuk harga dari model XGBoost.
+5. **Tentang Model**: Perbandingan 4 algoritma regresi + baseline statistik, arsitektur pipeline, dataset, dan tim pengembang.
 
 ---
 
-## 🤖 Algoritma & Metodologi
-- **Baseline:** Statistik Median Harga per Merek / Model.
-- **Model Regresi yang Dibandingkan:**
-  1. *Ridge Regression* (Linear Regularized)
-  2. *Decision Tree Regressor* (Non-Linear Tree-based)
-  3. *Random Forest Regressor* (Ensemble Bagging)
-  4. *XGBoost Regressor* (Ensemble Gradient Boosting)
-- **Skema Validasi:**
-  - `GroupShuffleSplit` (80% Train, 20% Test) berbasis grup merek/model untuk mencegah *data leakage*.
-  - 5-Fold `GroupKFold` Cross-Validation pada data training.
-- **Metrik Evaluasi:**
-  - Mean Absolute Error (MAE)
-  - Mean Squared Error (MSE)
-  - Root Mean Squared Error (RMSE)
-  - Coefficient of Determination ($R^2$)
+## Dataset & Metodologi
+- **Sumber Data:** Dataset Iklan Mobil Bekas Indonesia ([Zenodo Record 17548894](https://zenodo.org/records/17548894)) dari scraping OLX & Mobil123.
+- **Volume Data:** 17.670 baris mentah → **16.799 baris bersih** (13.453 train / 3.346 test).
+- **Cakupan Merek & Tipe:** 5 Merek Terpopuler (Toyota, Daihatsu, Suzuki, Honda, Mercedes-Benz) beserta 223 tipe spesifik (`Model_Clean`).
+- **Model Utama:** **XGBoost Regressor** (`R² = 0,844`, `MAE ≈ Rp 30,9 jt`, `RMSE ≈ Rp 161,6 jt`) dibandingkan dengan Ridge Regression (`R² = 0,918`, `MAE ≈ Rp 35,6 jt`), Random Forest, Decision Tree, dan Baseline Median.
+- **Skema Validasi:** `StratifiedShuffleSplit` 80:20 berbasis grup merek/tipe (`Model_Clean` menjadi fitur resmi) & 5-Fold Cross-Validation, target ditransformasi $\log(1 + \text{Harga})$.
 
 ---
 
-## 📂 Struktur Direktori Proyek
+## Struktur Direktori
 ```text
 TakarMobil/
-├── data/
-│   ├── raw/                # Dataset mentah (Data Scraping.xlsx)
-│   └── processed/          # Dataset hasil preprocessing & split train-test
-├── notebooks/
-│   ├── 01_EDA.ipynb        # Exploratory Data Analysis
-│   ├── 02_Preprocessing.ipynb  # Data cleaning, encoding, feature engineering
-│   ├── 03_Modeling.ipynb   # Pelatihan model & hyperparameter tuning
-│   └── 04_Evaluation.ipynb # Evaluasi perbandingan metrik & visualisasi
-├── models/                 # Model tersimpan (.joblib) & metadata
-├── app/
-│   ├── app.py              # Entry point aplikasi Streamlit
-│   ├── pages/              # Halaman Streamlit (Estimasi, Deal Checker, dll.)
-│   └── utils/              # Helper functions, loader model, & visualizer
-├── assets/                 # Gambar, ilustrasi, & visual pendukung
-├── requirements.txt        # Daftar dependensi library Python
-├── .gitignore              # Konfigurasi file yang diabaikan git
-└── README.md               # Dokumentasi utama proyek
+├── web/                    # Aplikasi web utama (FastAPI + frontend kustom)
+│   ├── server.py           # Backend API (/api/predict, /api/deal, /api/curve, dll.)
+│   └── static/             # HTML, CSS, JS, font lokal, dan logo merek
+├── media/                  # Video landing (animasi_landing.webm) & logo navbar
+├── models/                 # Model terlatih (.joblib), metadata & laporan evaluasi
+├── notebooks/              # 01_EDA, 02_Preprocessing, 03_Modeling, 04_Evaluation
+├── data/                   # Dataset mentah dan data terproses
+├── legacy_streamlit/       # Versi prototipe Streamlit awal (arsip cadangan)
+├── Dockerfile              # Siap deploy ke Hugging Face Spaces / Docker
+├── render.yaml             # Siap deploy ke Render
+└── requirements.txt
 ```
 
 ---
 
-## ⚙️ Panduan Instalasi & Menjalankan Proyek
+## Cara Menjalankan di Lokal
 
-### 1. Kloning Repository
-```bash
-git clone https://github.com/ganadzikri24/ML2026_B2_Kelompok-15_TakarMobil_PrediksiHargaMobilBekas.git
-cd ML2026_B2_Kelompok-15_TakarMobil_PrediksiHargaMobilBekas
-```
+1. **Pasang dependensi:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. **Jalankan server web:**
+   ```bash
+   python -m uvicorn web.server:app --reload --port 8000
+   ```
+3. **Buka di browser:**
+   ```text
+   http://127.0.0.1:8000
+   ```
 
-### 2. Pasang Dependensi
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Menjalankan Aplikasi Web Streamlit
-```bash
-streamlit run app/app.py
-```
+*(Opsional: versi Streamlit lama masih tersedia di `legacy_streamlit/` dengan `streamlit run legacy_streamlit/app.py`.)*
 
 ---
 
-## 👥 Anggota Kelompok 15
-| No. | Nama Mahasiswa | NIM | Peran / Tugas Utama |
-|---|---|---|---|
-| 1. | *Gyanrendra Nayaran Wiratmaja* | *J0404241007* | Dataset, EDA, & Data Preprocessing |
-| 2. | *Aisha Aulia Darmawan* | *J0404241172* | Modeling & Evaluasi Algoritma |
-| 3. | *Muhamad Ganabitz Dzikri* | *J0404241157* | Implementasi Aplikasi Streamlit & Deployment |
+## Tim Pengembang (Kelompok 15 · Kelas B2)
+| No. | Nama Mahasiswa | NIM |
+|:---:|---|---|
+| 1. | Gyanrendra Nayaran Wiratmaja | J0404241007 |
+| 2. | Aisha Aulia Darmawan | J0404241172 |
+| 3. | Muhamad Ganabitz Dzikri | J0404241157 |

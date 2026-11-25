@@ -6,6 +6,7 @@
   ],
   "cat_features": [
     "Merek_Clean",
+    "Model_Clean",
     "Transmisi_Clean",
     "Bahan_Bakar_Clean",
     "Wilayah"
@@ -19,6 +20,910 @@
     "Honda",
     "Mercedes-Benz"
   ],
+  "models_by_brand": {
+    "Daihatsu": [
+      {
+        "name": "Sigra",
+        "count": 852
+      },
+      {
+        "name": "Ayla",
+        "count": 801
+      },
+      {
+        "name": "Xenia",
+        "count": 741
+      },
+      {
+        "name": "Terios",
+        "count": 486
+      },
+      {
+        "name": "Rocky",
+        "count": 214
+      },
+      {
+        "name": "Sirion",
+        "count": 172
+      },
+      {
+        "name": "Gran Max",
+        "count": 85
+      },
+      {
+        "name": "Luxio",
+        "count": 43
+      },
+      {
+        "name": "Taft",
+        "count": 13
+      },
+      {
+        "name": "Gran Max Mb",
+        "count": 7
+      },
+      {
+        "name": "Gran Max Pick-Up",
+        "count": 5
+      },
+      {
+        "name": "Gran Max Pu",
+        "count": 4
+      },
+      {
+        "name": "Taruna",
+        "count": 4
+      },
+      {
+        "name": "Grand Xenia",
+        "count": 2
+      },
+      {
+        "name": "Espass",
+        "count": 2
+      },
+      {
+        "name": "Ceria",
+        "count": 1
+      }
+    ],
+    "Honda": [
+      {
+        "name": "Cr-V",
+        "count": 514
+      },
+      {
+        "name": "Br-V",
+        "count": 460
+      },
+      {
+        "name": "Hr-V",
+        "count": 419
+      },
+      {
+        "name": "Brio",
+        "count": 358
+      },
+      {
+        "name": "Mobilio",
+        "count": 326
+      },
+      {
+        "name": "Brio Satya",
+        "count": 321
+      },
+      {
+        "name": "Jazz",
+        "count": 164
+      },
+      {
+        "name": "City",
+        "count": 142
+      },
+      {
+        "name": "Civic",
+        "count": 112
+      },
+      {
+        "name": "Freed",
+        "count": 98
+      },
+      {
+        "name": "Wr-V",
+        "count": 86
+      },
+      {
+        "name": "Accord",
+        "count": 45
+      },
+      {
+        "name": "Odyssey",
+        "count": 24
+      },
+      {
+        "name": "Civic Hatchback",
+        "count": 4
+      }
+    ],
+    "Mercedes-Benz": [
+      {
+        "name": "C200",
+        "count": 333
+      },
+      {
+        "name": "Glc200",
+        "count": 292
+      },
+      {
+        "name": "C300",
+        "count": 239
+      },
+      {
+        "name": "E300",
+        "count": 224
+      },
+      {
+        "name": "Cla200",
+        "count": 180
+      },
+      {
+        "name": "Gla200",
+        "count": 165
+      },
+      {
+        "name": "E250",
+        "count": 144
+      },
+      {
+        "name": "C250",
+        "count": 128
+      },
+      {
+        "name": "E200",
+        "count": 127
+      },
+      {
+        "name": "Gle450",
+        "count": 109
+      },
+      {
+        "name": "A200",
+        "count": 78
+      },
+      {
+        "name": "Gle400",
+        "count": 68
+      },
+      {
+        "name": "Glc300",
+        "count": 54
+      },
+      {
+        "name": "Glc250",
+        "count": 48
+      },
+      {
+        "name": "S-Class",
+        "count": 46
+      },
+      {
+        "name": "S450L",
+        "count": 45
+      },
+      {
+        "name": "S400L",
+        "count": 42
+      },
+      {
+        "name": "Gle43",
+        "count": 42
+      },
+      {
+        "name": "E400",
+        "count": 42
+      },
+      {
+        "name": "Cls350",
+        "count": 41
+      },
+      {
+        "name": "E350",
+        "count": 37
+      },
+      {
+        "name": "A35 Amg",
+        "count": 37
+      },
+      {
+        "name": "Cla-Class",
+        "count": 37
+      },
+      {
+        "name": "Gls450",
+        "count": 34
+      },
+      {
+        "name": "A45 Amg",
+        "count": 32
+      },
+      {
+        "name": "Glb200",
+        "count": 30
+      },
+      {
+        "name": "S450",
+        "count": 29
+      },
+      {
+        "name": "G-Class",
+        "count": 26
+      },
+      {
+        "name": "Ml350",
+        "count": 23
+      },
+      {
+        "name": "C240",
+        "count": 23
+      },
+      {
+        "name": "Gle-Class",
+        "count": 21
+      },
+      {
+        "name": "V260",
+        "count": 21
+      },
+      {
+        "name": "G63",
+        "count": 20
+      },
+      {
+        "name": "Gls400",
+        "count": 20
+      },
+      {
+        "name": "A250",
+        "count": 20
+      },
+      {
+        "name": "B200",
+        "count": 18
+      },
+      {
+        "name": "Ml400",
+        "count": 16
+      },
+      {
+        "name": "Cls400",
+        "count": 16
+      },
+      {
+        "name": "Slk250",
+        "count": 16
+      },
+      {
+        "name": "C-Class",
+        "count": 15
+      },
+      {
+        "name": "Ml-Class",
+        "count": 15
+      },
+      {
+        "name": "Ml250",
+        "count": 14
+      },
+      {
+        "name": "C180",
+        "count": 13
+      },
+      {
+        "name": "E230",
+        "count": 13
+      },
+      {
+        "name": "E-Class",
+        "count": 13
+      },
+      {
+        "name": "S300L",
+        "count": 12
+      },
+      {
+        "name": "Cls-Class",
+        "count": 12
+      },
+      {
+        "name": "Gle250D",
+        "count": 12
+      },
+      {
+        "name": "Gle53",
+        "count": 11
+      },
+      {
+        "name": "S350L",
+        "count": 11
+      },
+      {
+        "name": "Gla45",
+        "count": 11
+      },
+      {
+        "name": "V250",
+        "count": 10
+      },
+      {
+        "name": "Gla-Class",
+        "count": 10
+      },
+      {
+        "name": "Cla45",
+        "count": 10
+      },
+      {
+        "name": "E260",
+        "count": 9
+      },
+      {
+        "name": "C200K",
+        "count": 9
+      },
+      {
+        "name": "C200 Kompressor",
+        "count": 9
+      },
+      {
+        "name": "B-Class",
+        "count": 9
+      },
+      {
+        "name": "Slk200",
+        "count": 9
+      },
+      {
+        "name": "Amg Gla35",
+        "count": 9
+      },
+      {
+        "name": "Amg Cla45",
+        "count": 9
+      },
+      {
+        "name": "S400",
+        "count": 8
+      },
+      {
+        "name": "R300",
+        "count": 7
+      },
+      {
+        "name": "V220",
+        "count": 7
+      },
+      {
+        "name": "S500L",
+        "count": 7
+      },
+      {
+        "name": "S350",
+        "count": 6
+      },
+      {
+        "name": "E200K",
+        "count": 6
+      },
+      {
+        "name": "Amg Gt",
+        "count": 6
+      },
+      {
+        "name": "Gl500",
+        "count": 5
+      },
+      {
+        "name": "Gl400",
+        "count": 5
+      },
+      {
+        "name": "Sprinter",
+        "count": 4
+      },
+      {
+        "name": "G400",
+        "count": 4
+      },
+      {
+        "name": "E240",
+        "count": 4
+      },
+      {
+        "name": "Viano",
+        "count": 4
+      },
+      {
+        "name": "E280",
+        "count": 4
+      },
+      {
+        "name": "C280",
+        "count": 4
+      },
+      {
+        "name": "Sl43",
+        "count": 4
+      },
+      {
+        "name": "R-Class",
+        "count": 4
+      },
+      {
+        "name": "Gle250",
+        "count": 4
+      },
+      {
+        "name": "S500",
+        "count": 3
+      },
+      {
+        "name": "Cls63 Amg",
+        "count": 3
+      },
+      {
+        "name": "Cls 350",
+        "count": 3
+      },
+      {
+        "name": "S320",
+        "count": 3
+      },
+      {
+        "name": "E320",
+        "count": 3
+      },
+      {
+        "name": "Amg E43",
+        "count": 3
+      },
+      {
+        "name": "B170",
+        "count": 2
+      },
+      {
+        "name": "Vito",
+        "count": 2
+      },
+      {
+        "name": "Sl300",
+        "count": 2
+      },
+      {
+        "name": "Gls-Class",
+        "count": 2
+      },
+      {
+        "name": "Cls500",
+        "count": 2
+      },
+      {
+        "name": "Sl350",
+        "count": 2
+      },
+      {
+        "name": "G300",
+        "count": 2
+      },
+      {
+        "name": "E Class",
+        "count": 2
+      },
+      {
+        "name": "Clc200",
+        "count": 2
+      },
+      {
+        "name": "Ml 350",
+        "count": 2
+      },
+      {
+        "name": "B180",
+        "count": 2
+      },
+      {
+        "name": "S500 L",
+        "count": 2
+      },
+      {
+        "name": "Lainnya",
+        "count": 1
+      },
+      {
+        "name": "Gl350 Cdi",
+        "count": 1
+      },
+      {
+        "name": "S280",
+        "count": 1
+      },
+      {
+        "name": "E220",
+        "count": 1
+      },
+      {
+        "name": "Clc-Class",
+        "count": 1
+      },
+      {
+        "name": "Slc200",
+        "count": 1
+      },
+      {
+        "name": "S320L",
+        "count": 1
+      },
+      {
+        "name": "C230",
+        "count": 1
+      },
+      {
+        "name": "S560",
+        "count": 1
+      },
+      {
+        "name": "V350",
+        "count": 1
+      },
+      {
+        "name": "Sl55",
+        "count": 1
+      },
+      {
+        "name": "Cls",
+        "count": 1
+      },
+      {
+        "name": "S300",
+        "count": 1
+      },
+      {
+        "name": "A-Class",
+        "count": 1
+      },
+      {
+        "name": "C43",
+        "count": 1
+      },
+      {
+        "name": "C350",
+        "count": 1
+      },
+      {
+        "name": "Glc-Class",
+        "count": 1
+      },
+      {
+        "name": "Slk230",
+        "count": 1
+      },
+      {
+        "name": "C180 Kompressor",
+        "count": 1
+      },
+      {
+        "name": "C230 Kompressor",
+        "count": 1
+      },
+      {
+        "name": "Lain-Lain",
+        "count": 1
+      },
+      {
+        "name": "Ml320",
+        "count": 1
+      },
+      {
+        "name": "R350",
+        "count": 1
+      },
+      {
+        "name": "Eqs 450+",
+        "count": 1
+      },
+      {
+        "name": "G500",
+        "count": 1
+      },
+      {
+        "name": "Sl-Class",
+        "count": 1
+      },
+      {
+        "name": "Amg A35",
+        "count": 1
+      },
+      {
+        "name": "Amg A45",
+        "count": 1
+      },
+      {
+        "name": "Slc-Class",
+        "count": 1
+      }
+    ],
+    "Suzuki": [
+      {
+        "name": "Ertiga",
+        "count": 1014
+      },
+      {
+        "name": "Xl7",
+        "count": 518
+      },
+      {
+        "name": "Ignis",
+        "count": 398
+      },
+      {
+        "name": "Baleno",
+        "count": 341
+      },
+      {
+        "name": "Karimun Wagon R",
+        "count": 194
+      },
+      {
+        "name": "Sx4",
+        "count": 182
+      },
+      {
+        "name": "Jimny",
+        "count": 159
+      },
+      {
+        "name": "Grand Vitara",
+        "count": 91
+      },
+      {
+        "name": "S-Presso",
+        "count": 58
+      },
+      {
+        "name": "Swift",
+        "count": 56
+      },
+      {
+        "name": "Splash",
+        "count": 56
+      },
+      {
+        "name": "Apv",
+        "count": 30
+      },
+      {
+        "name": "Carry",
+        "count": 29
+      },
+      {
+        "name": "Karimun",
+        "count": 27
+      },
+      {
+        "name": "Fronx",
+        "count": 17
+      },
+      {
+        "name": "Apv Arena",
+        "count": 15
+      },
+      {
+        "name": "Carry Pick-Up",
+        "count": 14
+      },
+      {
+        "name": "Aerio",
+        "count": 7
+      },
+      {
+        "name": "Lain-Lain",
+        "count": 4
+      },
+      {
+        "name": "Katana",
+        "count": 4
+      },
+      {
+        "name": "Escudo",
+        "count": 2
+      },
+      {
+        "name": "Arena",
+        "count": 1
+      },
+      {
+        "name": "Karimun Wagon",
+        "count": 1
+      },
+      {
+        "name": "Vitara",
+        "count": 1
+      },
+      {
+        "name": "Karimun Estillo",
+        "count": 1
+      }
+    ],
+    "Toyota": [
+      {
+        "name": "Kijang Innova",
+        "count": 501
+      },
+      {
+        "name": "Avanza",
+        "count": 470
+      },
+      {
+        "name": "Fortuner",
+        "count": 288
+      },
+      {
+        "name": "Calya",
+        "count": 264
+      },
+      {
+        "name": "Alphard",
+        "count": 263
+      },
+      {
+        "name": "Sienta",
+        "count": 240
+      },
+      {
+        "name": "Raize",
+        "count": 232
+      },
+      {
+        "name": "Rush",
+        "count": 229
+      },
+      {
+        "name": "Agya",
+        "count": 201
+      },
+      {
+        "name": "Yaris",
+        "count": 199
+      },
+      {
+        "name": "Voxy",
+        "count": 182
+      },
+      {
+        "name": "Camry",
+        "count": 159
+      },
+      {
+        "name": "Vellfire",
+        "count": 85
+      },
+      {
+        "name": "Kijang Innova Zenix",
+        "count": 55
+      },
+      {
+        "name": "Veloz",
+        "count": 51
+      },
+      {
+        "name": "Corolla Altis",
+        "count": 50
+      },
+      {
+        "name": "Vios",
+        "count": 45
+      },
+      {
+        "name": "Yaris Cross",
+        "count": 38
+      },
+      {
+        "name": "Harrier",
+        "count": 29
+      },
+      {
+        "name": "Land Cruiser",
+        "count": 29
+      },
+      {
+        "name": "Corolla",
+        "count": 26
+      },
+      {
+        "name": "Hiace",
+        "count": 20
+      },
+      {
+        "name": "Nav1",
+        "count": 16
+      },
+      {
+        "name": "Etios Valco",
+        "count": 14
+      },
+      {
+        "name": "Crown",
+        "count": 8
+      },
+      {
+        "name": "Hilux",
+        "count": 8
+      },
+      {
+        "name": "Kijang",
+        "count": 6
+      },
+      {
+        "name": "C-Hr",
+        "count": 6
+      },
+      {
+        "name": "Corolla Cross",
+        "count": 6
+      },
+      {
+        "name": "Etios",
+        "count": 5
+      },
+      {
+        "name": "Previa",
+        "count": 3
+      },
+      {
+        "name": "Altis",
+        "count": 2
+      },
+      {
+        "name": "Lexus",
+        "count": 2
+      },
+      {
+        "name": "Land Cruiser Prado",
+        "count": 2
+      },
+      {
+        "name": "Prado",
+        "count": 1
+      },
+      {
+        "name": "Ft86",
+        "count": 1
+      },
+      {
+        "name": "Supra",
+        "count": 1
+      },
+      {
+        "name": "Soluna",
+        "count": 1
+      },
+      {
+        "name": "Ft",
+        "count": 1
+      },
+      {
+        "name": "Mark X",
+        "count": 1
+      },
+      {
+        "name": "Roomy",
+        "count": 1
+      },
+      {
+        "name": "Granace",
+        "count": 1
+      }
+    ]
+  },
   "wilayah_list": [
     "Bekasi",
     "Bogor",
@@ -27,6 +932,14 @@
     "Luar Jabodetabek",
     "Tangerang"
   ],
+  "wilayah_counts": {
+    "Jakarta": 11703,
+    "Tangerang": 1442,
+    "Bekasi": 1106,
+    "Luar Jabodetabek": 1063,
+    "Bogor": 949,
+    "Depok": 536
+  },
   "transmisi_list": [
     "Automatic",
     "Manual"
@@ -37,6 +950,6 @@
     "Hybrid"
   ],
   "total_clean_samples": 16799,
-  "train_samples": 13453,
-  "test_samples": 3346
+  "train_samples": 13439,
+  "test_samples": 3360
 }

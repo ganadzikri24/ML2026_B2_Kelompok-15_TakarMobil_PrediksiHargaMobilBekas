@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-def predict_car_price(model, merek, tahun, km, transmisi, bahan_bakar, wilayah):
+def predict_car_price(model, merek, model_mobil, tahun, km, transmisi, bahan_bakar, wilayah):
     """
     Menghitung prediksi harga pasar mobil bekas dan interval rentang wajar.
     """
@@ -12,6 +12,7 @@ def predict_car_price(model, merek, tahun, km, transmisi, bahan_bakar, wilayah):
         'Usia_Mobil': int(usia),
         'KM_Clean': float(km),
         'Merek_Clean': str(merek),
+        'Model_Clean': str(model_mobil),
         'Transmisi_Clean': str(transmisi),
         'Bahan_Bakar_Clean': str(bahan_bakar),
         'Wilayah': str(wilayah)
