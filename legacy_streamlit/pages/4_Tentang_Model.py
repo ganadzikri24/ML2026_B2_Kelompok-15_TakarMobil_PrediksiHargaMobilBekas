@@ -46,7 +46,7 @@ if 'metrics_table' in eval_rep:
         hide_index=True
     )
     
-    st.caption("🏆 **XGBoost Regressor** terpilih sebagai model terbaik karena menghasilkan akurasi tertinggi ($R^2 = 69.3\%$) dan rata-rata galat terendah.")
+    st.caption("🏆 **XGBoost Regressor** dipilih sebagai mesin prediksi utama karena MAE paling rendah (Rp 30,9 Jt) dan R² = 84,4%.")
 
 st.divider()
 
@@ -90,7 +90,7 @@ st.subheader("📚 3. Sumber Dataset & Metodologi Ilmiah")
 st.markdown("""
 - **Dataset:** *Dataset Iklan Mobil Bekas Indonesia* ([Zenodo Record 17548894](https://zenodo.org/records/17548894)).
 - **Volume Data:** 17.670 baris data mentah $\\rightarrow$ **16.799 baris data bersih** setelah filtering.
-- **Skema Validasi:** `GroupShuffleSplit` (80% Train : 20% Test) berbasis grup merek/model kendaraan guna mencegah kebocoran data (*zero data leakage*), serta 5-Fold `GroupKFold` untuk *hyperparameter tuning*.
+- **Skema Validasi:** `StratifiedShuffleSplit` (80% Train : 20% Test) berbasis merek/tipe kendaraan dengan 5-Fold Cross-Validation.
 - **Target Transformation:** Menggunakan transformasi $\log(1 + \text{Harga})$ untuk menormalkan distribusi harga yang menceng ke kanan (*right-skewed*).
 """)
 

@@ -83,7 +83,7 @@ if models_ready:
         st.markdown(f"""
         <div class="metric-card">
             <h3 style="color:#10B981; margin:0;">XGBoost</h3>
-            <p style="color:#64748B; margin:5px 0 0 0; font-size:0.9rem;">Algoritma Terbaik (R² = 69.3%)</p>
+            <p style="color:#64748B; margin:5px 0 0 0; font-size:0.9rem;">Algoritma Utama (R² = 84.4% · MAE Rp 31 Jt)</p>
         </div>
         """, unsafe_allow_html=True)
     with col3:
