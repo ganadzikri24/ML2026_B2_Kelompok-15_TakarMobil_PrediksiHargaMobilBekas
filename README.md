@@ -74,6 +74,6 @@ TakarMobil/
 
 | No. | Nama Mahasiswa | NIM |
 | :---: | --- | --- |
-| 1. | Gyanrendra Nayaran Wiratmaja | J0404241007 |
-| 2. | Aisha Aulia Darmawan | J0404241172 |
-| 3. | Muhamad Ganabitz Dzikri | J0404241157 |
+| 1. | Aisha Aulia Darmawan | J0404241007 |
+| 2. | Muhamad Ganabitz Dzikri | J0404241157 |
+| 3. | Gyanrendra Nayaran Wiratmaja | J0404241172 |
