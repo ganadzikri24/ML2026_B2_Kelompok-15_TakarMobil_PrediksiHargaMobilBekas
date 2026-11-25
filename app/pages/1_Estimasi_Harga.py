@@ -4,11 +4,13 @@ import numpy as np
 import os
 import sys
 
-# Tambahkan path root
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from app.utils.model_loader import load_models_and_meta
-from app.utils.predictor import predict_car_price
-from app.utils.visualizer import create_price_gauge
+# Tambahkan path utils langsung (fix import)
+_utils_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils'))
+if _utils_dir not in sys.path:
+    sys.path.insert(0, _utils_dir)
+from model_loader import load_models_and_meta
+from predictor import predict_car_price
+from visualizer import create_price_gauge
 
 st.set_page_config(page_title="Estimasi Harga - TakarMobil", page_icon="🔍", layout="wide")
 

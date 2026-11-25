@@ -4,9 +4,11 @@ import numpy as np
 import os
 import sys
 
-# Tambahkan direktori root dan utils ke path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from app.utils.model_loader import load_models_and_meta
+# Tambahkan direktori utils langsung ke path (fix import)
+_utils_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'utils'))
+if _utils_dir not in sys.path:
+    sys.path.insert(0, _utils_dir)
+from model_loader import load_models_and_meta
 
 # Konfigurasi Halaman Utama
 st.set_page_config(

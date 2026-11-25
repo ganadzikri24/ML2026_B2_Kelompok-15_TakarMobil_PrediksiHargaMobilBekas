@@ -4,10 +4,12 @@ import numpy as np
 import os
 import sys
 
-# Tambahkan path root
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from app.utils.model_loader import load_models_and_meta
-from app.utils.visualizer import create_feature_importance_plot
+# Tambahkan path utils langsung (fix import)
+_utils_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils'))
+if _utils_dir not in sys.path:
+    sys.path.insert(0, _utils_dir)
+from model_loader import load_models_and_meta
+from visualizer import create_feature_importance_plot
 
 st.set_page_config(page_title="Faktor Penentu Harga - TakarMobil", page_icon="📊", layout="wide")
 
