@@ -75,15 +75,15 @@ if models_ready:
     with col1:
         st.markdown(f"""
         <div class="metric-card">
-            <h3 style="color:#2563EB; margin:0;">16.799</h3>
-            <p style="color:#64748B; margin:5px 0 0 0; font-size:0.9rem;">Total Mobil Dianalisis</p>
+            <h3 style="color:#2563EB; margin:0;">13.359</h3>
+            <p style="color:#64748B; margin:5px 0 0 0; font-size:0.9rem;">Total Iklan Unik Dianalisis</p>
         </div>
         """, unsafe_allow_html=True)
     with col2:
         st.markdown(f"""
         <div class="metric-card">
             <h3 style="color:#10B981; margin:0;">XGBoost</h3>
-            <p style="color:#64748B; margin:5px 0 0 0; font-size:0.9rem;">Algoritma Utama (R² = 84.4% · MAE Rp 31 Jt)</p>
+            <p style="color:#64748B; margin:5px 0 0 0; font-size:0.9rem;">Algoritma Utama (R² = 91.2% · MAE Rp 31 Jt)</p>
         </div>
         """, unsafe_allow_html=True)
     with col3:

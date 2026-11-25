@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TakarMobil — Taksiran Harga Mobil Bekas Jabodetabek</title>
-<meta name="description" content="Estimasi harga pasar mobil bekas dan pengecek kewajaran iklan berbasis XGBoost dari 16.799 data iklan Jabodetabek. Proyek pembelajaran universitas nonkomersial.">
+<meta name="description" content="Estimasi harga pasar mobil bekas dan pengecek kewajaran iklan berbasis XGBoost dari 13.359 iklan unik Jabodetabek. Proyek pembelajaran universitas nonkomersial.">
 <meta name="theme-color" content="#111114">
 <link rel="icon" type="image/png" href="/media/favicon.png">
 <link rel="preload" href="/static/fonts/jakarta-600.woff2" as="font" type="font/woff2" crossorigin>
@@ -56,7 +56,7 @@
       </video>
       <div class="hero-top">
         <h1><span class="ln"><span>Takar harga mobil bekas.</span></span><span class="ln"><span>Tawar dengan yakin.</span></span></h1>
-        <p class="sub">Taksiran harga pasar dan rentang tawarnya dari 16.799 iklan Jabodetabek, lengkap hingga tipe kendaraan spesifik.</p>
+        <p class="sub">Taksiran harga pasar dan rentang tawarnya dari 13.359 iklan unik Jabodetabek, lengkap hingga tipe kendaraan spesifik.</p>
       </div>
       <div class="hero-bottom">
         <a class="btn btn-hero" href="/estimasi" data-link>
@@ -164,10 +164,10 @@
         <div class="wrap">
           <div class="sec-head">
             <span class="eyebrow">Pengujian model</span>
-            <h2>Terukur pada 3.360 data uji terpisah.</h2>
+            <h2>Terukur pada 2.672 data uji terpisah.</h2>
           </div>
           <div class="proof" id="proof"></div>
-          <p class="proof-note">Dengan memasukkan fitur tipe kendaraan spesifik (Model_Clean), galat rata-rata XGBoost turun hampir separuhnya menjadi sekitar Rp 31 juta.</p>
+          <p class="proof-note">Setelah deduplikasi iklan ganda, penyertaan tipe kendaraan spesifik (Model_Clean), dan penyeragaman skala kilometer, XGBoost mencapai R² 0,912 dengan rata-rata selisih Rp 31 juta.</p>
         </div>
       </section>
     </div>

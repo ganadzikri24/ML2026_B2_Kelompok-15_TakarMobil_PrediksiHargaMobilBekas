@@ -24,59 +24,55 @@
     "Daihatsu": [
       {
         "name": "Sigra",
-        "count": 852
+        "count": 723
       },
       {
         "name": "Ayla",
-        "count": 801
+        "count": 648
       },
       {
         "name": "Xenia",
-        "count": 741
+        "count": 611
       },
       {
         "name": "Terios",
-        "count": 486
+        "count": 408
       },
       {
         "name": "Rocky",
-        "count": 214
+        "count": 174
       },
       {
         "name": "Sirion",
-        "count": 172
+        "count": 136
       },
       {
         "name": "Gran Max",
-        "count": 85
+        "count": 76
       },
       {
         "name": "Luxio",
-        "count": 43
+        "count": 37
       },
       {
         "name": "Taft",
-        "count": 13
+        "count": 11
       },
       {
         "name": "Gran Max Mb",
-        "count": 7
-      },
-      {
-        "name": "Gran Max Pick-Up",
-        "count": 5
+        "count": 6
       },
       {
         "name": "Gran Max Pu",
         "count": 4
       },
       {
-        "name": "Taruna",
+        "name": "Gran Max Pick-Up",
         "count": 4
       },
       {
-        "name": "Grand Xenia",
-        "count": 2
+        "name": "Taruna",
+        "count": 3
       },
       {
         "name": "Espass",
@@ -85,60 +81,64 @@
       {
         "name": "Ceria",
         "count": 1
+      },
+      {
+        "name": "Grand Xenia",
+        "count": 1
       }
     ],
     "Honda": [
       {
         "name": "Cr-V",
-        "count": 514
-      },
-      {
-        "name": "Br-V",
-        "count": 460
+        "count": 424
       },
       {
         "name": "Hr-V",
-        "count": 419
+        "count": 385
+      },
+      {
+        "name": "Br-V",
+        "count": 365
       },
       {
         "name": "Brio",
-        "count": 358
+        "count": 307
       },
       {
         "name": "Mobilio",
-        "count": 326
+        "count": 254
       },
       {
         "name": "Brio Satya",
-        "count": 321
+        "count": 229
       },
       {
         "name": "Jazz",
-        "count": 164
+        "count": 137
       },
       {
         "name": "City",
-        "count": 142
+        "count": 126
       },
       {
         "name": "Civic",
-        "count": 112
+        "count": 100
       },
       {
         "name": "Freed",
-        "count": 98
+        "count": 85
       },
       {
         "name": "Wr-V",
-        "count": 86
+        "count": 75
       },
       {
         "name": "Accord",
-        "count": 45
+        "count": 40
       },
       {
         "name": "Odyssey",
-        "count": 24
+        "count": 23
       },
       {
         "name": "Civic Hatchback",
@@ -148,150 +148,138 @@
     "Mercedes-Benz": [
       {
         "name": "C200",
-        "count": 333
+        "count": 282
       },
       {
         "name": "Glc200",
-        "count": 292
-      },
-      {
-        "name": "C300",
-        "count": 239
+        "count": 227
       },
       {
         "name": "E300",
-        "count": 224
+        "count": 205
       },
       {
-        "name": "Cla200",
-        "count": 180
+        "name": "C300",
+        "count": 175
       },
       {
         "name": "Gla200",
-        "count": 165
+        "count": 139
+      },
+      {
+        "name": "Cla200",
+        "count": 137
       },
       {
         "name": "E250",
-        "count": 144
+        "count": 112
       },
       {
         "name": "C250",
-        "count": 128
-      },
-      {
-        "name": "E200",
-        "count": 127
+        "count": 107
       },
       {
         "name": "Gle450",
-        "count": 109
+        "count": 79
       },
       {
-        "name": "A200",
+        "name": "E200",
         "count": 78
       },
       {
-        "name": "Gle400",
-        "count": 68
+        "name": "A200",
+        "count": 64
       },
       {
-        "name": "Glc300",
-        "count": 54
+        "name": "Gle400",
+        "count": 56
       },
       {
         "name": "Glc250",
-        "count": 48
+        "count": 47
       },
       {
-        "name": "S-Class",
+        "name": "Glc300",
         "count": 46
       },
       {
-        "name": "S450L",
-        "count": 45
-      },
-      {
-        "name": "S400L",
-        "count": 42
-      },
-      {
-        "name": "Gle43",
-        "count": 42
-      },
-      {
         "name": "E400",
-        "count": 42
-      },
-      {
-        "name": "Cls350",
         "count": 41
       },
       {
-        "name": "E350",
-        "count": 37
+        "name": "S-Class",
+        "count": 40
       },
       {
-        "name": "A35 Amg",
-        "count": 37
+        "name": "S400L",
+        "count": 35
       },
       {
         "name": "Cla-Class",
-        "count": 37
+        "count": 35
+      },
+      {
+        "name": "S450L",
+        "count": 35
+      },
+      {
+        "name": "E350",
+        "count": 28
       },
       {
         "name": "Gls450",
-        "count": 34
+        "count": 28
       },
       {
-        "name": "A45 Amg",
-        "count": 32
-      },
-      {
-        "name": "Glb200",
-        "count": 30
+        "name": "Cls350",
+        "count": 25
       },
       {
         "name": "S450",
-        "count": 29
+        "count": 25
       },
       {
         "name": "G-Class",
-        "count": 26
+        "count": 25
       },
       {
-        "name": "Ml350",
-        "count": 23
-      },
-      {
-        "name": "C240",
-        "count": 23
+        "name": "Glb200",
+        "count": 22
       },
       {
         "name": "Gle-Class",
-        "count": 21
+        "count": 20
       },
       {
         "name": "V260",
-        "count": 21
+        "count": 20
       },
       {
-        "name": "G63",
-        "count": 20
+        "name": "Ml350",
+        "count": 19
       },
       {
         "name": "Gls400",
-        "count": 20
+        "count": 19
       },
       {
         "name": "A250",
-        "count": 20
+        "count": 19
       },
       {
         "name": "B200",
         "count": 18
       },
       {
-        "name": "Ml400",
+        "name": "G63",
+        "count": 18
+      },
+      {
+        "name": "A45 Amg",
+        "count": 16
+      },
+      {
+        "name": "C240",
         "count": 16
       },
       {
@@ -299,8 +287,8 @@
         "count": 16
       },
       {
-        "name": "Slk250",
-        "count": 16
+        "name": "Gle43",
+        "count": 15
       },
       {
         "name": "C-Class",
@@ -311,7 +299,7 @@
         "count": 15
       },
       {
-        "name": "Ml250",
+        "name": "Slk250",
         "count": 14
       },
       {
@@ -319,7 +307,7 @@
         "count": 13
       },
       {
-        "name": "E230",
+        "name": "Ml400",
         "count": 13
       },
       {
@@ -327,19 +315,15 @@
         "count": 13
       },
       {
+        "name": "A35 Amg",
+        "count": 12
+      },
+      {
+        "name": "Ml250",
+        "count": 11
+      },
+      {
         "name": "S300L",
-        "count": 12
-      },
-      {
-        "name": "Cls-Class",
-        "count": 12
-      },
-      {
-        "name": "Gle250D",
-        "count": 12
-      },
-      {
-        "name": "Gle53",
         "count": 11
       },
       {
@@ -347,24 +331,8 @@
         "count": 11
       },
       {
-        "name": "Gla45",
-        "count": 11
-      },
-      {
-        "name": "V250",
-        "count": 10
-      },
-      {
         "name": "Gla-Class",
         "count": 10
-      },
-      {
-        "name": "Cla45",
-        "count": 10
-      },
-      {
-        "name": "E260",
-        "count": 9
       },
       {
         "name": "C200K",
@@ -375,11 +343,11 @@
         "count": 9
       },
       {
-        "name": "B-Class",
+        "name": "Cls-Class",
         "count": 9
       },
       {
-        "name": "Slk200",
+        "name": "Cla45",
         "count": 9
       },
       {
@@ -387,39 +355,59 @@
         "count": 9
       },
       {
-        "name": "Amg Cla45",
-        "count": 9
-      },
-      {
-        "name": "S400",
+        "name": "E260",
         "count": 8
       },
       {
-        "name": "R300",
+        "name": "Slk200",
+        "count": 8
+      },
+      {
+        "name": "S400",
         "count": 7
       },
       {
-        "name": "V220",
+        "name": "E230",
         "count": 7
       },
       {
-        "name": "S500L",
+        "name": "B-Class",
         "count": 7
       },
       {
-        "name": "S350",
-        "count": 6
+        "name": "Gla45",
+        "count": 7
+      },
+      {
+        "name": "Amg Cla45",
+        "count": 7
       },
       {
         "name": "E200K",
         "count": 6
       },
       {
-        "name": "Amg Gt",
+        "name": "Gle250D",
         "count": 6
       },
       {
         "name": "Gl500",
+        "count": 5
+      },
+      {
+        "name": "V250",
+        "count": 5
+      },
+      {
+        "name": "Gle53",
+        "count": 5
+      },
+      {
+        "name": "R300",
+        "count": 5
+      },
+      {
+        "name": "S350",
         "count": 5
       },
       {
@@ -431,6 +419,10 @@
         "count": 4
       },
       {
+        "name": "V220",
+        "count": 4
+      },
+      {
         "name": "G400",
         "count": 4
       },
@@ -439,15 +431,7 @@
         "count": 4
       },
       {
-        "name": "Viano",
-        "count": 4
-      },
-      {
-        "name": "E280",
-        "count": 4
-      },
-      {
-        "name": "C280",
+        "name": "Amg Gt",
         "count": 4
       },
       {
@@ -459,15 +443,23 @@
         "count": 4
       },
       {
-        "name": "Gle250",
-        "count": 4
-      },
-      {
         "name": "S500",
         "count": 3
       },
       {
         "name": "Cls63 Amg",
+        "count": 3
+      },
+      {
+        "name": "Viano",
+        "count": 3
+      },
+      {
+        "name": "E280",
+        "count": 3
+      },
+      {
+        "name": "C280",
         "count": 3
       },
       {
@@ -487,6 +479,14 @@
         "count": 3
       },
       {
+        "name": "Gle250",
+        "count": 3
+      },
+      {
+        "name": "S500L",
+        "count": 2
+      },
+      {
         "name": "B170",
         "count": 2
       },
@@ -500,10 +500,6 @@
       },
       {
         "name": "Gls-Class",
-        "count": 2
-      },
-      {
-        "name": "Cls500",
         "count": 2
       },
       {
@@ -560,6 +556,10 @@
       },
       {
         "name": "S320L",
+        "count": 1
+      },
+      {
+        "name": "Cls500",
         "count": 1
       },
       {
@@ -654,83 +654,83 @@
     "Suzuki": [
       {
         "name": "Ertiga",
-        "count": 1014
+        "count": 773
       },
       {
         "name": "Xl7",
-        "count": 518
+        "count": 422
       },
       {
         "name": "Ignis",
-        "count": 398
+        "count": 292
       },
       {
         "name": "Baleno",
-        "count": 341
-      },
-      {
-        "name": "Karimun Wagon R",
-        "count": 194
-      },
-      {
-        "name": "Sx4",
-        "count": 182
+        "count": 198
       },
       {
         "name": "Jimny",
-        "count": 159
+        "count": 130
+      },
+      {
+        "name": "Karimun Wagon R",
+        "count": 118
+      },
+      {
+        "name": "Sx4",
+        "count": 116
       },
       {
         "name": "Grand Vitara",
-        "count": 91
+        "count": 79
       },
       {
         "name": "S-Presso",
-        "count": 58
+        "count": 35
       },
       {
         "name": "Swift",
-        "count": 56
+        "count": 33
       },
       {
         "name": "Splash",
-        "count": 56
+        "count": 33
       },
       {
         "name": "Apv",
-        "count": 30
+        "count": 25
       },
       {
         "name": "Carry",
-        "count": 29
+        "count": 24
       },
       {
         "name": "Karimun",
-        "count": 27
+        "count": 22
       },
       {
         "name": "Fronx",
-        "count": 17
-      },
-      {
-        "name": "Apv Arena",
-        "count": 15
+        "count": 16
       },
       {
         "name": "Carry Pick-Up",
-        "count": 14
+        "count": 11
       },
       {
-        "name": "Aerio",
-        "count": 7
+        "name": "Apv Arena",
+        "count": 10
       },
       {
         "name": "Lain-Lain",
         "count": 4
       },
       {
+        "name": "Aerio",
+        "count": 3
+      },
+      {
         "name": "Katana",
-        "count": 4
+        "count": 3
       },
       {
         "name": "Escudo",
@@ -738,10 +738,6 @@
       },
       {
         "name": "Arena",
-        "count": 1
-      },
-      {
-        "name": "Karimun Wagon",
         "count": 1
       },
       {
@@ -756,123 +752,123 @@
     "Toyota": [
       {
         "name": "Kijang Innova",
-        "count": 501
+        "count": 403
       },
       {
         "name": "Avanza",
-        "count": 470
+        "count": 362
       },
       {
         "name": "Fortuner",
-        "count": 288
-      },
-      {
-        "name": "Calya",
-        "count": 264
+        "count": 247
       },
       {
         "name": "Alphard",
-        "count": 263
+        "count": 223
       },
       {
-        "name": "Sienta",
-        "count": 240
-      },
-      {
-        "name": "Raize",
-        "count": 232
+        "name": "Calya",
+        "count": 186
       },
       {
         "name": "Rush",
-        "count": 229
+        "count": 183
       },
       {
-        "name": "Agya",
-        "count": 201
+        "name": "Sienta",
+        "count": 169
+      },
+      {
+        "name": "Raize",
+        "count": 162
       },
       {
         "name": "Yaris",
-        "count": 199
+        "count": 157
+      },
+      {
+        "name": "Agya",
+        "count": 147
       },
       {
         "name": "Voxy",
-        "count": 182
+        "count": 135
       },
       {
         "name": "Camry",
-        "count": 159
+        "count": 130
       },
       {
         "name": "Vellfire",
-        "count": 85
+        "count": 68
       },
       {
         "name": "Kijang Innova Zenix",
-        "count": 55
+        "count": 53
       },
       {
         "name": "Veloz",
-        "count": 51
-      },
-      {
-        "name": "Corolla Altis",
         "count": 50
       },
       {
+        "name": "Corolla Altis",
+        "count": 37
+      },
+      {
         "name": "Vios",
-        "count": 45
+        "count": 36
       },
       {
         "name": "Yaris Cross",
-        "count": 38
-      },
-      {
-        "name": "Harrier",
-        "count": 29
+        "count": 30
       },
       {
         "name": "Land Cruiser",
-        "count": 29
+        "count": 27
+      },
+      {
+        "name": "Harrier",
+        "count": 24
       },
       {
         "name": "Corolla",
-        "count": 26
-      },
-      {
-        "name": "Hiace",
         "count": 20
       },
       {
+        "name": "Hiace",
+        "count": 15
+      },
+      {
         "name": "Nav1",
-        "count": 16
+        "count": 13
       },
       {
         "name": "Etios Valco",
-        "count": 14
-      },
-      {
-        "name": "Crown",
-        "count": 8
-      },
-      {
-        "name": "Hilux",
-        "count": 8
+        "count": 9
       },
       {
         "name": "Kijang",
         "count": 6
       },
       {
-        "name": "C-Hr",
+        "name": "Crown",
+        "count": 6
+      },
+      {
+        "name": "Hilux",
         "count": 6
       },
       {
         "name": "Corolla Cross",
-        "count": 6
+        "count": 5
+      },
+      {
+        "name": "C-Hr",
+        "count": 3
       },
       {
         "name": "Etios",
-        "count": 5
+        "count": 3
       },
       {
         "name": "Previa",
@@ -880,10 +876,6 @@
       },
       {
         "name": "Altis",
-        "count": 2
-      },
-      {
-        "name": "Lexus",
         "count": 2
       },
       {
@@ -911,6 +903,10 @@
         "count": 1
       },
       {
+        "name": "Lexus",
+        "count": 1
+      },
+      {
         "name": "Mark X",
         "count": 1
       },
@@ -933,12 +929,12 @@
     "Tangerang"
   ],
   "wilayah_counts": {
-    "Jakarta": 11703,
-    "Tangerang": 1442,
-    "Bekasi": 1106,
-    "Luar Jabodetabek": 1063,
-    "Bogor": 949,
-    "Depok": 536
+    "Jakarta": 8906,
+    "Tangerang": 1342,
+    "Bekasi": 963,
+    "Luar Jabodetabek": 937,
+    "Bogor": 742,
+    "Depok": 469
   },
   "transmisi_list": [
     "Automatic",
@@ -949,7 +945,7 @@
     "Diesel",
     "Hybrid"
   ],
-  "total_clean_samples": 16799,
-  "train_samples": 13439,
-  "test_samples": 3360
+  "total_clean_samples": 13359,
+  "train_samples": 10687,
+  "test_samples": 2672
 }

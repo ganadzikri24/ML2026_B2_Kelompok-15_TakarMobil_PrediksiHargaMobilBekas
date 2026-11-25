@@ -28,7 +28,7 @@ except Exception as e:
 
 # --- 1. TABEL EVALUASI LENGKAP ---
 st.subheader("📊 1. Hasil Evaluasi Perbandingan 4 Algoritma ML vs Baseline")
-st.write("Sesuai **Ketentuan Dosen Poin 9**, seluruh model diuji secara independen pada data testing (3.346 mobil) yang tidak pernah dilihat saat pelatihan:")
+st.write("Sesuai **Ketentuan Dosen Poin 9**, seluruh model diuji secara independen pada data testing (2.672 mobil unik) yang tidak pernah dilihat saat pelatihan:")
 
 if 'metrics_table' in eval_rep:
     df_metrics = pd.DataFrame(eval_rep['metrics_table'])
@@ -46,7 +46,7 @@ if 'metrics_table' in eval_rep:
         hide_index=True
     )
     
-    st.caption("🏆 **XGBoost Regressor** dipilih sebagai mesin prediksi utama karena MAE paling rendah (Rp 30,9 Jt) dan R² = 84,4%.")
+    st.caption("🏆 **XGBoost Regressor** dipilih sebagai mesin prediksi utama karena MAE paling rendah (Rp 31,2 Jt) dan R² = 91,2%.")
 
 st.divider()
 
@@ -89,7 +89,7 @@ st.divider()
 st.subheader("📚 3. Sumber Dataset & Metodologi Ilmiah")
 st.markdown("""
 - **Dataset:** *Dataset Iklan Mobil Bekas Indonesia* ([Zenodo Record 17548894](https://zenodo.org/records/17548894)).
-- **Volume Data:** 17.670 baris data mentah $\\rightarrow$ **16.799 baris data bersih** setelah filtering.
+- **Volume Data:** 17.670 baris data mentah $\\rightarrow$ **13.359 baris data bersih unik** setelah deduplikasi & filtering.
 - **Skema Validasi:** `StratifiedShuffleSplit` (80% Train : 20% Test) berbasis merek/tipe kendaraan dengan 5-Fold Cross-Validation.
 - **Target Transformation:** Menggunakan transformasi $\log(1 + \text{Harga})$ untuk menormalkan distribusi harga yang menceng ke kanan (*right-skewed*).
 """)

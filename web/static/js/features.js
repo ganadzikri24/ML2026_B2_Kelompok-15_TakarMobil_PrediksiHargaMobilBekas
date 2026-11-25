@@ -266,8 +266,8 @@ export async function mountAbout() {
   }).join("");
   requestAnimationFrame(() => setTimeout(() => $$(".r2 i", tb).forEach(i => (i.style.width = i.dataset.w * 1.2 + "px")), 120));
   $("#dataPanel").innerHTML = `<div class="stack" style="gap:14px"><span class="eyebrow">Dataset &amp; validasi</span>
-    <p class="lead" style="max-width:none">Dataset Iklan Mobil Bekas Indonesia (<a class="link" href="https://zenodo.org/records/17548894" target="_blank" rel="noopener">Zenodo 17548894</a>), dari scraping OLX dan Mobil123. Dari 17.670 baris mentah tersaring menjadi <b>${meta.total_data.toLocaleString("id-ID")}</b> iklan bersih (${meta.train_data.toLocaleString("id-ID")} train dan ${meta.test_data.toLocaleString("id-ID")} test).</p>
-    <p class="lead" style="max-width:none">Split data memakai StratifiedShuffleSplit 80:20 agar seluruh tipe mobil umum hadir di data latih dan data uji secara terpisah, disertai validasi silang 5-Fold dan transformasi log(1 + harga) untuk menormalkan distribusi harga.</p></div>`;
+    <p class="lead" style="max-width:none">Dataset Iklan Mobil Bekas Indonesia (<a class="link" href="https://zenodo.org/records/17548894" target="_blank" rel="noopener">Zenodo 17548894</a>), dari scraping OLX dan Mobil123. Dari 17.670 baris mentah dilakukan penyaringan harga/merek/tahun, perbaikan skala kilometer, serta deduplikasi URL &amp; iklan repost identik hingga tersisa <b>${meta.total_data.toLocaleString("id-ID")}</b> iklan unik (${meta.train_data.toLocaleString("id-ID")} train dan ${meta.test_data.toLocaleString("id-ID")} test).</p>
+    <p class="lead" style="max-width:none">Split data memakai StratifiedShuffleSplit 80:20 agar seluruh tipe mobil umum hadir di data latih dan data uji tanpa kebocoran data, disertai validasi silang 5-Fold dan transformasi log(1 + harga) untuk menormalkan distribusi harga.</p></div>`;
 }
 
 /* ============ BERANDA ============ */

@@ -9,7 +9,7 @@
 
 ## Fitur Utama Web
 1. **Landing Page Interaktif**: Hero video bergerak (`media/animasi_landing.webm`), navbar meluncur, alur 3 langkah, dan ringkasan metrik uji nyata.
-2. **Estimasi Harga**: Form spesifikasi interaktif (pemilih logo merek, penggulung tahun, animasi tuas transmisi Manual/Automatic, animasi bahan bakar Bensin/Diesel/Hybrid, peta skematik Jabodetabek, dan spidometer kilometer) disertai kurva nilai per tahun produksi dan rentang harga wajar ±15%.
+2. **Estimasi Harga**: Form spesifikasi interaktif (pemilih logo merek + tipe mobil spesifik, penggulung tahun, animasi tuas transmisi Manual/Automatic, animasi bahan bakar Bensin/Diesel/Hybrid, peta Jabodetabek, spidometer kilometer bisa diketik) disertai loading animasi mobil dan kurva nilai per tahun produksi.
 3. **Deal Checker**: Membandingkan harga iklan terhadap nilai pasar wajar dengan meteran jarum interaktif (Sangat Murah sampai Sangat Mahal).
 4. **Faktor Harga (*Feature Importance*)**: Visualisasi kontribusi variabel pembentuk harga dari model XGBoost.
 5. **Tentang Model**: Perbandingan 4 algoritma regresi + baseline statistik, arsitektur pipeline, dataset, dan tim pengembang.
@@ -18,10 +18,10 @@
 
 ## Dataset & Metodologi
 - **Sumber Data:** Dataset Iklan Mobil Bekas Indonesia ([Zenodo Record 17548894](https://zenodo.org/records/17548894)) dari scraping OLX & Mobil123.
-- **Volume Data:** 17.670 baris mentah → **16.799 baris bersih** (13.453 train / 3.346 test).
-- **Cakupan Merek & Tipe:** 5 Merek Terpopuler (Toyota, Daihatsu, Suzuki, Honda, Mercedes-Benz) beserta 223 tipe spesifik (`Model_Clean`).
-- **Model Utama:** **XGBoost Regressor** (`R² = 0,844`, `MAE ≈ Rp 30,9 jt`, `RMSE ≈ Rp 161,6 jt`) dibandingkan dengan Ridge Regression (`R² = 0,918`, `MAE ≈ Rp 35,6 jt`), Random Forest, Decision Tree, dan Baseline Median.
-- **Skema Validasi:** `StratifiedShuffleSplit` 80:20 berbasis grup merek/tipe (`Model_Clean` menjadi fitur resmi) & 5-Fold Cross-Validation, target ditransformasi $\log(1 + \text{Harga})$.
+- **Volume Data:** 17.670 baris mentah → **13.359 iklan unik bersih** setelah pembersihan harga/merek/tahun, perbaikan skala kilometer `'K'`, dan deduplikasi iklan ganda (10.687 train / 2.672 test).
+- **Cakupan Merek & Tipe:** 5 Merek Terpopuler (Toyota, Daihatsu, Suzuki, Honda, Mercedes-Benz) beserta 222 tipe spesifik (`Model_Clean`).
+- **Model Utama:** **XGBoost Regressor** (`R² = 0,912`, `MAE ≈ Rp 31,2 jt`, `RMSE ≈ Rp 118,3 jt`) dibandingkan dengan Ridge Regression (`R² = 0,919`, `MAE ≈ Rp 36,9 jt`), Random Forest, Decision Tree, dan Baseline Median.
+- **Skema Validasi:** `StratifiedShuffleSplit` 80:20 berbasis merek/tipe (`Model_Clean` menjadi fitur resmi) & 5-Fold Cross-Validation, target ditransformasi $\log(1 + \text{Harga})$.
 
 ---
 
