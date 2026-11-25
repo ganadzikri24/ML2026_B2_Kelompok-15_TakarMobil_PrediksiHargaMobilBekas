@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TakarMobil — Taksiran Harga Mobil Bekas Jabodetabek</title>
-<meta name="description" content="Estimasi harga pasar mobil bekas dan pengecek kewajaran iklan berbasis XGBoost dari 13.359 iklan unik Jabodetabek. Proyek pembelajaran universitas nonkomersial.">
+<meta name="description" content="Estimasi harga pasar mobil bekas dan pengecek kewajaran iklan berbasis XGBoost dari 13.320 iklan terkurasi Jabodetabek. Proyek pembelajaran universitas nonkomersial.">
 <meta name="theme-color" content="#111114">
 <link rel="icon" type="image/png" href="/media/favicon.png">
 <link rel="preload" href="/static/fonts/jakarta-600.woff2" as="font" type="font/woff2" crossorigin>
@@ -56,7 +56,7 @@
       </video>
       <div class="hero-top">
         <h1><span class="ln"><span>Takar harga mobil bekas.</span></span><span class="ln"><span>Tawar dengan yakin.</span></span></h1>
-        <p class="sub">Taksiran harga pasar dan rentang tawarnya dari 13.359 iklan unik Jabodetabek, lengkap hingga tipe kendaraan spesifik.</p>
+        <p class="sub">Taksiran harga pasar dan rentang tawarnya dari 13.320 iklan terkurasi Jabodetabek, lengkap hingga tipe dan varian kendaraan.</p>
       </div>
       <div class="hero-bottom">
         <a class="btn btn-hero" href="/estimasi" data-link>
@@ -164,10 +164,10 @@
         <div class="wrap">
           <div class="sec-head">
             <span class="eyebrow">Pengujian model</span>
-            <h2>Terukur pada 2.669 data uji terpisah.</h2>
+            <h2>Terukur pada 2.664 data uji terpisah.</h2>
           </div>
           <div class="proof" id="proof"></div>
-          <p class="proof-note">Dengan deduplikasi penuh, pemetaan kawasan Jabodetabek akurat, pembagian grup anti-leakage (StratifiedGroupKFold), dan imputasi pasca-split, XGBoost mencapai R² 0,881 dengan rata-rata selisih Rp 34 juta.</p>
+          <p class="proof-note">Setelah normalisasi tipe lintas platform (Model_Clean &amp; Varian_Clean), indikator KM kosong, kurasi anomali, dan split anti-leakage ganda (Union-Find StratifiedGroupKFold), XGBoost mencapai R² 0,918 dengan rata-rata selisih Rp 30 juta.</p>
         </div>
       </section>
     </div>
@@ -230,7 +230,7 @@
       <div class="tool-head" style="margin-bottom:0">
         <span class="eyebrow">Metodologi</span>
         <h1>Bagaimana model bekerja</h1>
-        <p class="lead">Perbandingan lima algoritma pada data uji yang sama. XGBoost dipilih sebagai mesin prediksi utama karena unggul di seluruh metrik evaluasi (R² 0,881, RMSE Rp 100,3 jt, dan MAE paling rendah ~Rp 34 juta) sekaligus menyediakan interpretasi feature importance.</p>
+        <p class="lead">Perbandingan lima algoritma pada 2.664 data uji terpisah. XGBoost dipilih sebagai mesin prediksi utama karena MAE paling rendah (~Rp 30 juta, R² 0,918) dibandingkan Ridge Regression (R² 0,925, MAE ~Rp 34 juta) sekaligus menyediakan interpretasi feature importance.</p>
       </div>
       <div class="panel">
         <table class="tbl" id="evalTable"><thead><tr><th>Model</th><th>MAE</th><th>RMSE</th><th>R² Score</th></tr></thead><tbody></tbody></table>

@@ -28,7 +28,7 @@ except Exception as e:
 
 # --- 1. TABEL EVALUASI LENGKAP ---
 st.subheader("📊 1. Hasil Evaluasi Perbandingan 4 Algoritma ML vs Baseline")
-st.write("Sesuai **Ketentuan Dosen Poin 9**, seluruh model diuji secara independen pada data testing (2.669 mobil unik bebas kebocoran grup) yang tidak pernah dilihat saat pelatihan:")
+st.write("Sesuai **Ketentuan Dosen Poin 9**, seluruh model diuji secara independen pada data testing (2.664 mobil unik terisolasi tanpa overlap kunci dengan/tanpa harga) yang tidak pernah dilihat saat pelatihan:")
 
 if 'metrics_table' in eval_rep:
     df_metrics = pd.DataFrame(eval_rep['metrics_table'])
@@ -46,7 +46,7 @@ if 'metrics_table' in eval_rep:
         hide_index=True
     )
     
-    st.caption("🏆 **XGBoost Regressor** dipilih sebagai mesin prediksi utama karena unggul di R² (88,1%), RMSE (Rp 100,3 Jt), dan MAE terendah (Rp 33,9 Jt).")
+    st.caption("🏆 **XGBoost Regressor** dipilih sebagai mesin prediksi utama karena MAE paling rendah (Rp 30,0 Jt, R² = 91,8%) dibanding Ridge (R² = 92,5%, MAE Rp 34,4 Jt).")
 
 st.divider()
 
@@ -88,10 +88,10 @@ st.divider()
 # --- 3. DATASET & LITERATUR ---
 st.subheader("📚 3. Sumber Dataset & Metodologi Ilmiah")
 st.markdown(r"""
-- **Dataset:** *Dataset Iklan Mobil Bekas Indonesia* ([Zenodo Record 17548894](https://zenodo.org/records/17548894)).
-- **Volume Data:** 17.670 baris data mentah $\rightarrow$ **13.359 baris data bersih unik** (10.690 train / 2.669 test) setelah pemetaan Jabodetabek, deduplikasi & filtering.
-- **Skema Validasi:** `StratifiedGroupKFold` (80% Train : 20% Test) berbasis grup iklan kembar + imputasi KM pasca-split khusus data latih & 5-Fold Group-Aware Cross-Validation.
-- **Target Transformation:** Menggunakan transformasi $\log(1 + \text{Harga})$ untuk menormalkan distribusi harga yang menceng ke kanan (*right-skewed*).
+- **Dataset:** *Implementation of Machine Learning Algorithms to Predict Used Car Prices in Indonesia* ([Zenodo Record 17548894](https://zenodo.org/records/17548894), CC-BY-4.0, Mei–Oktober 2025).
+- **Volume Data:** 17.670 baris data mentah $\rightarrow$ **13.320 baris terkurasi** (10.656 train / 2.664 test) setelah normalisasi model + varian lintas platform, aturan Jabodetabek deterministik, indikator `KM_hilang`, kurasi 39 anomali input, & deduplikasi.
+- **Skema Validasi:** Union-Find (`kunci tanpa harga` + `kunci dengan harga`) + `StratifiedGroupKFold` (80% Train : 20% Test), imputasi KM pasca-split khusus statistik train, fitur usia tunggal `2025 - Tahun`, & 5-Fold Group-Aware Cross-Validation.
+- **Target Transformation:** Menggunakan transformasi $\log(1 + \text{Harga})$ untuk menekan variansi harga yang menceng ke kanan (*right-skewed*).
 """)
 
 st.divider()

@@ -1,18 +1,20 @@
 {
   "num_features": [
-    "Tahun_Num",
     "Usia_Mobil",
-    "KM_Clean"
+    "KM_Clean",
+    "KM_hilang"
   ],
   "cat_features": [
     "Merek_Clean",
     "Model_Clean",
+    "Varian_Clean",
     "Transmisi_Clean",
     "Bahan_Bakar_Clean",
     "Wilayah"
   ],
   "target_column": "Harga_Num",
   "log_target_column": "Log_Harga",
+  "tahun_acuan": 2025,
   "brands": [
     "Toyota",
     "Daihatsu",
@@ -24,15 +26,15 @@
     "Daihatsu": [
       {
         "name": "Sigra",
-        "count": 723
+        "count": 721
       },
       {
         "name": "Ayla",
-        "count": 648
+        "count": 646
       },
       {
         "name": "Xenia",
-        "count": 611
+        "count": 609
       },
       {
         "name": "Terios",
@@ -48,7 +50,7 @@
       },
       {
         "name": "Gran Max",
-        "count": 76
+        "count": 90
       },
       {
         "name": "Luxio",
@@ -57,18 +59,6 @@
       {
         "name": "Taft",
         "count": 11
-      },
-      {
-        "name": "Gran Max Mb",
-        "count": 6
-      },
-      {
-        "name": "Gran Max Pu",
-        "count": 4
-      },
-      {
-        "name": "Gran Max Pick-Up",
-        "count": 4
       },
       {
         "name": "Taruna",
@@ -81,55 +71,47 @@
       {
         "name": "Ceria",
         "count": 1
-      },
-      {
-        "name": "Grand Xenia",
-        "count": 1
       }
     ],
     "Honda": [
       {
-        "name": "Cr-V",
+        "name": "Brio",
+        "count": 536
+      },
+      {
+        "name": "CR-V",
         "count": 424
       },
       {
-        "name": "Hr-V",
-        "count": 385
+        "name": "HR-V",
+        "count": 384
       },
       {
-        "name": "Br-V",
-        "count": 365
-      },
-      {
-        "name": "Brio",
-        "count": 307
+        "name": "BR-V",
+        "count": 364
       },
       {
         "name": "Mobilio",
         "count": 254
       },
       {
-        "name": "Brio Satya",
-        "count": 229
-      },
-      {
         "name": "Jazz",
-        "count": 137
+        "count": 136
       },
       {
         "name": "City",
-        "count": 126
+        "count": 125
       },
       {
         "name": "Civic",
-        "count": 100
+        "count": 104
       },
       {
         "name": "Freed",
         "count": 85
       },
       {
-        "name": "Wr-V",
+        "name": "WR-V",
         "count": 75
       },
       {
@@ -139,530 +121,126 @@
       {
         "name": "Odyssey",
         "count": 23
-      },
-      {
-        "name": "Civic Hatchback",
-        "count": 4
       }
     ],
     "Mercedes-Benz": [
       {
-        "name": "C200",
-        "count": 282
-      },
-      {
-        "name": "Glc200",
-        "count": 227
-      },
-      {
-        "name": "E300",
-        "count": 205
-      },
-      {
-        "name": "C300",
-        "count": 175
-      },
-      {
-        "name": "Gla200",
-        "count": 139
-      },
-      {
-        "name": "Cla200",
-        "count": 137
-      },
-      {
-        "name": "E250",
-        "count": 112
-      },
-      {
-        "name": "C250",
-        "count": 107
-      },
-      {
-        "name": "Gle450",
-        "count": 79
-      },
-      {
-        "name": "E200",
-        "count": 78
-      },
-      {
-        "name": "A200",
-        "count": 64
-      },
-      {
-        "name": "Gle400",
-        "count": 56
-      },
-      {
-        "name": "Glc250",
-        "count": 47
-      },
-      {
-        "name": "Glc300",
-        "count": 46
-      },
-      {
-        "name": "E400",
-        "count": 41
-      },
-      {
-        "name": "S-Class",
-        "count": 40
-      },
-      {
-        "name": "S400L",
-        "count": 35
-      },
-      {
-        "name": "Cla-Class",
-        "count": 35
-      },
-      {
-        "name": "S450L",
-        "count": 35
-      },
-      {
-        "name": "E350",
-        "count": 28
-      },
-      {
-        "name": "Gls450",
-        "count": 28
-      },
-      {
-        "name": "Cls350",
-        "count": 25
-      },
-      {
-        "name": "S450",
-        "count": 25
-      },
-      {
-        "name": "G-Class",
-        "count": 25
-      },
-      {
-        "name": "Glb200",
-        "count": 22
-      },
-      {
-        "name": "Gle-Class",
-        "count": 20
-      },
-      {
-        "name": "V260",
-        "count": 20
-      },
-      {
-        "name": "Ml350",
-        "count": 19
-      },
-      {
-        "name": "Gls400",
-        "count": 19
-      },
-      {
-        "name": "A250",
-        "count": 19
-      },
-      {
-        "name": "B200",
-        "count": 18
-      },
-      {
-        "name": "G63",
-        "count": 18
-      },
-      {
-        "name": "A45 Amg",
-        "count": 16
-      },
-      {
-        "name": "C240",
-        "count": 16
-      },
-      {
-        "name": "Cls400",
-        "count": 16
-      },
-      {
-        "name": "Gle43",
-        "count": 15
-      },
-      {
         "name": "C-Class",
-        "count": 15
-      },
-      {
-        "name": "Ml-Class",
-        "count": 15
-      },
-      {
-        "name": "Slk250",
-        "count": 14
-      },
-      {
-        "name": "C180",
-        "count": 13
-      },
-      {
-        "name": "Ml400",
-        "count": 13
+        "count": 634
       },
       {
         "name": "E-Class",
-        "count": 13
+        "count": 511
       },
       {
-        "name": "A35 Amg",
-        "count": 12
+        "name": "GLC-Class",
+        "count": 321
       },
       {
-        "name": "Ml250",
-        "count": 11
+        "name": "CLA-Class",
+        "count": 188
       },
       {
-        "name": "S300L",
-        "count": 11
+        "name": "GLE-Class",
+        "count": 184
       },
       {
-        "name": "S350L",
-        "count": 11
+        "name": "S-Class",
+        "count": 182
       },
       {
-        "name": "Gla-Class",
-        "count": 10
+        "name": "GLA-Class",
+        "count": 165
       },
       {
-        "name": "C200K",
-        "count": 9
+        "name": "A-Class",
+        "count": 114
       },
       {
-        "name": "C200 Kompressor",
-        "count": 9
+        "name": "ML-Class",
+        "count": 61
       },
       {
-        "name": "Cls-Class",
-        "count": 9
+        "name": "CLS-Class",
+        "count": 58
       },
       {
-        "name": "Cla45",
-        "count": 9
+        "name": "G-Class",
+        "count": 50
       },
       {
-        "name": "Amg Gla35",
-        "count": 9
+        "name": "GLS-Class",
+        "count": 49
       },
       {
-        "name": "E260",
-        "count": 8
-      },
-      {
-        "name": "Slk200",
-        "count": 8
-      },
-      {
-        "name": "S400",
-        "count": 7
-      },
-      {
-        "name": "E230",
-        "count": 7
+        "name": "V-Class",
+        "count": 30
       },
       {
         "name": "B-Class",
-        "count": 7
+        "count": 28
       },
       {
-        "name": "Gla45",
-        "count": 7
+        "name": "SLK-Class",
+        "count": 23
       },
       {
-        "name": "Amg Cla45",
-        "count": 7
+        "name": "GLB-Class",
+        "count": 22
       },
       {
-        "name": "E200K",
-        "count": 6
+        "name": "GL-Class",
+        "count": 11
       },
       {
-        "name": "Gle250D",
-        "count": 6
+        "name": "R-Class",
+        "count": 10
       },
       {
-        "name": "Gl500",
-        "count": 5
-      },
-      {
-        "name": "V250",
-        "count": 5
-      },
-      {
-        "name": "Gle53",
-        "count": 5
-      },
-      {
-        "name": "R300",
-        "count": 5
-      },
-      {
-        "name": "S350",
-        "count": 5
-      },
-      {
-        "name": "Gl400",
-        "count": 5
+        "name": "SL-Class",
+        "count": 10
       },
       {
         "name": "Sprinter",
         "count": 4
       },
       {
-        "name": "V220",
+        "name": "AMG GT",
         "count": 4
-      },
-      {
-        "name": "G400",
-        "count": 4
-      },
-      {
-        "name": "E240",
-        "count": 4
-      },
-      {
-        "name": "Amg Gt",
-        "count": 4
-      },
-      {
-        "name": "Sl43",
-        "count": 4
-      },
-      {
-        "name": "R-Class",
-        "count": 4
-      },
-      {
-        "name": "S500",
-        "count": 3
-      },
-      {
-        "name": "Cls63 Amg",
-        "count": 3
       },
       {
         "name": "Viano",
         "count": 3
       },
       {
-        "name": "E280",
+        "name": "CLC-Class",
         "count": 3
-      },
-      {
-        "name": "C280",
-        "count": 3
-      },
-      {
-        "name": "Cls 350",
-        "count": 3
-      },
-      {
-        "name": "S320",
-        "count": 3
-      },
-      {
-        "name": "E320",
-        "count": 3
-      },
-      {
-        "name": "Amg E43",
-        "count": 3
-      },
-      {
-        "name": "Gle250",
-        "count": 3
-      },
-      {
-        "name": "S500L",
-        "count": 2
-      },
-      {
-        "name": "B170",
-        "count": 2
       },
       {
         "name": "Vito",
         "count": 2
       },
       {
-        "name": "Sl300",
+        "name": "SLC-Class",
         "count": 2
       },
       {
-        "name": "Gls-Class",
-        "count": 2
-      },
-      {
-        "name": "Sl350",
-        "count": 2
-      },
-      {
-        "name": "G300",
-        "count": 2
-      },
-      {
-        "name": "E Class",
-        "count": 2
-      },
-      {
-        "name": "Clc200",
-        "count": 2
-      },
-      {
-        "name": "Ml 350",
-        "count": 2
-      },
-      {
-        "name": "B180",
-        "count": 2
-      },
-      {
-        "name": "S500 L",
-        "count": 2
-      },
-      {
-        "name": "Lainnya",
-        "count": 1
-      },
-      {
-        "name": "Gl350 Cdi",
-        "count": 1
-      },
-      {
-        "name": "S280",
-        "count": 1
-      },
-      {
-        "name": "E220",
-        "count": 1
-      },
-      {
-        "name": "Clc-Class",
-        "count": 1
-      },
-      {
-        "name": "Slc200",
-        "count": 1
-      },
-      {
-        "name": "S320L",
-        "count": 1
-      },
-      {
-        "name": "Cls500",
-        "count": 1
-      },
-      {
-        "name": "C230",
-        "count": 1
-      },
-      {
-        "name": "S560",
-        "count": 1
-      },
-      {
-        "name": "V350",
-        "count": 1
-      },
-      {
-        "name": "Sl55",
-        "count": 1
-      },
-      {
-        "name": "Cls",
-        "count": 1
-      },
-      {
-        "name": "S300",
-        "count": 1
-      },
-      {
-        "name": "A-Class",
-        "count": 1
-      },
-      {
-        "name": "C43",
-        "count": 1
-      },
-      {
-        "name": "C350",
-        "count": 1
-      },
-      {
-        "name": "Glc-Class",
-        "count": 1
-      },
-      {
-        "name": "Slk230",
-        "count": 1
-      },
-      {
-        "name": "C180 Kompressor",
-        "count": 1
-      },
-      {
-        "name": "C230 Kompressor",
-        "count": 1
-      },
-      {
-        "name": "Lain-Lain",
-        "count": 1
-      },
-      {
-        "name": "Ml320",
-        "count": 1
-      },
-      {
-        "name": "R350",
-        "count": 1
-      },
-      {
-        "name": "Eqs 450+",
-        "count": 1
-      },
-      {
-        "name": "G500",
-        "count": 1
-      },
-      {
-        "name": "Sl-Class",
-        "count": 1
-      },
-      {
-        "name": "Amg A35",
-        "count": 1
-      },
-      {
-        "name": "Amg A45",
-        "count": 1
-      },
-      {
-        "name": "Slc-Class",
+        "name": "EQS",
         "count": 1
       }
     ],
     "Suzuki": [
       {
         "name": "Ertiga",
-        "count": 773
+        "count": 770
       },
       {
-        "name": "Xl7",
-        "count": 422
+        "name": "XL7",
+        "count": 420
       },
       {
         "name": "Ignis",
-        "count": 292
+        "count": 291
       },
       {
         "name": "Baleno",
@@ -673,36 +251,36 @@
         "count": 130
       },
       {
-        "name": "Karimun Wagon R",
-        "count": 118
+        "name": "SX4",
+        "count": 117
       },
       {
-        "name": "Sx4",
-        "count": 116
+        "name": "Karimun Wagon R",
+        "count": 117
       },
       {
         "name": "Grand Vitara",
-        "count": 79
+        "count": 80
       },
       {
-        "name": "S-Presso",
+        "name": "APV",
+        "count": 36
+      },
+      {
+        "name": "Carry",
         "count": 35
       },
       {
-        "name": "Swift",
-        "count": 33
+        "name": "S-Presso",
+        "count": 34
       },
       {
         "name": "Splash",
         "count": 33
       },
       {
-        "name": "Apv",
-        "count": 25
-      },
-      {
-        "name": "Carry",
-        "count": 24
+        "name": "Swift",
+        "count": 32
       },
       {
         "name": "Karimun",
@@ -710,19 +288,7 @@
       },
       {
         "name": "Fronx",
-        "count": 16
-      },
-      {
-        "name": "Carry Pick-Up",
-        "count": 11
-      },
-      {
-        "name": "Apv Arena",
-        "count": 10
-      },
-      {
-        "name": "Lain-Lain",
-        "count": 4
+        "count": 19
       },
       {
         "name": "Aerio",
@@ -737,14 +303,6 @@
         "count": 2
       },
       {
-        "name": "Arena",
-        "count": 1
-      },
-      {
-        "name": "Vitara",
-        "count": 1
-      },
-      {
         "name": "Karimun Estillo",
         "count": 1
       }
@@ -752,15 +310,15 @@
     "Toyota": [
       {
         "name": "Kijang Innova",
-        "count": 403
+        "count": 402
       },
       {
         "name": "Avanza",
-        "count": 362
+        "count": 361
       },
       {
         "name": "Fortuner",
-        "count": 247
+        "count": 245
       },
       {
         "name": "Alphard",
@@ -768,11 +326,11 @@
       },
       {
         "name": "Calya",
-        "count": 186
+        "count": 185
       },
       {
         "name": "Rush",
-        "count": 183
+        "count": 182
       },
       {
         "name": "Sienta",
@@ -784,11 +342,11 @@
       },
       {
         "name": "Yaris",
-        "count": 157
+        "count": 156
       },
       {
         "name": "Agya",
-        "count": 147
+        "count": 146
       },
       {
         "name": "Voxy",
@@ -796,11 +354,15 @@
       },
       {
         "name": "Camry",
-        "count": 130
+        "count": 129
       },
       {
         "name": "Vellfire",
-        "count": 68
+        "count": 67
+      },
+      {
+        "name": "Corolla Altis",
+        "count": 59
       },
       {
         "name": "Kijang Innova Zenix",
@@ -809,10 +371,6 @@
       {
         "name": "Veloz",
         "count": 50
-      },
-      {
-        "name": "Corolla Altis",
-        "count": 37
       },
       {
         "name": "Vios",
@@ -831,10 +389,6 @@
         "count": 24
       },
       {
-        "name": "Corolla",
-        "count": 20
-      },
-      {
         "name": "Hiace",
         "count": 15
       },
@@ -844,7 +398,7 @@
       },
       {
         "name": "Etios Valco",
-        "count": 9
+        "count": 11
       },
       {
         "name": "Kijang",
@@ -863,11 +417,11 @@
         "count": 5
       },
       {
-        "name": "C-Hr",
+        "name": "Land Cruiser Prado",
         "count": 3
       },
       {
-        "name": "Etios",
+        "name": "C-HR",
         "count": 3
       },
       {
@@ -875,20 +429,8 @@
         "count": 3
       },
       {
-        "name": "Altis",
+        "name": "FT86",
         "count": 2
-      },
-      {
-        "name": "Land Cruiser Prado",
-        "count": 2
-      },
-      {
-        "name": "Prado",
-        "count": 1
-      },
-      {
-        "name": "Ft86",
-        "count": 1
       },
       {
         "name": "Supra",
@@ -896,14 +438,6 @@
       },
       {
         "name": "Soluna",
-        "count": 1
-      },
-      {
-        "name": "Ft",
-        "count": 1
-      },
-      {
-        "name": "Lexus",
         "count": 1
       },
       {
@@ -920,6 +454,3750 @@
       }
     ]
   },
+  "variants_by_model": {
+    "Daihatsu||Ayla": [
+      {
+        "name": "X",
+        "count": 263
+      },
+      {
+        "name": "R",
+        "count": 206
+      },
+      {
+        "name": "R Deluxe",
+        "count": 43
+      },
+      {
+        "name": "D",
+        "count": 40
+      },
+      {
+        "name": "M",
+        "count": 29
+      },
+      {
+        "name": "R Ads",
+        "count": 17
+      },
+      {
+        "name": "D+",
+        "count": 14
+      },
+      {
+        "name": "New R",
+        "count": 6
+      },
+      {
+        "name": "New X",
+        "count": 6
+      },
+      {
+        "name": "New M",
+        "count": 5
+      },
+      {
+        "name": "X Elegant",
+        "count": 5
+      },
+      {
+        "name": "Standar",
+        "count": 4
+      },
+      {
+        "name": "X Ads",
+        "count": 3
+      },
+      {
+        "name": "X Deluxe",
+        "count": 2
+      },
+      {
+        "name": "X Airbag",
+        "count": 2
+      },
+      {
+        "name": "M Sporty",
+        "count": 1
+      }
+    ],
+    "Daihatsu||Ceria": [
+      {
+        "name": "Kx",
+        "count": 1
+      }
+    ],
+    "Daihatsu||Espass": [
+      {
+        "name": "Standar",
+        "count": 2
+      }
+    ],
+    "Daihatsu||Gran Max": [
+      {
+        "name": "Mini Bus D",
+        "count": 24
+      },
+      {
+        "name": "Blind Van",
+        "count": 10
+      },
+      {
+        "name": "Blind Van Ac",
+        "count": 8
+      },
+      {
+        "name": "Standar",
+        "count": 7
+      },
+      {
+        "name": "Pu Std",
+        "count": 6
+      },
+      {
+        "name": "Mini Bus D Ps",
+        "count": 6
+      },
+      {
+        "name": "D Face To Face",
+        "count": 5
+      },
+      {
+        "name": "Pu Ac & Ps",
+        "count": 4
+      },
+      {
+        "name": "Mini Bus D Front Facing",
+        "count": 4
+      },
+      {
+        "name": "Bv",
+        "count": 3
+      },
+      {
+        "name": "D Front Facing",
+        "count": 2
+      },
+      {
+        "name": "Ac",
+        "count": 2
+      },
+      {
+        "name": "Pu Ac Ps",
+        "count": 2
+      },
+      {
+        "name": "Ac&Ps",
+        "count": 1
+      },
+      {
+        "name": "3W",
+        "count": 1
+      },
+      {
+        "name": "Mb D",
+        "count": 1
+      },
+      {
+        "name": "D",
+        "count": 1
+      },
+      {
+        "name": "Pick-Up",
+        "count": 1
+      },
+      {
+        "name": "Pu Box Sliding Ac Ps",
+        "count": 1
+      },
+      {
+        "name": "Pu Box Std",
+        "count": 1
+      }
+    ],
+    "Daihatsu||Luxio": [
+      {
+        "name": "X",
+        "count": 30
+      },
+      {
+        "name": "D",
+        "count": 7
+      }
+    ],
+    "Daihatsu||Rocky": [
+      {
+        "name": "X",
+        "count": 84
+      },
+      {
+        "name": "R",
+        "count": 16
+      },
+      {
+        "name": "R Asa",
+        "count": 12
+      },
+      {
+        "name": "R Ads Two Tone",
+        "count": 11
+      },
+      {
+        "name": "X Ads",
+        "count": 10
+      },
+      {
+        "name": "R Tc",
+        "count": 8
+      },
+      {
+        "name": "M",
+        "count": 7
+      },
+      {
+        "name": "R Tc Asa",
+        "count": 7
+      },
+      {
+        "name": "R Ads",
+        "count": 4
+      },
+      {
+        "name": "R Tc Asa (2 Tone)",
+        "count": 4
+      },
+      {
+        "name": "R Tc Ads (2 Tone)",
+        "count": 4
+      },
+      {
+        "name": "R Tc Ads",
+        "count": 3
+      },
+      {
+        "name": "R Tc Sc (2 Tone)",
+        "count": 2
+      },
+      {
+        "name": "R Tc (2 Tone)",
+        "count": 1
+      },
+      {
+        "name": "X Ads Sc",
+        "count": 1
+      }
+    ],
+    "Daihatsu||Sigra": [
+      {
+        "name": "R",
+        "count": 301
+      },
+      {
+        "name": "X",
+        "count": 131
+      },
+      {
+        "name": "D",
+        "count": 129
+      },
+      {
+        "name": "M",
+        "count": 79
+      },
+      {
+        "name": "R Deluxe",
+        "count": 62
+      },
+      {
+        "name": "New R",
+        "count": 6
+      },
+      {
+        "name": "New R Deluxe",
+        "count": 5
+      },
+      {
+        "name": "X Deluxe",
+        "count": 5
+      },
+      {
+        "name": "New X",
+        "count": 3
+      }
+    ],
+    "Daihatsu||Sirion": [
+      {
+        "name": "D",
+        "count": 40
+      },
+      {
+        "name": "Standar",
+        "count": 29
+      },
+      {
+        "name": "X",
+        "count": 28
+      },
+      {
+        "name": "R",
+        "count": 24
+      },
+      {
+        "name": "D Sport",
+        "count": 4
+      },
+      {
+        "name": "D Fmc",
+        "count": 3
+      },
+      {
+        "name": "M",
+        "count": 2
+      },
+      {
+        "name": "D Deluxe",
+        "count": 2
+      },
+      {
+        "name": "Rs",
+        "count": 2
+      },
+      {
+        "name": "Special Edition",
+        "count": 1
+      },
+      {
+        "name": "Sport",
+        "count": 1
+      }
+    ],
+    "Daihatsu||Taft": [
+      {
+        "name": "Reborn G Turbo",
+        "count": 7
+      },
+      {
+        "name": "Taft 4X4",
+        "count": 4
+      }
+    ],
+    "Daihatsu||Taruna": [
+      {
+        "name": "Csx",
+        "count": 2
+      },
+      {
+        "name": "Fgx",
+        "count": 1
+      }
+    ],
+    "Daihatsu||Terios": [
+      {
+        "name": "R",
+        "count": 154
+      },
+      {
+        "name": "X",
+        "count": 66
+      },
+      {
+        "name": "X Deluxe",
+        "count": 41
+      },
+      {
+        "name": "R Deluxe",
+        "count": 34
+      },
+      {
+        "name": "Tx",
+        "count": 33
+      },
+      {
+        "name": "Tx Adventure",
+        "count": 17
+      },
+      {
+        "name": "Adventure R",
+        "count": 13
+      },
+      {
+        "name": "R Adventure",
+        "count": 9
+      },
+      {
+        "name": "Ts Extra",
+        "count": 8
+      },
+      {
+        "name": "Extra X",
+        "count": 7
+      },
+      {
+        "name": "R Ads",
+        "count": 6
+      },
+      {
+        "name": "Ts",
+        "count": 6
+      },
+      {
+        "name": "R Custom",
+        "count": 5
+      },
+      {
+        "name": "R Costum",
+        "count": 3
+      },
+      {
+        "name": "X Extra",
+        "count": 3
+      },
+      {
+        "name": "X Deluxe Ids",
+        "count": 2
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      }
+    ],
+    "Daihatsu||Xenia": [
+      {
+        "name": "R",
+        "count": 217
+      },
+      {
+        "name": "X",
+        "count": 149
+      },
+      {
+        "name": "R Deluxe",
+        "count": 64
+      },
+      {
+        "name": "R Sporty",
+        "count": 48
+      },
+      {
+        "name": "R Ads",
+        "count": 31
+      },
+      {
+        "name": "R Asa",
+        "count": 27
+      },
+      {
+        "name": "X Deluxe",
+        "count": 9
+      },
+      {
+        "name": "Xi Deluxe+",
+        "count": 7
+      },
+      {
+        "name": "M",
+        "count": 6
+      },
+      {
+        "name": "Xi Deluxe",
+        "count": 6
+      },
+      {
+        "name": "M Deluxe",
+        "count": 5
+      },
+      {
+        "name": "R Std",
+        "count": 5
+      },
+      {
+        "name": "Xi",
+        "count": 5
+      },
+      {
+        "name": "Li",
+        "count": 4
+      },
+      {
+        "name": "R Family",
+        "count": 3
+      },
+      {
+        "name": "R Custom",
+        "count": 3
+      },
+      {
+        "name": "R Attivo",
+        "count": 3
+      },
+      {
+        "name": "X Std",
+        "count": 2
+      },
+      {
+        "name": "Li Deluxe",
+        "count": 2
+      },
+      {
+        "name": "Standar",
+        "count": 2
+      },
+      {
+        "name": "New X",
+        "count": 2
+      },
+      {
+        "name": "D",
+        "count": 2
+      },
+      {
+        "name": "R Sc",
+        "count": 2
+      },
+      {
+        "name": "X 1.3 Plus",
+        "count": 1
+      },
+      {
+        "name": "M Std",
+        "count": 1
+      },
+      {
+        "name": "R 1.3 Sporty",
+        "count": 1
+      },
+      {
+        "name": "R Standard",
+        "count": 1
+      },
+      {
+        "name": "M Sporty",
+        "count": 1
+      }
+    ],
+    "Honda||Accord": [
+      {
+        "name": "Vti-L",
+        "count": 19
+      },
+      {
+        "name": "Standar",
+        "count": 17
+      },
+      {
+        "name": "Rs E:Hev",
+        "count": 2
+      },
+      {
+        "name": "Vti",
+        "count": 2
+      }
+    ],
+    "Honda||BR-V": [
+      {
+        "name": "Prestige",
+        "count": 127
+      },
+      {
+        "name": "E",
+        "count": 116
+      },
+      {
+        "name": "E Prestige",
+        "count": 47
+      },
+      {
+        "name": "Prestige Honda Sensing",
+        "count": 42
+      },
+      {
+        "name": "Prestige Sensing",
+        "count": 25
+      },
+      {
+        "name": "S",
+        "count": 4
+      },
+      {
+        "name": "Prestige N7X Edition",
+        "count": 3
+      }
+    ],
+    "Honda||Brio": [
+      {
+        "name": "E",
+        "count": 257
+      },
+      {
+        "name": "Rs",
+        "count": 152
+      },
+      {
+        "name": "Satya E",
+        "count": 78
+      },
+      {
+        "name": "S",
+        "count": 19
+      },
+      {
+        "name": "New E",
+        "count": 13
+      },
+      {
+        "name": "Sports E",
+        "count": 6
+      },
+      {
+        "name": "Rs Urbanite Edition",
+        "count": 4
+      },
+      {
+        "name": "New Rs",
+        "count": 2
+      },
+      {
+        "name": "A",
+        "count": 2
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "Honda-Brio-Satya-1.2-New-Rs",
+        "count": 1
+      },
+      {
+        "name": "Satya S",
+        "count": 1
+      }
+    ],
+    "Honda||CR-V": [
+      {
+        "name": "Turbo Prestige",
+        "count": 173
+      },
+      {
+        "name": "Turbo",
+        "count": 62
+      },
+      {
+        "name": "Standar",
+        "count": 48
+      },
+      {
+        "name": "Rs",
+        "count": 46
+      },
+      {
+        "name": "Prestige",
+        "count": 26
+      },
+      {
+        "name": "Rm1",
+        "count": 20
+      },
+      {
+        "name": "Rs E:Hev",
+        "count": 11
+      },
+      {
+        "name": "4X2",
+        "count": 8
+      },
+      {
+        "name": "Rm3",
+        "count": 8
+      },
+      {
+        "name": "Re1",
+        "count": 6
+      },
+      {
+        "name": "I-Vtec",
+        "count": 4
+      },
+      {
+        "name": "Prestige Audio Premium",
+        "count": 4
+      },
+      {
+        "name": "Rd",
+        "count": 2
+      },
+      {
+        "name": "Prestige Se",
+        "count": 2
+      },
+      {
+        "name": "Black Edition",
+        "count": 2
+      },
+      {
+        "name": "Prestige Special Edition",
+        "count": 1
+      },
+      {
+        "name": "Rm",
+        "count": 1
+      }
+    ],
+    "Honda||City": [
+      {
+        "name": "Rs",
+        "count": 47
+      },
+      {
+        "name": "E",
+        "count": 28
+      },
+      {
+        "name": "Hatchback Rs",
+        "count": 27
+      },
+      {
+        "name": "Rs Honda Sensing",
+        "count": 9
+      },
+      {
+        "name": "Hatchback Rs Sensing",
+        "count": 5
+      },
+      {
+        "name": "S",
+        "count": 3
+      },
+      {
+        "name": "Standar",
+        "count": 2
+      },
+      {
+        "name": "Es",
+        "count": 2
+      },
+      {
+        "name": "I-Dsi",
+        "count": 1
+      },
+      {
+        "name": "Vtec",
+        "count": 1
+      }
+    ],
+    "Honda||Civic": [
+      {
+        "name": "Es",
+        "count": 48
+      },
+      {
+        "name": "E",
+        "count": 13
+      },
+      {
+        "name": "E Hatchback",
+        "count": 11
+      },
+      {
+        "name": "Turbo",
+        "count": 10
+      },
+      {
+        "name": "Rs",
+        "count": 6
+      },
+      {
+        "name": "Vtec Turbo",
+        "count": 4
+      },
+      {
+        "name": "Fb",
+        "count": 3
+      },
+      {
+        "name": "Type R",
+        "count": 2
+      },
+      {
+        "name": "S Hatchback",
+        "count": 1
+      },
+      {
+        "name": "L",
+        "count": 1
+      },
+      {
+        "name": "Rs Hatchback",
+        "count": 1
+      },
+      {
+        "name": "Vti",
+        "count": 1
+      },
+      {
+        "name": "Fd",
+        "count": 1
+      },
+      {
+        "name": "Turbo 1.5",
+        "count": 1
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      }
+    ],
+    "Honda||Freed": [
+      {
+        "name": "E",
+        "count": 37
+      },
+      {
+        "name": "S",
+        "count": 34
+      },
+      {
+        "name": "Power Sliding Door",
+        "count": 11
+      },
+      {
+        "name": "A",
+        "count": 3
+      }
+    ],
+    "Honda||HR-V": [
+      {
+        "name": "E",
+        "count": 114
+      },
+      {
+        "name": "E Special Edition",
+        "count": 48
+      },
+      {
+        "name": "S",
+        "count": 43
+      },
+      {
+        "name": "Prestige",
+        "count": 40
+      },
+      {
+        "name": "Se",
+        "count": 39
+      },
+      {
+        "name": "Special Edition",
+        "count": 36
+      },
+      {
+        "name": "Turbo Rs",
+        "count": 21
+      },
+      {
+        "name": "Rs",
+        "count": 18
+      },
+      {
+        "name": "New Se",
+        "count": 14
+      },
+      {
+        "name": "Prestige Mugen",
+        "count": 5
+      },
+      {
+        "name": "E New",
+        "count": 2
+      },
+      {
+        "name": "E Cvt",
+        "count": 1
+      },
+      {
+        "name": "Se Two Tone",
+        "count": 1
+      },
+      {
+        "name": "New E",
+        "count": 1
+      },
+      {
+        "name": "Special Edition Jbl Audio",
+        "count": 1
+      }
+    ],
+    "Honda||Jazz": [
+      {
+        "name": "Rs",
+        "count": 100
+      },
+      {
+        "name": "S",
+        "count": 14
+      },
+      {
+        "name": "E",
+        "count": 5
+      },
+      {
+        "name": "I-Dsi",
+        "count": 4
+      },
+      {
+        "name": "New Rs",
+        "count": 4
+      },
+      {
+        "name": "Standar",
+        "count": 2
+      },
+      {
+        "name": "Vtec",
+        "count": 2
+      },
+      {
+        "name": "Rs Limited Edition",
+        "count": 2
+      },
+      {
+        "name": "A",
+        "count": 1
+      },
+      {
+        "name": "Rs Black Top Limited Edition",
+        "count": 1
+      },
+      {
+        "name": "Rs Cvt",
+        "count": 1
+      }
+    ],
+    "Honda||Mobilio": [
+      {
+        "name": "E",
+        "count": 161
+      },
+      {
+        "name": "Rs",
+        "count": 48
+      },
+      {
+        "name": "S",
+        "count": 22
+      },
+      {
+        "name": "E Prestige",
+        "count": 18
+      },
+      {
+        "name": "Prestige",
+        "count": 2
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "New Rs",
+        "count": 1
+      },
+      {
+        "name": "Prestige Limited Edition",
+        "count": 1
+      }
+    ],
+    "Honda||Odyssey": [
+      {
+        "name": "Prestige",
+        "count": 15
+      },
+      {
+        "name": "Standar",
+        "count": 6
+      },
+      {
+        "name": "S",
+        "count": 1
+      },
+      {
+        "name": "E",
+        "count": 1
+      }
+    ],
+    "Honda||WR-V": [
+      {
+        "name": "Rs",
+        "count": 36
+      },
+      {
+        "name": "Rs Honda Sensing",
+        "count": 21
+      },
+      {
+        "name": "Rs With Honda Sensing",
+        "count": 16
+      },
+      {
+        "name": "Rs Two Tone With Honda Sensing",
+        "count": 1
+      },
+      {
+        "name": "Rs Two Tone",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||A-Class": [
+      {
+        "name": "A200 Progressive Line",
+        "count": 57
+      },
+      {
+        "name": "A45",
+        "count": 16
+      },
+      {
+        "name": "A250 Sport",
+        "count": 14
+      },
+      {
+        "name": "A35",
+        "count": 12
+      },
+      {
+        "name": "A250",
+        "count": 6
+      },
+      {
+        "name": "A200",
+        "count": 2
+      },
+      {
+        "name": "A200 Hatchback",
+        "count": 2
+      },
+      {
+        "name": "A200 Urban",
+        "count": 2
+      },
+      {
+        "name": "A200 Saloon",
+        "count": 1
+      },
+      {
+        "name": "A35 4Matic",
+        "count": 1
+      },
+      {
+        "name": "A45 4Matic",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||AMG GT": [
+      {
+        "name": "R",
+        "count": 2
+      },
+      {
+        "name": "S",
+        "count": 2
+      }
+    ],
+    "Mercedes-Benz||B-Class": [
+      {
+        "name": "B200 Progressive Line",
+        "count": 8
+      },
+      {
+        "name": "B180",
+        "count": 7
+      },
+      {
+        "name": "B200 Urban",
+        "count": 4
+      },
+      {
+        "name": "B200",
+        "count": 3
+      },
+      {
+        "name": "B200 Sport",
+        "count": 3
+      },
+      {
+        "name": "B170",
+        "count": 2
+      },
+      {
+        "name": "B170 Mobil-Bekas-Honda-Civic-1.7",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||C-Class": [
+      {
+        "name": "C300 Amg Line",
+        "count": 116
+      },
+      {
+        "name": "C200 Avantgarde",
+        "count": 59
+      },
+      {
+        "name": "C200 Amg Line",
+        "count": 53
+      },
+      {
+        "name": "C300 Amg",
+        "count": 36
+      },
+      {
+        "name": "C250 Amg",
+        "count": 34
+      },
+      {
+        "name": "C200 Cgi",
+        "count": 31
+      },
+      {
+        "name": "C250 Cgi",
+        "count": 28
+      },
+      {
+        "name": "C200 W205",
+        "count": 27
+      },
+      {
+        "name": "C200",
+        "count": 26
+      },
+      {
+        "name": "C200 Eq Boost Avantgarde Line",
+        "count": 25
+      },
+      {
+        "name": "C250",
+        "count": 24
+      },
+      {
+        "name": "C200 Avantgarde Line",
+        "count": 22
+      },
+      {
+        "name": "C200 Cgi Avantgarde",
+        "count": 10
+      },
+      {
+        "name": "C200 Avantgarde Cgi",
+        "count": 10
+      },
+      {
+        "name": "C180",
+        "count": 9
+      },
+      {
+        "name": "C300",
+        "count": 9
+      },
+      {
+        "name": "C250 Este Amg Line",
+        "count": 8
+      },
+      {
+        "name": "C240 Elegance",
+        "count": 8
+      },
+      {
+        "name": "C200 Avantgarde Cbu",
+        "count": 8
+      },
+      {
+        "name": "C250 Estate Amg Line",
+        "count": 7
+      },
+      {
+        "name": "C250 Cgi Avantgarde",
+        "count": 6
+      },
+      {
+        "name": "C200K Classic",
+        "count": 6
+      },
+      {
+        "name": "C240 Sunroof Elegant",
+        "count": 5
+      },
+      {
+        "name": "C200 Classic",
+        "count": 5
+      },
+      {
+        "name": "C300 Coupe Amg Line",
+        "count": 5
+      },
+      {
+        "name": "C200 Amg Final Edition",
+        "count": 5
+      },
+      {
+        "name": "C200 W204 Sedan",
+        "count": 4
+      },
+      {
+        "name": "C200 Avantgarde Ckd",
+        "count": 4
+      },
+      {
+        "name": "C300 Amg Coupe",
+        "count": 4
+      },
+      {
+        "name": "C200K Kompressor",
+        "count": 3
+      },
+      {
+        "name": "C280",
+        "count": 3
+      },
+      {
+        "name": "C250 Estate Exclusive Line",
+        "count": 3
+      },
+      {
+        "name": "C300 Amg Final Edition",
+        "count": 3
+      },
+      {
+        "name": "C180 Avantgarde Line",
+        "count": 3
+      },
+      {
+        "name": "C240 Elegant",
+        "count": 2
+      },
+      {
+        "name": "C43 Amg",
+        "count": 2
+      },
+      {
+        "name": "Standar",
+        "count": 2
+      },
+      {
+        "name": "C200 W202",
+        "count": 2
+      },
+      {
+        "name": "C180 Coupe",
+        "count": 2
+      },
+      {
+        "name": "C250 Exclusive",
+        "count": 2
+      },
+      {
+        "name": "C200 Amg Line Coupe",
+        "count": 2
+      },
+      {
+        "name": "Amg C43",
+        "count": 2
+      },
+      {
+        "name": "C300 Amg Line Ckd",
+        "count": 2
+      },
+      {
+        "name": "C230 Sport",
+        "count": 1
+      },
+      {
+        "name": "C240-2.4-Sunroof-Elegant",
+        "count": 1
+      },
+      {
+        "name": "C200 W202 Sedan",
+        "count": 1
+      },
+      {
+        "name": "C350",
+        "count": 1
+      },
+      {
+        "name": "C230",
+        "count": 1
+      },
+      {
+        "name": "C300 Avantgarde",
+        "count": 1
+      },
+      {
+        "name": "C200 Sport",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||CLA-Class": [
+      {
+        "name": "Cla200 Amg Line",
+        "count": 81
+      },
+      {
+        "name": "Cla200 Amg",
+        "count": 43
+      },
+      {
+        "name": "Cla200",
+        "count": 22
+      },
+      {
+        "name": "Amg Cla45",
+        "count": 15
+      },
+      {
+        "name": "Cla45 Amg",
+        "count": 9
+      },
+      {
+        "name": "Cla45 S 4Matic+",
+        "count": 6
+      },
+      {
+        "name": "Cla200 Sport",
+        "count": 5
+      },
+      {
+        "name": "Cla200 Urban",
+        "count": 3
+      },
+      {
+        "name": "Amg45",
+        "count": 2
+      },
+      {
+        "name": "Cla45",
+        "count": 1
+      },
+      {
+        "name": "Cla45 S Shooting Brake 4Matic+",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||CLC-Class": [
+      {
+        "name": "Clc200",
+        "count": 3
+      }
+    ],
+    "Mercedes-Benz||CLS-Class": [
+      {
+        "name": "Cls400 Amg Dynamic",
+        "count": 16
+      },
+      {
+        "name": "Cls350 Amg Line Coupe",
+        "count": 15
+      },
+      {
+        "name": "Cls350",
+        "count": 8
+      },
+      {
+        "name": "350 Amg Line",
+        "count": 5
+      },
+      {
+        "name": "Cls63",
+        "count": 3
+      },
+      {
+        "name": "Cls350 Amg Line",
+        "count": 3
+      },
+      {
+        "name": "Cls350 Amg",
+        "count": 3
+      },
+      {
+        "name": "Cls500",
+        "count": 2
+      },
+      {
+        "name": "Cls63 Amg",
+        "count": 1
+      },
+      {
+        "name": "Cls63 5.5 Amg",
+        "count": 1
+      },
+      {
+        "name": "Cls350 Cgi",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||E-Class": [
+      {
+        "name": "E300 Amg Line",
+        "count": 96
+      },
+      {
+        "name": "E300 Avantgarde Amg",
+        "count": 46
+      },
+      {
+        "name": "E200 Avantgarde Line",
+        "count": 31
+      },
+      {
+        "name": "E300 Avantgarde",
+        "count": 29
+      },
+      {
+        "name": "E400 Amg",
+        "count": 29
+      },
+      {
+        "name": "E250 Amg",
+        "count": 25
+      },
+      {
+        "name": "E350",
+        "count": 20
+      },
+      {
+        "name": "E250 Avantgarde",
+        "count": 18
+      },
+      {
+        "name": "E200",
+        "count": 17
+      },
+      {
+        "name": "E300 Avantgarde Sportstyle",
+        "count": 16
+      },
+      {
+        "name": "E200 Avantgarde",
+        "count": 15
+      },
+      {
+        "name": "E250 Cgi Avantgarde",
+        "count": 13
+      },
+      {
+        "name": "E250 Avantgarde Ckd",
+        "count": 13
+      },
+      {
+        "name": "E300 Elegance",
+        "count": 11
+      },
+      {
+        "name": "E250 Coupe",
+        "count": 10
+      },
+      {
+        "name": "E400 Amg Edition E",
+        "count": 9
+      },
+      {
+        "name": "E250",
+        "count": 8
+      },
+      {
+        "name": "E300",
+        "count": 8
+      },
+      {
+        "name": "E250 Cgi",
+        "count": 8
+      },
+      {
+        "name": "E350 Amg",
+        "count": 7
+      },
+      {
+        "name": "E200 W212",
+        "count": 5
+      },
+      {
+        "name": "E200K W211 Kompressor",
+        "count": 5
+      },
+      {
+        "name": "E350 C207",
+        "count": 5
+      },
+      {
+        "name": "E250 Avantgarde Cbu",
+        "count": 5
+      },
+      {
+        "name": "E200 Amg Line Coupe",
+        "count": 4
+      },
+      {
+        "name": "E250 Avantgarde Line",
+        "count": 4
+      },
+      {
+        "name": "E250 Elegance Cdi",
+        "count": 4
+      },
+      {
+        "name": "E200 Cgi",
+        "count": 4
+      },
+      {
+        "name": "E260 Elegance",
+        "count": 3
+      },
+      {
+        "name": "E230",
+        "count": 3
+      },
+      {
+        "name": "E260",
+        "count": 3
+      },
+      {
+        "name": "E250 Avantgarde Cgi",
+        "count": 3
+      },
+      {
+        "name": "E43 Amg",
+        "count": 3
+      },
+      {
+        "name": "E200 Exclusive Line",
+        "count": 3
+      },
+      {
+        "name": "E240 W211 V6",
+        "count": 2
+      },
+      {
+        "name": "E230 W210",
+        "count": 2
+      },
+      {
+        "name": "E300 Coupe Amg Line",
+        "count": 2
+      },
+      {
+        "name": "E280 W211 V6",
+        "count": 2
+      },
+      {
+        "name": "E320 W124",
+        "count": 2
+      },
+      {
+        "name": "E240 Elegance",
+        "count": 2
+      },
+      {
+        "name": "Standar",
+        "count": 2
+      },
+      {
+        "name": "E250 Amg Cgi",
+        "count": 2
+      },
+      {
+        "name": "E200 Classic",
+        "count": 2
+      },
+      {
+        "name": "E280 W211",
+        "count": 1
+      },
+      {
+        "name": "E220",
+        "count": 1
+      },
+      {
+        "name": "E200K",
+        "count": 1
+      },
+      {
+        "name": "E320 W124 L6 Sedan",
+        "count": 1
+      },
+      {
+        "name": "E230 W210 Sedan",
+        "count": 1
+      },
+      {
+        "name": "E230 W211 V6",
+        "count": 1
+      },
+      {
+        "name": "E400",
+        "count": 1
+      },
+      {
+        "name": "E260 V6",
+        "count": 1
+      },
+      {
+        "name": "E400 Avantgarde Amg",
+        "count": 1
+      },
+      {
+        "name": "E200 Amg Line",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||EQS": [
+      {
+        "name": "Eqs450",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||G-Class": [
+      {
+        "name": "Amg G63",
+        "count": 23
+      },
+      {
+        "name": "G63 Amg",
+        "count": 16
+      },
+      {
+        "name": "G63",
+        "count": 2
+      },
+      {
+        "name": "G400 D Amg Line",
+        "count": 2
+      },
+      {
+        "name": "Amg G55",
+        "count": 2
+      },
+      {
+        "name": "G400",
+        "count": 1
+      },
+      {
+        "name": "G300",
+        "count": 1
+      },
+      {
+        "name": "G500 Amg Line Premium Plus",
+        "count": 1
+      },
+      {
+        "name": "G300 Station Long",
+        "count": 1
+      },
+      {
+        "name": "G400 D",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||GL-Class": [
+      {
+        "name": "Gl500",
+        "count": 4
+      },
+      {
+        "name": "Gl400 4Matic",
+        "count": 3
+      },
+      {
+        "name": "Gl400",
+        "count": 2
+      },
+      {
+        "name": "Gl350",
+        "count": 1
+      },
+      {
+        "name": "Gl500 4Matic",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||GLA-Class": [
+      {
+        "name": "Gla200 Amg Line",
+        "count": 63
+      },
+      {
+        "name": "Gla200 Urban",
+        "count": 32
+      },
+      {
+        "name": "Gla200 Amg",
+        "count": 31
+      },
+      {
+        "name": "Gla200",
+        "count": 10
+      },
+      {
+        "name": "Gla35 4Matic",
+        "count": 9
+      },
+      {
+        "name": "Gla200 Sport",
+        "count": 8
+      },
+      {
+        "name": "Gla45 Amg+",
+        "count": 5
+      },
+      {
+        "name": "Amg35",
+        "count": 3
+      },
+      {
+        "name": "Gla45 Amg",
+        "count": 2
+      },
+      {
+        "name": "Gla200 Progressive Line",
+        "count": 1
+      },
+      {
+        "name": "Amg Gla45",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||GLB-Class": [
+      {
+        "name": "Glb200 Progressive Line",
+        "count": 22
+      }
+    ],
+    "Mercedes-Benz||GLC-Class": [
+      {
+        "name": "Glc200 Amg Line",
+        "count": 156
+      },
+      {
+        "name": "Glc300 Amg Line",
+        "count": 29
+      },
+      {
+        "name": "Glc200 Amg",
+        "count": 27
+      },
+      {
+        "name": "Glc250",
+        "count": 24
+      },
+      {
+        "name": "Glc250 Exclusive 4Matic",
+        "count": 20
+      },
+      {
+        "name": "Glc200 Night Edition Amg",
+        "count": 16
+      },
+      {
+        "name": "Glc200 Night Edition Amg Line",
+        "count": 14
+      },
+      {
+        "name": "Glc300 Amg Line 4Matic",
+        "count": 10
+      },
+      {
+        "name": "Glc200 Exclusive Line",
+        "count": 9
+      },
+      {
+        "name": "Glc300 Coupe 4Matic Amg Line",
+        "count": 5
+      },
+      {
+        "name": "Glc200",
+        "count": 4
+      },
+      {
+        "name": "Glc300 Coupe Amg Line",
+        "count": 2
+      },
+      {
+        "name": "Glc250 4Matic",
+        "count": 2
+      },
+      {
+        "name": "200 Amg Line",
+        "count": 1
+      },
+      {
+        "name": "Glc200 Exclusive",
+        "count": 1
+      },
+      {
+        "name": "Glc250 Edition 45 4Matic",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||GLE-Class": [
+      {
+        "name": "Gle450 4Matic Amg Line",
+        "count": 40
+      },
+      {
+        "name": "Amg Gle43",
+        "count": 19
+      },
+      {
+        "name": "Gle450 Amg Line 4Matic",
+        "count": 16
+      },
+      {
+        "name": "Gle43 Amg Coupe",
+        "count": 15
+      },
+      {
+        "name": "Gle400 Coupe Amg Line",
+        "count": 12
+      },
+      {
+        "name": "Gle450 Amg Line 4Matic Ckd",
+        "count": 12
+      },
+      {
+        "name": "Gle400 Amg 4Matic",
+        "count": 10
+      },
+      {
+        "name": "Gle400 Exclusive 4Matic",
+        "count": 9
+      },
+      {
+        "name": "Gle400 Exclusive",
+        "count": 9
+      },
+      {
+        "name": "Gle400 Amg Line",
+        "count": 7
+      },
+      {
+        "name": "Gle250D",
+        "count": 6
+      },
+      {
+        "name": "Gle400 Amg Line Coupe",
+        "count": 6
+      },
+      {
+        "name": "Gle53 Amg",
+        "count": 5
+      },
+      {
+        "name": "Gle450 4Mic Amg Line",
+        "count": 5
+      },
+      {
+        "name": "Gle450 4Matic Coupe Amg Line",
+        "count": 4
+      },
+      {
+        "name": "Gle250 D",
+        "count": 3
+      },
+      {
+        "name": "Gle400 Amg Coupe",
+        "count": 2
+      },
+      {
+        "name": "400 Coupe Amg Line",
+        "count": 1
+      },
+      {
+        "name": "Gle450 Amg Line Coupe 4Matic",
+        "count": 1
+      },
+      {
+        "name": "Gle400 Amg Line Coupe 4Matic",
+        "count": 1
+      },
+      {
+        "name": "Gle450 Amg Line 4Matic Cbu",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||GLS-Class": [
+      {
+        "name": "Gls450 4Matic Amg Line",
+        "count": 17
+      },
+      {
+        "name": "Gls400 Exclusive Line",
+        "count": 11
+      },
+      {
+        "name": "Gls450 Amg Line 4Matic",
+        "count": 9
+      },
+      {
+        "name": "Gls400 Amg",
+        "count": 5
+      },
+      {
+        "name": "Gls400",
+        "count": 2
+      },
+      {
+        "name": "Gls450 Amg Line 4Matic Ckd",
+        "count": 2
+      },
+      {
+        "name": "400 Amg",
+        "count": 1
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "Gls400 Amg Line",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||ML-Class": [
+      {
+        "name": "Ml400",
+        "count": 24
+      },
+      {
+        "name": "Ml350",
+        "count": 16
+      },
+      {
+        "name": "Ml250 Cdi",
+        "count": 8
+      },
+      {
+        "name": "Ml350 4Matic",
+        "count": 5
+      },
+      {
+        "name": "Ml250",
+        "count": 2
+      },
+      {
+        "name": "Ml350 W164",
+        "count": 2
+      },
+      {
+        "name": "Ml350 Blueefficiency 4Matic",
+        "count": 2
+      },
+      {
+        "name": "Ml250 W166 L4 Cdi",
+        "count": 1
+      },
+      {
+        "name": "Ml320",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||R-Class": [
+      {
+        "name": "R300",
+        "count": 5
+      },
+      {
+        "name": "R280L",
+        "count": 4
+      },
+      {
+        "name": "R350 W251 V6",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||S-Class": [
+      {
+        "name": "S450L",
+        "count": 39
+      },
+      {
+        "name": "S450",
+        "count": 25
+      },
+      {
+        "name": "S400L Exclusive",
+        "count": 24
+      },
+      {
+        "name": "S350 L",
+        "count": 14
+      },
+      {
+        "name": "S450L Luxury 4Matic",
+        "count": 12
+      },
+      {
+        "name": "S400L",
+        "count": 8
+      },
+      {
+        "name": "S300L",
+        "count": 6
+      },
+      {
+        "name": "S400",
+        "count": 5
+      },
+      {
+        "name": "S300L Solitaire",
+        "count": 5
+      },
+      {
+        "name": "S350",
+        "count": 5
+      },
+      {
+        "name": "S350L Cgi",
+        "count": 5
+      },
+      {
+        "name": "S500 L",
+        "count": 4
+      },
+      {
+        "name": "S500",
+        "count": 3
+      },
+      {
+        "name": "S350L W221 V6 Sedan",
+        "count": 3
+      },
+      {
+        "name": "S400L Exclusive Cbu",
+        "count": 3
+      },
+      {
+        "name": "S500L",
+        "count": 2
+      },
+      {
+        "name": "S300 L",
+        "count": 2
+      },
+      {
+        "name": "S350L",
+        "count": 2
+      },
+      {
+        "name": "S400 W222 V6",
+        "count": 2
+      },
+      {
+        "name": "Mercedes-Maybach S500",
+        "count": 2
+      },
+      {
+        "name": "S280 W140 L6",
+        "count": 1
+      },
+      {
+        "name": "S320 W220 V6",
+        "count": 1
+      },
+      {
+        "name": "S320L W220",
+        "count": 1
+      },
+      {
+        "name": "S560",
+        "count": 1
+      },
+      {
+        "name": "S350L W221 V6",
+        "count": 1
+      },
+      {
+        "name": "S300",
+        "count": 1
+      },
+      {
+        "name": "S400 L",
+        "count": 1
+      },
+      {
+        "name": "S320",
+        "count": 1
+      },
+      {
+        "name": "S320 W140 L6",
+        "count": 1
+      },
+      {
+        "name": "S500 Cgi",
+        "count": 1
+      },
+      {
+        "name": "S500 Amg",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||SL-Class": [
+      {
+        "name": "Sl43 Amg",
+        "count": 4
+      },
+      {
+        "name": "Sl300",
+        "count": 3
+      },
+      {
+        "name": "Sl350 Amg",
+        "count": 2
+      },
+      {
+        "name": "Sl55",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||SLC-Class": [
+      {
+        "name": "Slc200",
+        "count": 2
+      }
+    ],
+    "Mercedes-Benz||SLK-Class": [
+      {
+        "name": "Slk250 Amg",
+        "count": 14
+      },
+      {
+        "name": "Slk200",
+        "count": 3
+      },
+      {
+        "name": "Slk200 Cgi",
+        "count": 3
+      },
+      {
+        "name": "Slk200 Roadsters",
+        "count": 2
+      },
+      {
+        "name": "Slk230",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||Sprinter": [
+      {
+        "name": "315 Cdi A2",
+        "count": 2
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "515 Cdi",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||V-Class": [
+      {
+        "name": "V260 Lwb",
+        "count": 16
+      },
+      {
+        "name": "V250",
+        "count": 4
+      },
+      {
+        "name": "V220",
+        "count": 4
+      },
+      {
+        "name": "V260 Xlwb",
+        "count": 4
+      },
+      {
+        "name": "V350",
+        "count": 1
+      },
+      {
+        "name": "V250 Cdi",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||Viano": [
+      {
+        "name": "Cdi",
+        "count": 2
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      }
+    ],
+    "Mercedes-Benz||Vito": [
+      {
+        "name": "Standar",
+        "count": 2
+      }
+    ],
+    "Suzuki||APV": [
+      {
+        "name": "Gx",
+        "count": 9
+      },
+      {
+        "name": "Blind Van",
+        "count": 6
+      },
+      {
+        "name": "Arena Gl",
+        "count": 4
+      },
+      {
+        "name": "Arena Gx",
+        "count": 3
+      },
+      {
+        "name": "Sgx",
+        "count": 2
+      },
+      {
+        "name": "Gl",
+        "count": 2
+      },
+      {
+        "name": "Arena Sgx",
+        "count": 2
+      },
+      {
+        "name": "Luxury R17",
+        "count": 2
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "Deluxe",
+        "count": 1
+      },
+      {
+        "name": "Mega Carry Pickup",
+        "count": 1
+      },
+      {
+        "name": "Sgx Arena",
+        "count": 1
+      },
+      {
+        "name": "Luxury R15",
+        "count": 1
+      },
+      {
+        "name": "Ge",
+        "count": 1
+      }
+    ],
+    "Suzuki||Aerio": [
+      {
+        "name": "Standar",
+        "count": 3
+      }
+    ],
+    "Suzuki||Baleno": [
+      {
+        "name": "Standar",
+        "count": 181
+      },
+      {
+        "name": "Hatchback",
+        "count": 17
+      }
+    ],
+    "Suzuki||Carry": [
+      {
+        "name": "Standar",
+        "count": 13
+      },
+      {
+        "name": "Pick Up Flat Deck",
+        "count": 8
+      },
+      {
+        "name": "Pick Up Flat Deck Ac/Ps",
+        "count": 4
+      },
+      {
+        "name": "Fd Ac/Ps",
+        "count": 3
+      },
+      {
+        "name": "Pick-Up",
+        "count": 2
+      },
+      {
+        "name": "Pick Up Wide Deck Ac/Ps",
+        "count": 2
+      },
+      {
+        "name": "Flat Deck Ac/Ps Pick-Up",
+        "count": 1
+      },
+      {
+        "name": "Futura",
+        "count": 1
+      },
+      {
+        "name": "Futura Pick Up Wide Deck",
+        "count": 1
+      }
+    ],
+    "Suzuki||Ertiga": [
+      {
+        "name": "Gx",
+        "count": 379
+      },
+      {
+        "name": "Gl",
+        "count": 178
+      },
+      {
+        "name": "Ss",
+        "count": 119
+      },
+      {
+        "name": "Sport",
+        "count": 34
+      },
+      {
+        "name": "Dreza",
+        "count": 25
+      },
+      {
+        "name": "Standar",
+        "count": 15
+      },
+      {
+        "name": "Ga",
+        "count": 7
+      },
+      {
+        "name": "Cruise",
+        "count": 6
+      },
+      {
+        "name": "Dreza Gs",
+        "count": 3
+      },
+      {
+        "name": "Zdi",
+        "count": 1
+      },
+      {
+        "name": "Gl Sporty",
+        "count": 1
+      },
+      {
+        "name": "Sport Ff Limited Edition",
+        "count": 1
+      },
+      {
+        "name": "Gx Elegant",
+        "count": 1
+      }
+    ],
+    "Suzuki||Escudo": [
+      {
+        "name": "Jlx",
+        "count": 2
+      }
+    ],
+    "Suzuki||Fronx": [
+      {
+        "name": "Sgx",
+        "count": 8
+      },
+      {
+        "name": "Gl",
+        "count": 4
+      },
+      {
+        "name": "Gx",
+        "count": 3
+      },
+      {
+        "name": "Standar",
+        "count": 3
+      },
+      {
+        "name": "Sgx (2 Tone)",
+        "count": 1
+      }
+    ],
+    "Suzuki||Grand Vitara": [
+      {
+        "name": "Gx",
+        "count": 64
+      },
+      {
+        "name": "Standar",
+        "count": 8
+      },
+      {
+        "name": "Jlx",
+        "count": 4
+      },
+      {
+        "name": "Gx (Two Tone)",
+        "count": 4
+      }
+    ],
+    "Suzuki||Ignis": [
+      {
+        "name": "Gx",
+        "count": 201
+      },
+      {
+        "name": "Gl",
+        "count": 46
+      },
+      {
+        "name": "Gx Ags",
+        "count": 34
+      },
+      {
+        "name": "Standar",
+        "count": 7
+      },
+      {
+        "name": "Sport Edition",
+        "count": 2
+      },
+      {
+        "name": "Sport Edition Ags",
+        "count": 1
+      }
+    ],
+    "Suzuki||Jimny": [
+      {
+        "name": "Standar",
+        "count": 38
+      },
+      {
+        "name": "3 Door (1 Tone)",
+        "count": 23
+      },
+      {
+        "name": "Two Tone",
+        "count": 20
+      },
+      {
+        "name": "3 Door (2 Tone)",
+        "count": 16
+      },
+      {
+        "name": "5 Door (2 Tone)",
+        "count": 15
+      },
+      {
+        "name": "Single Tone",
+        "count": 9
+      },
+      {
+        "name": "5 Door (1 Tone)",
+        "count": 5
+      },
+      {
+        "name": "4X4",
+        "count": 3
+      },
+      {
+        "name": "4",
+        "count": 1
+      }
+    ],
+    "Suzuki||Karimun": [
+      {
+        "name": "Estilo",
+        "count": 14
+      },
+      {
+        "name": "Gs",
+        "count": 5
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "R",
+        "count": 1
+      },
+      {
+        "name": "Dx",
+        "count": 1
+      }
+    ],
+    "Suzuki||Karimun Estillo": [
+      {
+        "name": "Standar",
+        "count": 1
+      }
+    ],
+    "Suzuki||Karimun Wagon R": [
+      {
+        "name": "Gl",
+        "count": 81
+      },
+      {
+        "name": "Gs",
+        "count": 30
+      },
+      {
+        "name": "Gx",
+        "count": 6
+      }
+    ],
+    "Suzuki||Katana": [
+      {
+        "name": "Gx",
+        "count": 3
+      }
+    ],
+    "Suzuki||S-Presso": [
+      {
+        "name": "Ags",
+        "count": 23
+      },
+      {
+        "name": "Standar",
+        "count": 11
+      }
+    ],
+    "Suzuki||SX4": [
+      {
+        "name": "S-Cross",
+        "count": 65
+      },
+      {
+        "name": "X-Over",
+        "count": 15
+      },
+      {
+        "name": "New S-Cross",
+        "count": 15
+      },
+      {
+        "name": "Cross Over",
+        "count": 14
+      },
+      {
+        "name": "Standar",
+        "count": 4
+      },
+      {
+        "name": "Hatchback",
+        "count": 3
+      },
+      {
+        "name": "Rc1",
+        "count": 1
+      }
+    ],
+    "Suzuki||Splash": [
+      {
+        "name": "Dr",
+        "count": 20
+      },
+      {
+        "name": "Standar",
+        "count": 6
+      },
+      {
+        "name": "Gl",
+        "count": 6
+      },
+      {
+        "name": "H",
+        "count": 1
+      }
+    ],
+    "Suzuki||Swift": [
+      {
+        "name": "Gx",
+        "count": 22
+      },
+      {
+        "name": "Gl",
+        "count": 3
+      },
+      {
+        "name": "St",
+        "count": 2
+      },
+      {
+        "name": "Sport",
+        "count": 2
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "Gt",
+        "count": 1
+      },
+      {
+        "name": "Gt3",
+        "count": 1
+      }
+    ],
+    "Suzuki||XL7": [
+      {
+        "name": "Beta",
+        "count": 210
+      },
+      {
+        "name": "Alpha",
+        "count": 158
+      },
+      {
+        "name": "Zeta",
+        "count": 51
+      },
+      {
+        "name": "Alpha Ff",
+        "count": 1
+      }
+    ],
+    "Toyota||Agya": [
+      {
+        "name": "G",
+        "count": 50
+      },
+      {
+        "name": "G Trd Sportivo",
+        "count": 29
+      },
+      {
+        "name": "Gr Sport",
+        "count": 26
+      },
+      {
+        "name": "Trd",
+        "count": 17
+      },
+      {
+        "name": "Trd Sportivo",
+        "count": 11
+      },
+      {
+        "name": "New G",
+        "count": 5
+      },
+      {
+        "name": "Trd S",
+        "count": 4
+      },
+      {
+        "name": "E",
+        "count": 2
+      },
+      {
+        "name": "New Gr Sport",
+        "count": 1
+      },
+      {
+        "name": "Gr Sport One Tone",
+        "count": 1
+      }
+    ],
+    "Toyota||Alphard": [
+      {
+        "name": "G",
+        "count": 163
+      },
+      {
+        "name": "S",
+        "count": 17
+      },
+      {
+        "name": "Sc",
+        "count": 8
+      },
+      {
+        "name": "X",
+        "count": 7
+      },
+      {
+        "name": "G (Premium Color)",
+        "count": 4
+      },
+      {
+        "name": "S C Audioless",
+        "count": 3
+      },
+      {
+        "name": "Hev",
+        "count": 3
+      },
+      {
+        "name": "Hev (Non Premium Color)",
+        "count": 3
+      },
+      {
+        "name": "Q",
+        "count": 2
+      },
+      {
+        "name": "G (Non Premium Color)",
+        "count": 2
+      },
+      {
+        "name": "Hev (Premium Color)",
+        "count": 2
+      },
+      {
+        "name": "V6",
+        "count": 2
+      },
+      {
+        "name": "Asg",
+        "count": 1
+      },
+      {
+        "name": "G S C Package",
+        "count": 1
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "V",
+        "count": 1
+      },
+      {
+        "name": "Premium Sound",
+        "count": 1
+      },
+      {
+        "name": "Lombardi Edition Allegra",
+        "count": 1
+      },
+      {
+        "name": "Gsc Package",
+        "count": 1
+      }
+    ],
+    "Toyota||Avanza": [
+      {
+        "name": "G",
+        "count": 152
+      },
+      {
+        "name": "Veloz",
+        "count": 60
+      },
+      {
+        "name": "E",
+        "count": 52
+      },
+      {
+        "name": "Veloz Q",
+        "count": 26
+      },
+      {
+        "name": "New Veloz Q Cvt",
+        "count": 14
+      },
+      {
+        "name": "New Veloz Q Tss",
+        "count": 13
+      },
+      {
+        "name": "G Tss",
+        "count": 8
+      },
+      {
+        "name": "New Veloz Cvt",
+        "count": 7
+      },
+      {
+        "name": "Veloz Q Tss",
+        "count": 6
+      },
+      {
+        "name": "New Veloz Q Cvt Tss",
+        "count": 6
+      },
+      {
+        "name": "New Veloz",
+        "count": 5
+      },
+      {
+        "name": "E Std",
+        "count": 5
+      },
+      {
+        "name": "New G",
+        "count": 2
+      },
+      {
+        "name": "Transmover",
+        "count": 2
+      },
+      {
+        "name": "Veloz Gr",
+        "count": 1
+      },
+      {
+        "name": "G Luxury",
+        "count": 1
+      },
+      {
+        "name": "S",
+        "count": 1
+      }
+    ],
+    "Toyota||C-HR": [
+      {
+        "name": "Mobil-Bekas-Toyota-C-Hr-1.8",
+        "count": 2
+      },
+      {
+        "name": "(1 Tone)",
+        "count": 1
+      }
+    ],
+    "Toyota||Calya": [
+      {
+        "name": "G",
+        "count": 164
+      },
+      {
+        "name": "E",
+        "count": 19
+      },
+      {
+        "name": "New G",
+        "count": 2
+      }
+    ],
+    "Toyota||Camry": [
+      {
+        "name": "V",
+        "count": 97
+      },
+      {
+        "name": "Standar",
+        "count": 23
+      },
+      {
+        "name": "G",
+        "count": 6
+      },
+      {
+        "name": "Hv",
+        "count": 1
+      },
+      {
+        "name": "V (Premium Color)",
+        "count": 1
+      },
+      {
+        "name": "Q",
+        "count": 1
+      }
+    ],
+    "Toyota||Corolla Altis": [
+      {
+        "name": "V",
+        "count": 28
+      },
+      {
+        "name": "Cross",
+        "count": 15
+      },
+      {
+        "name": "Standar",
+        "count": 7
+      },
+      {
+        "name": "G",
+        "count": 6
+      },
+      {
+        "name": "Cross Gr",
+        "count": 2
+      },
+      {
+        "name": "Ae",
+        "count": 1
+      }
+    ],
+    "Toyota||Corolla Cross": [
+      {
+        "name": "Standar",
+        "count": 3
+      },
+      {
+        "name": "(Gasoline)",
+        "count": 2
+      }
+    ],
+    "Toyota||Crown": [
+      {
+        "name": "Royal Saloon",
+        "count": 4
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "Royal Saloon Full",
+        "count": 1
+      }
+    ],
+    "Toyota||Etios Valco": [
+      {
+        "name": "G",
+        "count": 10
+      },
+      {
+        "name": "J",
+        "count": 1
+      }
+    ],
+    "Toyota||FT86": [
+      {
+        "name": "Standar",
+        "count": 2
+      }
+    ],
+    "Toyota||Fortuner": [
+      {
+        "name": "Vrz 4X2",
+        "count": 43
+      },
+      {
+        "name": "Vrz Gr Sport",
+        "count": 26
+      },
+      {
+        "name": "4X2 Vrz",
+        "count": 18
+      },
+      {
+        "name": "4X2 Gr Sport Dsl",
+        "count": 15
+      },
+      {
+        "name": "Vrz Trd",
+        "count": 14
+      },
+      {
+        "name": "G Trd",
+        "count": 13
+      },
+      {
+        "name": "Gr Sport 4X2",
+        "count": 13
+      },
+      {
+        "name": "Vrz Trd 4X2",
+        "count": 13
+      },
+      {
+        "name": "Vrz",
+        "count": 10
+      },
+      {
+        "name": "Gr Sport 4X4",
+        "count": 9
+      },
+      {
+        "name": "G 4X2 Dsl",
+        "count": 8
+      },
+      {
+        "name": "G",
+        "count": 8
+      },
+      {
+        "name": "4X2 Vrz Trd",
+        "count": 7
+      },
+      {
+        "name": "G Luxury",
+        "count": 6
+      },
+      {
+        "name": "Vrz Gr Sport 4X2",
+        "count": 6
+      },
+      {
+        "name": "Srz Gr Sport",
+        "count": 3
+      },
+      {
+        "name": "4X2 Srz",
+        "count": 3
+      },
+      {
+        "name": "Srz Trd 4X2",
+        "count": 3
+      },
+      {
+        "name": "G Vnt",
+        "count": 3
+      },
+      {
+        "name": "Vrz Gr Sport 4X4",
+        "count": 2
+      },
+      {
+        "name": "Vrz 4X4",
+        "count": 2
+      },
+      {
+        "name": "Trd G Luxury",
+        "count": 2
+      },
+      {
+        "name": "Srz 4X2",
+        "count": 2
+      },
+      {
+        "name": "Vrz Tss Gr Parts Aero Package",
+        "count": 2
+      },
+      {
+        "name": "G Lux 4X2",
+        "count": 2
+      },
+      {
+        "name": "G Lux Trd",
+        "count": 2
+      },
+      {
+        "name": "G Lux",
+        "count": 2
+      },
+      {
+        "name": "G Turbo",
+        "count": 1
+      },
+      {
+        "name": "4X2 Srz Trd",
+        "count": 1
+      },
+      {
+        "name": "Vrz Tss Gr Aero Package 4X2",
+        "count": 1
+      },
+      {
+        "name": "G 4X4",
+        "count": 1
+      },
+      {
+        "name": "4X4 Vrz",
+        "count": 1
+      },
+      {
+        "name": "Trd 4X2",
+        "count": 1
+      },
+      {
+        "name": "V 4X4",
+        "count": 1
+      },
+      {
+        "name": "G 4X2",
+        "count": 1
+      }
+    ],
+    "Toyota||Granace": [
+      {
+        "name": "Premium",
+        "count": 1
+      }
+    ],
+    "Toyota||Harrier": [
+      {
+        "name": "240G",
+        "count": 13
+      },
+      {
+        "name": "Standar",
+        "count": 6
+      },
+      {
+        "name": "L",
+        "count": 1
+      },
+      {
+        "name": "Audioless",
+        "count": 1
+      },
+      {
+        "name": "240G Premium L Package",
+        "count": 1
+      },
+      {
+        "name": "240G Premium",
+        "count": 1
+      },
+      {
+        "name": "300G",
+        "count": 1
+      }
+    ],
+    "Toyota||Hiace": [
+      {
+        "name": "Premio",
+        "count": 10
+      },
+      {
+        "name": "Commuter",
+        "count": 4
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      }
+    ],
+    "Toyota||Hilux": [
+      {
+        "name": "D-Cab G 4X4",
+        "count": 3
+      },
+      {
+        "name": "V D-Cab",
+        "count": 2
+      },
+      {
+        "name": "D-Cab V",
+        "count": 1
+      }
+    ],
+    "Toyota||Kijang": [
+      {
+        "name": "Lgx",
+        "count": 3
+      },
+      {
+        "name": "Krista",
+        "count": 1
+      },
+      {
+        "name": "Sx",
+        "count": 1
+      },
+      {
+        "name": "Krista Long (Petrol)",
+        "count": 1
+      }
+    ],
+    "Toyota||Kijang Innova": [
+      {
+        "name": "G",
+        "count": 186
+      },
+      {
+        "name": "V",
+        "count": 66
+      },
+      {
+        "name": "Venturer",
+        "count": 37
+      },
+      {
+        "name": "Zenix Q Hv Cvt Tss Modellista",
+        "count": 16
+      },
+      {
+        "name": "G Luxury",
+        "count": 15
+      },
+      {
+        "name": "Zenix V Cvt",
+        "count": 14
+      },
+      {
+        "name": "Q",
+        "count": 11
+      },
+      {
+        "name": "Zenix V Hv Cvt Modellista",
+        "count": 10
+      },
+      {
+        "name": "Zenix G Cvt",
+        "count": 10
+      },
+      {
+        "name": "V Luxury",
+        "count": 9
+      },
+      {
+        "name": "G Lux",
+        "count": 8
+      },
+      {
+        "name": "E",
+        "count": 7
+      },
+      {
+        "name": "Zenix G Hv Cvt",
+        "count": 3
+      },
+      {
+        "name": "Q Venturer",
+        "count": 3
+      },
+      {
+        "name": "G Captain Seat",
+        "count": 2
+      },
+      {
+        "name": "Zenix Q Hv Cvt Tss",
+        "count": 2
+      },
+      {
+        "name": "New G",
+        "count": 1
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "J",
+        "count": 1
+      }
+    ],
+    "Toyota||Kijang Innova Zenix": [
+      {
+        "name": "Q Hv Tss Modellista (Premium Color)",
+        "count": 12
+      },
+      {
+        "name": "V (Non Premium Color)",
+        "count": 9
+      },
+      {
+        "name": "V Hv Modellista (Premium Color)",
+        "count": 8
+      },
+      {
+        "name": "V (Premium Color)",
+        "count": 7
+      },
+      {
+        "name": "V Hv Modellista (Non Premium Color)",
+        "count": 5
+      },
+      {
+        "name": "Q Hv Tss ( Premium Color)",
+        "count": 3
+      },
+      {
+        "name": "Q Hv Tss Modellista (Non Premium Color)",
+        "count": 3
+      },
+      {
+        "name": "G Hv (Non Premium Color)",
+        "count": 2
+      },
+      {
+        "name": "V Hv (Non Premium Color)",
+        "count": 1
+      },
+      {
+        "name": "V Hv (Premium Color)",
+        "count": 1
+      },
+      {
+        "name": "Q Hv Tss (Non Premium Color)",
+        "count": 1
+      },
+      {
+        "name": "G Hv (Premium Color)",
+        "count": 1
+      }
+    ],
+    "Toyota||Land Cruiser": [
+      {
+        "name": "V8",
+        "count": 3
+      },
+      {
+        "name": "300 Vx-R 70Th Anniversary",
+        "count": 3
+      },
+      {
+        "name": "300 Gr-S 70Th Anniversary",
+        "count": 3
+      },
+      {
+        "name": "Vx Limited",
+        "count": 2
+      },
+      {
+        "name": "300 Vx-R",
+        "count": 2
+      },
+      {
+        "name": "200 Vx-R",
+        "count": 2
+      },
+      {
+        "name": "200 Full Spec",
+        "count": 2
+      },
+      {
+        "name": "V8 D 4D",
+        "count": 1
+      },
+      {
+        "name": "Full Spec E",
+        "count": 1
+      },
+      {
+        "name": "Vx-R",
+        "count": 1
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "300 Gr-S",
+        "count": 1
+      },
+      {
+        "name": "70 Gxl 30Th Anniversary",
+        "count": 1
+      },
+      {
+        "name": "200 Standard Spec",
+        "count": 1
+      },
+      {
+        "name": "Zx",
+        "count": 1
+      },
+      {
+        "name": "Vx",
+        "count": 1
+      },
+      {
+        "name": "300 Vx-R (Premium Colour)",
+        "count": 1
+      }
+    ],
+    "Toyota||Land Cruiser Prado": [
+      {
+        "name": "Txl",
+        "count": 1
+      },
+      {
+        "name": "Kakadu",
+        "count": 1
+      },
+      {
+        "name": "70Th Anniversary",
+        "count": 1
+      }
+    ],
+    "Toyota||Mark X": [
+      {
+        "name": "Standar",
+        "count": 1
+      }
+    ],
+    "Toyota||Nav1": [
+      {
+        "name": "V Limited",
+        "count": 7
+      },
+      {
+        "name": "V",
+        "count": 4
+      },
+      {
+        "name": "Luxury V",
+        "count": 1
+      },
+      {
+        "name": "V Luxury",
+        "count": 1
+      }
+    ],
+    "Toyota||Previa": [
+      {
+        "name": "Hi-Grade",
+        "count": 2
+      },
+      {
+        "name": "Full Spec",
+        "count": 1
+      }
+    ],
+    "Toyota||Raize": [
+      {
+        "name": "G One Tone",
+        "count": 17
+      },
+      {
+        "name": "G",
+        "count": 16
+      },
+      {
+        "name": "Gr Sport (2 Tone)",
+        "count": 15
+      },
+      {
+        "name": "Gr Sport (1 Tone)",
+        "count": 14
+      },
+      {
+        "name": "Gr Sport Tss Two Tone",
+        "count": 11
+      },
+      {
+        "name": "Gr Sport Tss (2 Tone)",
+        "count": 10
+      },
+      {
+        "name": "Gr Sport Tss One Tone",
+        "count": 9
+      },
+      {
+        "name": "Gr Sport One Tone",
+        "count": 8
+      },
+      {
+        "name": "G Two Tone",
+        "count": 8
+      },
+      {
+        "name": "Turbo G",
+        "count": 8
+      },
+      {
+        "name": "G (1 Tone)",
+        "count": 8
+      },
+      {
+        "name": "T Gr Sport One Tone",
+        "count": 7
+      },
+      {
+        "name": "Turbo Gr Sport One Tone",
+        "count": 7
+      },
+      {
+        "name": "Gr Sport Two Tone",
+        "count": 6
+      },
+      {
+        "name": "Turbo Gr Sport Tss",
+        "count": 5
+      },
+      {
+        "name": "T Gr Sport Tss One Tone",
+        "count": 4
+      },
+      {
+        "name": "T Gr Sport Two Tone",
+        "count": 3
+      },
+      {
+        "name": "Turbo Gr Sport",
+        "count": 3
+      },
+      {
+        "name": "Gr Sport Tss (1 Tone)",
+        "count": 2
+      },
+      {
+        "name": "T Gr Sport Tss Two Tone",
+        "count": 1
+      }
+    ],
+    "Toyota||Roomy": [
+      {
+        "name": "Custom Gt",
+        "count": 1
+      }
+    ],
+    "Toyota||Rush": [
+      {
+        "name": "Trd Sportivo",
+        "count": 70
+      },
+      {
+        "name": "Gr Sport",
+        "count": 33
+      },
+      {
+        "name": "S",
+        "count": 25
+      },
+      {
+        "name": "G",
+        "count": 24
+      },
+      {
+        "name": "Trd Sportivo 7",
+        "count": 15
+      },
+      {
+        "name": "S Gr Sport",
+        "count": 11
+      },
+      {
+        "name": "Trd Sportivo Ultimo",
+        "count": 3
+      },
+      {
+        "name": "S Trd Sportivo Luxury",
+        "count": 1
+      }
+    ],
+    "Toyota||Sienta": [
+      {
+        "name": "V",
+        "count": 86
+      },
+      {
+        "name": "Q",
+        "count": 54
+      },
+      {
+        "name": "G",
+        "count": 26
+      },
+      {
+        "name": "V Welcab",
+        "count": 3
+      }
+    ],
+    "Toyota||Soluna": [
+      {
+        "name": "Gli",
+        "count": 1
+      }
+    ],
+    "Toyota||Supra": [
+      {
+        "name": "Standar",
+        "count": 1
+      }
+    ],
+    "Toyota||Vellfire": [
+      {
+        "name": "G",
+        "count": 38
+      },
+      {
+        "name": "Zg",
+        "count": 10
+      },
+      {
+        "name": "Z",
+        "count": 8
+      },
+      {
+        "name": "Z Gs",
+        "count": 3
+      },
+      {
+        "name": "V",
+        "count": 3
+      },
+      {
+        "name": "Z Audioless",
+        "count": 2
+      },
+      {
+        "name": "Standar",
+        "count": 1
+      },
+      {
+        "name": "Limited",
+        "count": 1
+      },
+      {
+        "name": "G (Premium Color)",
+        "count": 1
+      }
+    ],
+    "Toyota||Veloz": [
+      {
+        "name": "Q (Non Premium Color)",
+        "count": 30
+      },
+      {
+        "name": "Q Tss (Premium Color)",
+        "count": 4
+      },
+      {
+        "name": "Q",
+        "count": 4
+      },
+      {
+        "name": "Q Tss (Non Premium Color)",
+        "count": 4
+      },
+      {
+        "name": "Q (Premium Color)",
+        "count": 4
+      },
+      {
+        "name": "Q Tss",
+        "count": 2
+      },
+      {
+        "name": "(Non Premium Color)",
+        "count": 1
+      },
+      {
+        "name": "(Premium Color)",
+        "count": 1
+      }
+    ],
+    "Toyota||Vios": [
+      {
+        "name": "G",
+        "count": 28
+      },
+      {
+        "name": "E",
+        "count": 3
+      },
+      {
+        "name": "Trd Sportivo G",
+        "count": 2
+      },
+      {
+        "name": "G Tss",
+        "count": 2
+      },
+      {
+        "name": "New G",
+        "count": 1
+      }
+    ],
+    "Toyota||Voxy": [
+      {
+        "name": "Standar",
+        "count": 106
+      },
+      {
+        "name": "(Premium Color)",
+        "count": 17
+      },
+      {
+        "name": "(Non Premium Color)",
+        "count": 12
+      }
+    ],
+    "Toyota||Yaris": [
+      {
+        "name": "Trd Sportivo",
+        "count": 49
+      },
+      {
+        "name": "G",
+        "count": 35
+      },
+      {
+        "name": "E",
+        "count": 18
+      },
+      {
+        "name": "S",
+        "count": 15
+      },
+      {
+        "name": "Trd Sportivo 7 Ab",
+        "count": 11
+      },
+      {
+        "name": "Trd Sportivo Heykers",
+        "count": 7
+      },
+      {
+        "name": "S Gr Sport",
+        "count": 6
+      },
+      {
+        "name": "Gr Sport",
+        "count": 3
+      },
+      {
+        "name": "Gr Sport 3 Ab",
+        "count": 3
+      },
+      {
+        "name": "S Limited",
+        "count": 2
+      },
+      {
+        "name": "J",
+        "count": 2
+      },
+      {
+        "name": "Gr Sport 7 Ab",
+        "count": 2
+      },
+      {
+        "name": "Trd Sportivo 3 Ab",
+        "count": 2
+      },
+      {
+        "name": "S Tss",
+        "count": 1
+      }
+    ],
+    "Toyota||Yaris Cross": [
+      {
+        "name": "S Gr Hv Tss Two Tone",
+        "count": 8
+      },
+      {
+        "name": "S Tss",
+        "count": 6
+      },
+      {
+        "name": "S Gr Hv Tss",
+        "count": 5
+      },
+      {
+        "name": "G",
+        "count": 4
+      },
+      {
+        "name": "S Gr Tss",
+        "count": 3
+      },
+      {
+        "name": "S Hv (2 Tone) With Gr Parts Aero Pkg",
+        "count": 2
+      },
+      {
+        "name": "S Hv (2 Tone) W Gr Parts Aero Pkg (Prem Clr)",
+        "count": 1
+      },
+      {
+        "name": "S With Gr Parts Aero Pkg",
+        "count": 1
+      }
+    ]
+  },
   "wilayah_list": [
     "Bekasi",
     "Bogor",
@@ -929,12 +4207,12 @@
     "Tangerang"
   ],
   "wilayah_counts": {
-    "Jakarta": 8857,
-    "Tangerang": 1536,
-    "Bekasi": 999,
-    "Bogor": 811,
-    "Luar Jabodetabek": 682,
-    "Depok": 474
+    "Jakarta": 9054,
+    "Tangerang": 1390,
+    "Bekasi": 974,
+    "Bogor": 753,
+    "Luar Jabodetabek": 678,
+    "Depok": 471
   },
   "transmisi_list": [
     "Automatic",
@@ -945,7 +4223,10 @@
     "Diesel",
     "Hybrid"
   ],
-  "total_clean_samples": 13359,
-  "train_samples": 10690,
-  "test_samples": 2669
+  "total_clean_samples": 13320,
+  "train_samples": 10656,
+  "test_samples": 2664,
+  "unique_groups_union_find": 6752,
+  "overlap_with_price": 0,
+  "overlap_no_price": 0
 }

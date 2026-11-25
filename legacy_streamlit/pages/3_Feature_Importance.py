@@ -37,11 +37,13 @@ if top_features:
     # 2. Pembahasan Bisnis & Penjelasan Ilmiah (dinamis dari evaluation_report.json)
     st.subheader("💡 Wawasan Otomotif & Interpretasi Bisnis")
     fi_map = {d['Feature']: d['XGBoost Importance'] * 100 for d in top_features}
-    pct_mb = fi_map.get('Merek_Clean_Mercedes-Benz', 52.3)
-    pct_alphard = fi_map.get('Model_Clean_Alphard', 3.2)
-    pct_crv = fi_map.get('Model_Clean_Cr-V', 2.1)
-    pct_bensin = fi_map.get('Bahan_Bakar_Clean_Bensin', 1.1)
-    pct_auto = fi_map.get('Transmisi_Clean_Automatic', 1.0)
+    pct_mb = fi_map.get('Merek_Clean_Mercedes-Benz', 43.5)
+    pct_alphard = fi_map.get('Model_Clean_Alphard', 4.6)
+    pct_hiace = fi_map.get('Model_Clean_Hiace', 2.6)
+    pct_g = fi_map.get('Model_Clean_G-Class', 2.4)
+    pct_crv = fi_map.get('Model_Clean_CR-V', 1.8)
+    pct_diesel = fi_map.get('Bahan_Bakar_Clean_Diesel', 1.6)
+    pct_manual = fi_map.get('Transmisi_Clean_Manual', 2.5)
     
     col_a, col_b = st.columns(2)
     
@@ -52,19 +54,19 @@ if top_features:
         - Segmen mobil mewah (*luxury cars*) memiliki titik awal harga (*baseline price*) serta kurva depresiasi yang terpisah jauh dari segmen mobil massal keluarga.
         - Merek Jepang seperti **Toyota**, **Daihatsu**, **Honda**, dan **Suzuki** mempertahankan nilai jual kembali stabil berkat ketersediaan suku cadang dan jaringan servis yang luas.
         
-        #### 2. Tipe Spesifik (`Model_Clean`) & Transmisi
-        - Varian spesifik seperti **Alphard (~{pct_alphard:.1f}%)**, **CR-V (~{pct_crv:.1f}%)**, Jimny, G-Class, dan HR-V memisahkan kelas harga di dalam satu merek.
-        - Transmisi **Automatic** (**~{pct_auto:.1f}%**) memengaruhi koreksi harga antar varian sejenis karena tingginya minat mobil matic di perkotaan Jabodetabek.
+        #### 2. Keluarga Model (`Model_Clean`) & Transmisi
+        - Model ternormalisasi seperti **Alphard (~{pct_alphard:.1f}%)**, **Hiace (~{pct_hiace:.1f}%)**, **G-Class (~{pct_g:.1f}%)**, **CR-V (~{pct_crv:.1f}%)**, dan Jimny langsung memisahkan segmen nilai antar kendaraan.
+        - Transmisi **Manual** (**~{pct_manual:.1f}%**) menjadi pembeda kuat koreksi harga terhadap unit otomatis di pasar Jabodetabek.
         """)
         
     with col_b:
         st.markdown(f"""
-        #### 3. Jenis Bahan Bakar (Bensin, Hybrid & Diesel)
-        - Fitur bahan bakar **Bensin** menyumbang koreksi **~{pct_bensin:.1f}%** pada pemisahan segmen mesin.
-        - Varian mesin **Diesel** dan **Hybrid** pada model tertentu cenderung mempertahankan harga jual kembali lebih tinggi akibat efisiensi maupun torsi mesin.
+        #### 3. Jenis Bahan Bakar (Bensin, Diesel & Hybrid)
+        - Fitur bahan bakar **Diesel** memberi kontribusi **~{pct_diesel:.1f}%** terutama pada segmen MPV/SUV tangguh dan niaga.
+        - Kategori `Hybrid` juga menampung unit elektrik pada dataset (*1 unit Listrik disatukan ke Hybrid*).
         
-        #### 4. Tahun Perakitan & Jarak Tempuh (Kilometer)
-        - Setelah merek dan tipe menetapkan segmen harga dasar kendaraan, **Tahun Produksi** dan **Kilometer Tempuh** menggeser taksiran harga secara progresif mengikuti penyusutan usia dan pemakaian.
+        #### 4. Usia Mobil, Varian & Jarak Tempuh (Kilometer)
+        - Setelah merek, model, dan varian menetapkan segmen harga dasar kendaraan, **`Usia_Mobil` (`2025 - Tahun`)** dan **`KM_Clean`** (beserta **`KM_hilang`**) menggeser taksiran harga mengikuti penyusutan pemakaian.
         """)
         
     st.markdown("""

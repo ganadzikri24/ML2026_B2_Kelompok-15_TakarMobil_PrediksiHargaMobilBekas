@@ -33,12 +33,15 @@ col_input, col_verdict = st.columns([1, 1], gap="large")
 with col_input:
     st.subheader("📝 Data Iklan Mobil yang Ditemukan")
     
-    col1, col2 = st.columns(2)
+    col1, col2, col2b = st.columns(3)
     with col1:
         merek = st.selectbox("Merek Mobil", options=meta['brands'], index=0)
     with col2:
         tipe_opts = [m['name'] for m in meta.get('models_by_brand', {}).get(merek, [])] or ['Lainnya']
         model_mobil = st.selectbox("Tipe / Model Mobil", options=tipe_opts, index=0)
+    with col2b:
+        var_opts = [v['name'] for v in meta.get('variants_by_model', {}).get(f"{merek}||{model_mobil}", [])] or ['Standar']
+        varian = st.selectbox("Varian", options=var_opts, index=0)
         
     tahun = st.slider("Tahun Perakitan", min_value=1995, max_value=2025, value=2019)
         
@@ -80,7 +83,8 @@ with col_verdict:
             km=km,
             transmisi=transmisi,
             bahan_bakar=bahan_bakar,
-            wilayah=wilayah
+            wilayah=wilayah,
+            varian=varian
         )
         
         market_p = res_pred['predicted_price']

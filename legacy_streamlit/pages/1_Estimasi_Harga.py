@@ -35,12 +35,15 @@ col_form, col_result = st.columns([1, 1], gap="large")
 with col_form:
     st.subheader("📋 Spesifikasi Kendaraan")
     
-    col1, col2 = st.columns(2)
+    col1, col2, col2b = st.columns(3)
     with col1:
         merek = st.selectbox("1. Merek Mobil", options=meta['brands'], index=0)
     with col2:
         tipe_opts = [m['name'] for m in meta.get('models_by_brand', {}).get(merek, [])] or ['Lainnya']
         model_mobil = st.selectbox("2. Tipe / Model Mobil", options=tipe_opts, index=0)
+    with col2b:
+        var_opts = [v['name'] for v in meta.get('variants_by_model', {}).get(f"{merek}||{model_mobil}", [])] or ['Standar']
+        varian = st.selectbox("Varian", options=var_opts, index=0)
         
     tahun = st.slider("3. Tahun Produksi", min_value=1995, max_value=2025, value=2020)
         
@@ -73,7 +76,8 @@ with col_result:
             km=km,
             transmisi=transmisi,
             bahan_bakar=bahan_bakar,
-            wilayah=wilayah
+            wilayah=wilayah,
+            varian=varian
         )
         
         pred_p = res['predicted_price']

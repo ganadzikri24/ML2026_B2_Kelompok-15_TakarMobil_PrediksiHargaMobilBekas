@@ -1,18 +1,19 @@
 import numpy as np
 import pandas as pd
 
-def predict_car_price(model, merek, model_mobil, tahun, km, transmisi, bahan_bakar, wilayah):
+def predict_car_price(model, merek, model_mobil, tahun, km, transmisi, bahan_bakar, wilayah, varian="Standar"):
     """
     Menghitung prediksi harga pasar mobil bekas dan interval rentang wajar.
     """
     usia = 2025 - tahun
     
     input_df = pd.DataFrame([{
-        'Tahun_Num': int(tahun),
         'Usia_Mobil': int(usia),
         'KM_Clean': float(km),
+        'KM_hilang': 0,
         'Merek_Clean': str(merek),
         'Model_Clean': str(model_mobil),
+        'Varian_Clean': str(varian or "Standar"),
         'Transmisi_Clean': str(transmisi),
         'Bahan_Bakar_Clean': str(bahan_bakar),
         'Wilayah': str(wilayah)

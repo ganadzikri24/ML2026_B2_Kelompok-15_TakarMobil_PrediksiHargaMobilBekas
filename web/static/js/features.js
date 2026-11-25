@@ -14,8 +14,9 @@ function runLoaderStages(subEl, steps) {
 }
 
 function summaryChips(box) {
+  const varBadge = spec.varian && spec.varian !== "Standar" ? ` · ${spec.varian}` : "";
   box.innerHTML = [
-    `<span class="sum-chip"><i class="lg" style="--src:url(${logoUrl(spec.merek)})"></i><b>${spec.merek} ${spec.model}</b></span>`,
+    `<span class="sum-chip"><i class="lg" style="--src:url(${logoUrl(spec.merek)})"></i><b>${spec.merek} ${spec.model}${varBadge}</b></span>`,
     `<span class="sum-chip"><b>${spec.tahun}</b></span>`,
     `<span class="sum-chip"><b>${spec.transmisi}</b></span>`,
     `<span class="sum-chip"><b>${spec.bahan_bakar}</b></span>`,
@@ -86,7 +87,7 @@ export async function mountEstimator() {
       const out = $("#eOut");
       res.querySelector(".live span").textContent = "SELESAI";
       out.innerHTML = `
-        <div class="price-box fade-up"><small>Estimasi pasar wajar · ${snap.merek} ${p.model}</small><div class="price"><span class="rp">Rp</span><span id="pNum">0</span></div></div>
+        <div class="price-box fade-up"><small>Estimasi pasar wajar · ${snap.merek} ${p.model}${p.varian && p.varian !== "Standar" ? " · " + p.varian : ""}</small><div class="price"><span class="rp">Rp</span><span id="pNum">0</span></div></div>
         <div class="range fade-up d1" id="pRange">
           <div class="range-rail"><div class="range-span"></div><div class="range-dot"></div></div>
           <div class="range-ends"><div><small>Batas bawah (−15%)</small><b id="pLo"></b></div><div><small>Batas atas (+15%)</small><b id="pHi"></b></div></div>
@@ -185,7 +186,7 @@ export async function mountDeal() {
         <div class="verdict fade-up d1" id="dVerdict" data-tone="${d.tone}"><b id="dWord">${d.verdict}</b><span id="dPct"></span></div>
         <div class="cmp fade-up d2">
           <div class="cmp-row"><div><span>Harga iklan</span><b id="cAd">Rp ${rp(d.harga_iklan)}</b></div><div class="cmp-bar"><i class="ad" id="bAd"></i></div></div>
-          <div class="cmp-row"><div><span>Estimasi pasar (${d.model})</span><b id="cMk">Rp ${rp(d.harga)}</b></div><div class="cmp-bar"><i id="bMk"></i></div></div>
+          <div class="cmp-row"><div><span>Estimasi pasar (${d.model}${d.varian && d.varian !== "Standar" ? " · " + d.varian : ""})</span><b id="cMk">Rp ${rp(d.harga)}</b></div><div class="cmp-bar"><i id="bMk"></i></div></div>
         </div>
         <p class="note fade-up d3" id="dNote"></p>
       `;
@@ -229,9 +230,9 @@ export async function mountDeal() {
 
 /* ============ FAKTOR HARGA ============ */
 function featureName(f) {
-  const m = f.match(/^(Merek|Model|Bahan_Bakar|Transmisi|Wilayah)_Clean_(.+)$/) || f.match(/^(Wilayah)_(.+)$/);
-  if (m) return { Merek: "Merek ", Model: "Tipe ", Bahan_Bakar: "Bahan bakar ", Transmisi: "Transmisi ", Wilayah: "Wilayah " }[m[1]] + m[2];
-  return { Tahun_Num: "Tahun produksi", KM_Clean: "Jarak tempuh", Usia_Mobil: "Usia mobil" }[f] || f;
+  const m = f.match(/^(Merek|Model|Varian|Bahan_Bakar|Transmisi)_Clean_(.+)$/) || f.match(/^(Wilayah)_(.+)$/);
+  if (m) return { Merek: "Merek ", Model: "Tipe ", Varian: "Varian ", Bahan_Bakar: "Bahan bakar ", Transmisi: "Transmisi ", Wilayah: "Wilayah " }[m[1]] + m[2];
+  return { Tahun_Num: "Tahun produksi", KM_Clean: "Jarak tempuh", KM_hilang: "Indikator KM kosong", Usia_Mobil: "Usia mobil" }[f] || f;
 }
 const pct = (x) => (x * 100).toLocaleString("id-ID", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + "%";
 
@@ -249,9 +250,9 @@ export async function mountImportance() {
   const modelShare = data.filter(d => d.Feature.startsWith("Model_")).reduce((s, d) => s + d["XGBoost Importance"], 0);
   $("#impInsights").innerHTML = [
     ["Segmen merek tetap paling dominan", `Fitur merek bersama menyumbang ${pct(merek)} (Mercedes-Benz sendiri ${pct(get("Merek_Clean_Mercedes-Benz"))}) karena kelas harga mobil mewah terpisah jauh dari merek massal.`],
-    ["Tipe mobil (Model_Clean) memecah kelas harga", `Varian seperti Alphard (${pct(get("Model_Clean_Alphard"))}), CR-V, Jimny, G-Class, dan HR-V langsung membedakan segmen mobil di dalam satu merek yang sama (total top tipe: ${pct(modelShare)}).`],
-    ["Bahan bakar & transmisi sebagai pembeda", `Bensin (${pct(get("Bahan_Bakar_Clean_Bensin"))}), diesel, dan transmisi membedakan nilai jual antar varian mesin serta preferensi pasar Jabodetabek.`],
-    ["Tahun & kilometer mengatur depresiasi", `Setelah merek dan tipe menetapkan kelas dasar kendaraan, tahun produksi dan jarak tempuh menggeser nilai depresiasinya secara konsisten.`],
+    ["Tipe mobil ternormalisasi memecah kelas harga", `Keluarga model seperti Alphard (${pct(get("Model_Clean_Alphard"))}), Hiace (${pct(get("Model_Clean_Hiace"))}), G-Class (${pct(get("Model_Clean_G-Class"))}), CR-V, Jimny, dan Calya langsung memisahkan segmen nilai (total top tipe: ${pct(modelShare)}).`],
+    ["Transmisi & bahan bakar sebagai koreksi nilai", `Transmisi Manual (${pct(get("Transmisi_Clean_Manual"))}) dan bahan bakar Diesel (${pct(get("Bahan_Bakar_Clean_Diesel"))}) memberi pembeda harga antar varian mesin serta preferensi pasar Jabodetabek.`],
+    ["Usia mobil, varian & jarak tempuh", `Usia kendaraan tunggal (2025 − tahun), detail varian, serta odometer (beserta indikator KM_hilang) menggeser kurva depresiasi secara konsisten.`],
   ].map(([t, p]) => `<article class="insight"><h3>${t}</h3><p>${p}</p></article>`).join("");
 }
 
@@ -266,8 +267,8 @@ export async function mountAbout() {
   }).join("");
   requestAnimationFrame(() => setTimeout(() => $$(".r2 i", tb).forEach(i => (i.style.width = i.dataset.w * 1.2 + "px")), 120));
   $("#dataPanel").innerHTML = `<div class="stack" style="gap:14px"><span class="eyebrow">Dataset &amp; validasi</span>
-    <p class="lead" style="max-width:none">Dataset Iklan Mobil Bekas Indonesia (<a class="link" href="https://zenodo.org/records/17548894" target="_blank" rel="noopener">Zenodo 17548894</a>), dari scraping OLX dan Mobil123. Dari 17.670 baris mentah dilakukan penyaringan harga/merek/tahun, pemetaan kawasan Jabodetabek (termasuk label <code>% off</code>), perbaikan skala kilometer, serta deduplikasi URL &amp; iklan repost identik hingga tersisa <b>${meta.total_data.toLocaleString("id-ID")}</b> iklan unik (${meta.train_data.toLocaleString("id-ID")} train dan ${meta.test_data.toLocaleString("id-ID")} test).</p>
-    <p class="lead" style="max-width:none">Split data memakai <b>StratifiedGroupKFold</b> (80:20) berbasis grup iklan kembar <i>(merek, tipe, tahun, harga)</i> serta imputasi median kilometer pasca-split khusus dari data latih agar nol kebocoran data, disertai validasi silang 5-Fold dan transformasi log(1 + harga).</p></div>`;
+    <p class="lead" style="max-width:none">Dataset Iklan Mobil Bekas Indonesia (<a class="link" href="https://zenodo.org/records/17548894" target="_blank" rel="noopener">Zenodo 17548894</a>, CC-BY-4.0, Mei–Oktober 2025) dari OLX dan Mobil123. Dari 17.670 baris mentah dilakukan normalisasi model lintas platform + varian, aturan kota Jabodetabek deterministik (termasuk label <code>% off</code>), indikator <code>KM_hilang</code>, kurasi 39 anomali entri, serta deduplikasi hingga tersisa <b>${meta.total_data.toLocaleString("id-ID")}</b> iklan unik (${meta.train_data.toLocaleString("id-ID")} train dan ${meta.test_data.toLocaleString("id-ID")} test).</p>
+    <p class="lead" style="max-width:none">Split data memakai Union-Find + <b>StratifiedGroupKFold</b> (80:20) untuk mengunci nol kebocoran baik berbasis harga maupun spesifikasi fisik tanpa harga, diikuti imputasi KM pasca-split khusus statistik train, fitur usia tunggal <code>2025 − tahun</code>, 5-Fold Group-Aware CV, dan transformasi log(1 + harga).</p></div>`;
 }
 
 /* ============ BERANDA ============ */

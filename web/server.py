@@ -45,6 +45,7 @@ def load_bundle():
 class CarSpec(BaseModel):
     merek: str
     model: str = ""
+    varian: str = ""
     tahun: int = Field(ge=1995, le=TAHUN_ACUAN)
     km: float = Field(ge=0, le=500000)
     transmisi: str
@@ -64,7 +65,6 @@ def resolve_model_name(merek: str, tipe: str, meta: dict) -> str:
         return tipe or "Lainnya"
     if tipe and tipe in names:
         return tipe
-    # Cocokkan case-insensitive bila user mengetik manual
     low = (tipe or "").strip().lower()
     for n in names:
         if n.lower() == low:
@@ -72,7 +72,22 @@ def resolve_model_name(merek: str, tipe: str, meta: dict) -> str:
     return names[0]
 
 
-def check_choices(spec: CarSpec) -> str:
+def resolve_varian_name(merek: str, model_clean: str, varian: str, meta: dict) -> str:
+    """Memastikan varian valid untuk pasangan merek+model, default ke varian paling umum."""
+    items = meta.get("variants_by_model", {}).get(f"{merek}||{model_clean}", [])
+    names = [it["name"] for it in items]
+    if not names:
+        return varian.strip() if varian else "Standar"
+    if varian and varian in names:
+        return varian
+    low = (varian or "").strip().lower()
+    for n in names:
+        if n.lower() == low:
+            return n
+    return names[0]
+
+
+def check_choices(spec: CarSpec) -> tuple[str, str]:
     meta = load_bundle()["meta"]
     checks = [
         ("merek", spec.merek, meta["brands"]),
@@ -83,19 +98,22 @@ def check_choices(spec: CarSpec) -> str:
     for name, value, allowed in checks:
         if value not in allowed:
             raise HTTPException(422, f"Nilai '{value}' tidak valid untuk {name}.")
-    return resolve_model_name(spec.merek, spec.model, meta)
+    model_clean = resolve_model_name(spec.merek, spec.model, meta)
+    varian_clean = resolve_varian_name(spec.merek, model_clean, spec.varian, meta)
+    return model_clean, varian_clean
 
 
-def predict_price(spec: CarSpec, model_clean: str) -> dict:
+def predict_price(spec: CarSpec, model_clean: str, varian_clean: str) -> dict:
     """Input -> DataFrame -> model XGBoost (log harga) -> expm1 -> Rupiah."""
     model = load_bundle()["model"]
     usia = TAHUN_ACUAN - spec.tahun
     frame = pd.DataFrame([{
-        "Tahun_Num": int(spec.tahun),
         "Usia_Mobil": int(usia),
         "KM_Clean": float(spec.km),
+        "KM_hilang": 0,
         "Merek_Clean": spec.merek,
         "Model_Clean": model_clean,
+        "Varian_Clean": varian_clean,
         "Transmisi_Clean": spec.transmisi,
         "Bahan_Bakar_Clean": spec.bahan_bakar,
         "Wilayah": spec.wilayah,
@@ -107,6 +125,7 @@ def predict_price(spec: CarSpec, model_clean: str) -> dict:
         "batas_atas": price * (1 + TOLERANSI),
         "usia": usia,
         "model": model_clean,
+        "varian": varian_clean,
     }
 
 
@@ -150,6 +169,7 @@ def api_meta():
     return {
         "brands": meta["brands"],
         "models_by_brand": meta.get("models_by_brand", {}),
+        "variants_by_model": meta.get("variants_by_model", {}),
         "wilayah": meta["wilayah_list"],
         "wilayah_counts": meta.get("wilayah_counts", {}),
         "transmisi": meta["transmisi_list"],
@@ -167,29 +187,30 @@ def api_meta():
 
 @app.post("/api/predict")
 def api_predict(spec: CarSpec):
-    model_clean = check_choices(spec)
-    return predict_price(spec, model_clean)
+    model_clean, varian_clean = check_choices(spec)
+    return predict_price(spec, model_clean, varian_clean)
 
 
 @app.post("/api/deal")
 def api_deal(req: DealRequest):
-    model_clean = check_choices(req)
-    pred = predict_price(req, model_clean)
+    model_clean, varian_clean = check_choices(req)
+    pred = predict_price(req, model_clean, varian_clean)
     return {**pred, **judge_deal(req.harga_iklan, pred["harga"]), "harga_iklan": req.harga_iklan}
 
 
 @app.post("/api/curve")
 def api_curve(spec: CarSpec):
     """Kurva estimasi harga mobil untuk rentang tahun produksi."""
-    model_clean = check_choices(spec)
+    model_clean, varian_clean = check_choices(spec)
     model = load_bundle()["model"]
     years = list(range(max(2005, TAHUN_ACUAN - 20), TAHUN_ACUAN + 1))
     frame = pd.DataFrame([{
-        "Tahun_Num": y,
         "Usia_Mobil": TAHUN_ACUAN - y,
         "KM_Clean": float(spec.km),
+        "KM_hilang": 0,
         "Merek_Clean": spec.merek,
         "Model_Clean": model_clean,
+        "Varian_Clean": varian_clean,
         "Transmisi_Clean": spec.transmisi,
         "Bahan_Bakar_Clean": spec.bahan_bakar,
         "Wilayah": spec.wilayah,

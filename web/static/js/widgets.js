@@ -55,13 +55,17 @@ export function brandAndModelWidget(meta, spec, onChange) {
         </div>
         <div class="combobox" data-open="false">
           <svg class="cb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <input id="modelSearch" type="text" autocomplete="off" placeholder="Ketik nama tipe (mis. Avanza, Brio, C200)..." value="${spec.model}">
+          <input id="modelSearch" type="text" autocomplete="off" placeholder="Ketik nama tipe (mis. Avanza, Brio, C-Class)..." value="${spec.model}">
           <button type="button" class="cb-clear" aria-label="Hapus pencarian tipe" title="Cari tipe lain">×</button>
           <div class="cb-drop" role="listbox" aria-label="Daftar tipe mobil"></div>
         </div>
         <div class="popular-row">
           <span class="pop-cap">Populer:</span>
           <div class="pop-chips"></div>
+        </div>
+        <div class="popular-row" id="varianRow">
+          <span class="pop-cap">Varian:</span>
+          <div class="pop-chips" id="varianChips"></div>
         </div>
       </div>
     </section>
@@ -73,6 +77,8 @@ export function brandAndModelWidget(meta, spec, onChange) {
   const input = wrap.querySelector("#modelSearch");
   const drop = wrap.querySelector(".cb-drop");
   const popChips = wrap.querySelector(".pop-chips");
+  const varianChips = wrap.querySelector("#varianChips");
+  const varianRow = wrap.querySelector("#varianRow");
   const valHead = wrap.querySelector("[data-v]");
   const bBadge = wrap.querySelector("[data-bname]");
   const countEl = wrap.querySelector("[data-count]");
@@ -87,11 +93,27 @@ export function brandAndModelWidget(meta, spec, onChange) {
   });
 
   const getModels = () => meta.models_by_brand?.[spec.merek] || [];
+  const getVariants = () => meta.variants_by_model?.[`${spec.merek}||${spec.model}`] || [];
+
+  function syncDefaultVariant() {
+    const vs = getVariants();
+    if (!vs.length) { spec.varian = "Standar"; return; }
+    if (!vs.some(v => v.name === spec.varian)) spec.varian = vs[0].name;
+  }
 
   function renderPopular() {
     const list = getModels().slice(0, 6);
     popChips.innerHTML = list.map(m =>
       `<button type="button" class="chip sm" aria-checked="${m.name === spec.model}" data-m="${m.name}">${m.name}</button>`
+    ).join("");
+  }
+
+  function renderVariants() {
+    syncDefaultVariant();
+    const vs = getVariants().slice(0, 6);
+    varianRow.hidden = vs.length === 0;
+    varianChips.innerHTML = vs.map(v =>
+      `<button type="button" class="chip sm" aria-checked="${v.name === spec.varian}" data-var="${v.name}">${v.name}</button>`
     ).join("");
   }
 
@@ -112,7 +134,8 @@ export function brandAndModelWidget(meta, spec, onChange) {
   }
 
   function updateHeader() {
-    valHead.textContent = `${spec.merek} · ${spec.model}`;
+    const varLabel = spec.varian && spec.varian !== "Standar" ? ` · ${spec.varian}` : "";
+    valHead.textContent = `${spec.merek} · ${spec.model}${varLabel}`;
     bBadge.textContent = spec.merek;
     countEl.textContent = `${getModels().length} tipe di dataset`;
   }
@@ -121,6 +144,7 @@ export function brandAndModelWidget(meta, spec, onChange) {
     spec.model = name;
     input.value = name;
     if (closeDrop) combo.dataset.open = "false";
+    renderVariants();
     updateHeader();
     renderPopular();
     onChange("model", name);
@@ -138,6 +162,7 @@ export function brandAndModelWidget(meta, spec, onChange) {
     panel.classList.remove("pulse-in");
     void panel.offsetWidth;
     panel.classList.add("pulse-in");
+    renderVariants();
     updateHeader();
     renderPopular();
     renderDropdown("");
@@ -154,10 +179,10 @@ export function brandAndModelWidget(meta, spec, onChange) {
   input.addEventListener("input", () => {
     renderDropdown(input.value);
     combo.dataset.open = "true";
-    // Cocokkan persis bila sudah lengkap
     const exact = getModels().find(m => m.name.toLowerCase() === input.value.trim().toLowerCase());
     if (exact) {
       spec.model = exact.name;
+      renderVariants();
       updateHeader();
       renderPopular();
       onChange("model", exact.name);
@@ -183,10 +208,20 @@ export function brandAndModelWidget(meta, spec, onChange) {
     pickModel(ch.dataset.m, true);
   });
 
+  varianChips.addEventListener("click", (e) => {
+    const ch = e.target.closest(".chip");
+    if (!ch) return;
+    spec.varian = ch.dataset.var;
+    renderVariants();
+    updateHeader();
+    onChange("varian", spec.varian);
+  });
+
   document.addEventListener("click", (e) => {
     if (!combo.contains(e.target)) combo.dataset.open = "false";
   });
 
+  renderVariants();
   updateHeader();
   renderPopular();
   renderDropdown("");

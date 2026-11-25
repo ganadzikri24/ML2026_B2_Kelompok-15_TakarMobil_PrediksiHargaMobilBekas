@@ -51,6 +51,7 @@ export async function api(path, body) {
 export const spec = {
   merek: "Toyota",
   model: "Avanza",
+  varian: "G",
   tahun: 2020,
   km: 45000,
   transmisi: "Automatic",
@@ -65,6 +66,12 @@ export async function loadMeta() {
     const list = _meta.models_by_brand?.[spec.merek] || [];
     if (list.length && !list.some((it) => it.name === spec.model)) {
       spec.model = list[0].name;
+    }
+    const vlist = _meta.variants_by_model?.[`${spec.merek}||${spec.model}`] || [];
+    if (vlist.length && !vlist.some((it) => it.name === spec.varian)) {
+      spec.varian = vlist[0].name;
+    } else if (!vlist.length) {
+      spec.varian = "Standar";
     }
   }
   return _meta;
