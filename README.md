@@ -38,35 +38,66 @@ TakarMobil/
 ├── models/                 # Model terlatih (.joblib), metadata & laporan evaluasi
 ├── notebooks/              # 01_EDA, 02_Preprocessing, 03_Modeling, 04_Evaluation
 ├── data/                   # Dataset mentah dan data terproses
-├── legacy_streamlit/       # Versi prototipe Streamlit awal (arsip cadangan)
-├── Dockerfile              # Siap deploy ke Hugging Face Spaces / Docker
-├── render.yaml             # Siap deploy ke Render
+├── legacy_streamlit/       # Arsip prototipe awal (sudah digantikan oleh FastAPI + SPA)
+├── Dockerfile              # Container Docker siap deploy ke Railway / cloud
+├── render.yaml             # Konfigurasi alternatif untuk Render
 └── requirements.txt
 ```
 
 ---
 
-## Cara Menjalankan di Lokal
+## Cara Instalasi dan Menjalankan di Lokal
 
-1. **Pasang dependensi:**
+### Opsi A — Menggunakan Python Virtual Environment (Disarankan)
+
+**Prasyarat:** Python `3.11+` dan Git sudah terpasang di perangkat.
+
+1. **Clone repositori dan masuk ke folder proyek:**
 
    ```bash
+   git clone https://github.com/ganadzikri24/ML2026_B2_Kelompok-15_TakarMobil_PrediksiHargaMobilBekas.git
+   cd ML2026_B2_Kelompok-15_TakarMobil_PrediksiHargaMobilBekas
+   ```
+
+2. **Buat dan aktifkan virtual environment (`.venv`):**
+
+   - **Windows (PowerShell / CMD):**
+     ```bash
+     python -m venv .venv
+     .venv\Scripts\activate
+     ```
+   - **macOS / Linux:**
+     ```bash
+     python3 -m venv .venv
+     source .venv/bin/activate
+     ```
+
+3. **Install seluruh dependensi:**
+
+   ```bash
+   pip install --upgrade pip
    pip install -r requirements.txt
    ```
 
-2. **Jalankan server web:**
+4. **Jalankan server FastAPI:**
 
    ```bash
    python -m uvicorn web.server:app --reload --port 8000
    ```
 
-3. **Buka di browser:**
+5. **Buka aplikasi di browser:**
 
-   ```text
-   http://127.0.0.1:8000
-   ```
+   - Aplikasi Web (SPA): `http://127.0.0.1:8000`
+   - Dokumentasi REST API (Swagger UI): `http://127.0.0.1:8000/api/docs`
 
-*(Opsional: versi Streamlit lama masih tersedia di `legacy_streamlit/` dengan `streamlit run legacy_streamlit/app.py`.)*
+### Opsi B — Menggunakan Docker (Lingkungan Identik dengan Railway)
+
+```bash
+docker build -t takarmobil .
+docker run -p 7860:7860 takarmobil
+```
+
+Lalu buka `http://127.0.0.1:7860` di browser.
 
 ---
 
